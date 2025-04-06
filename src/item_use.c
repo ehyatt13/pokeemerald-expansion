@@ -874,12 +874,6 @@ void ItemUseOutOfBattle_RareCandy(u8 taskId)
     SetUpItemUseCallback(taskId);
 }
 
-void ItemUseOutOfBattle_EndlessCandy(u8 taskId)
-{
-    gItemUseCB = ItemUseCB_EndlessCandy;
-    SetUpItemUseCallback(taskId);
-}
-
 void ItemUseOutOfBattle_DynamaxCandy(u8 taskId)
 {
     gItemUseCB = ItemUseCB_DynamaxCandy;
@@ -1611,6 +1605,36 @@ void ItemUseOutOfBattle_TownMap(u8 taskId)
     {
         // TODO: handle key items with callbacks to menus allow to be used by registering them.
         DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+}
+
+void ItemUseOutOfBattle_EndlessCandy(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_EndlessCandy;
+    SetUpItemUseCallback(taskId);
+}
+
+extern u8 PokeVialHealScript[];
+
+void ItemUseOnFieldCB_PokeVial(u8 taskId)
+{
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(PokeVialHealScript);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_PokeVial(u8 taskId)
+{
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_PokeVial;
+        gFieldCallback = FieldCB_UseItemOnField;
+        gBagMenu->newScreenCallback = CB2_ReturnToField;
+        Task_FadeAndCloseBagMenu(taskId);
+    }
+    else {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_PokeVial;
+        SetUpItemUseOnFieldCallback(taskId);
     }
 }
 
