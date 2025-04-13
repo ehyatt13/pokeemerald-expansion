@@ -155,6 +155,11 @@ LittlerootTown_EventScript_GoInsideWithMom::
 	applymovement LOCALID_MOM, LittlerootTown_Movement_MomApproachDoor
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PlayerApproachDoor
 	waitmovement 0
+	applymovement LOCALID_MOM, LittlerootTown_Movement_MomLookAround
+	waitmovement 0
+	msgbox LittlerootTown_Text_MomAbnormalWeather, MSGBOX_DEFAULT
+	closemessage
+	waitmovement 0
 	opendoor VAR_0x8004, VAR_0x8005
 	waitdooranim
 	applymovement LOCALID_MOM, LittlerootTown_Movement_MomEnterHouse
@@ -182,6 +187,16 @@ LittlerootTown_Movement_MomApproachDoor:
 	delay_16
 	delay_8
 	walk_up
+	step_end
+
+LittlerootTown_Movement_MomLookAround:
+	face_left
+	delay_16
+	face_right
+	delay_16
+	face_left
+	delay_16
+	face_down
 	step_end
 
 LittlerootTown_Movement_MomEnterHouse:
@@ -921,6 +936,15 @@ LittlerootTown_Text_OurNewHomeLetsGoInside:
 	.string "an easy place to live, don't you think?\p"
 	.string "And, you get your own room, {PLAYER}!\n"
 	.string "Let's go inside.$"
+
+LittlerootTown_Text_MomAbnormalWeather:
+	.string "MOM: Hmmm, this weather is concerning.\p"
+	.string "I hope this isn't normal here.\n"
+	.string "This is a bit scary, really.\p"
+	.string "{PLAYER}, be careful when outside.\n"
+	.string "But for now, let's go inside.\p"
+	.string "Let's hope it dies down while\n"
+	.string "we are doing things inside.$"
 
 LittlerootTown_Text_WaitPlayer:
 	.string "MOM: Wait, {PLAYER}!$"
