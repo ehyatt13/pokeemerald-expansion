@@ -3,6 +3,10 @@
 .set LOCALID_MOM, 4
 .set LOCALID_RIVAL, 7
 .set LOCALID_BIRCH, 8
+.set LOCALID_GROUDON_SLEEPING, 10
+.set LOCALID_KYOGRE_SLEEPING, 11
+.set LOCALID_GROUDON, 12
+.set LOCALID_KYOGRE, 13
 
 LittlerootTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_OnTransition
@@ -43,6 +47,8 @@ LittlerootTown_MapScripts::
 LittlerootTown_OnTransition:
 	setflag FLAG_VISITED_LITTLEROOT_TOWN
 	call Common_EventScript_SetupRivalGfxId
+	call_if_eq VAR_WEATHER_EVENT, 0, LittlerootTown_EventScript_AbnormalWeather1
+	call_if_eq VAR_WEATHER_EVENT, 1, LittlerootTown_EventScript_AbnormalWeather2
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
 	call_if_unset FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_SetTwinPos
 	call_if_eq VAR_LITTLEROOT_TOWN_STATE, 3, LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos
@@ -53,6 +59,16 @@ LittlerootTown_OnTransition:
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_HideMapNamePopup
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
 	end
+
+LittlerootTown_EventScript_AbnormalWeather1::
+	setweather WEATHER_ABNORMAL
+	playbgm MUS_ABNORMAL_WEATHER, TRUE
+	return
+
+LittlerootTown_EventScript_AbnormalWeather2::
+	setweather WEATHER_DROUGHT
+	playbgm MUS_WEATHER_GROUDON, TRUE
+	return
 
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
 	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3
@@ -140,6 +156,8 @@ LittlerootTown_EventScript_GoInsideWithMom::
 	playse SE_LEDGE
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PlayerStepOffTruck
 	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	waitmovement 0
 	opendoor VAR_0x8004, VAR_0x8005
 	waitdooranim
 	addobject LOCALID_MOM
@@ -172,6 +190,10 @@ LittlerootTown_EventScript_GoInsideWithMom::
 	waitdooranim
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
+	setflag FLAG_HIDE_GROUDON_ASLEEP
+	setflag FLAG_HIDE_GROUDON_AWAKE
+	setflag FLAG_HIDE_KYOGRE_ASLEEP
+	setflag FLAG_HIDE_KYOGRE_AWAKE
 	return
 
 LittlerootTown_Movement_MomExitHouse:
@@ -192,9 +214,12 @@ LittlerootTown_Movement_MomApproachDoor:
 LittlerootTown_Movement_MomLookAround:
 	face_left
 	delay_16
+	delay_16
 	face_right
 	delay_16
+	delay_16
 	face_left
+	delay_16
 	delay_16
 	face_down
 	step_end
@@ -1072,6 +1097,261 @@ LittlerootTown_EventScript_NickSign::
 	return
 
 
+LittlerootTown_EventScript_WeatherClear::
+	lockall
+	setweather WEATHER_DROUGHT
+	doweather
+	fadeoutbgm 1
+	applymovement OBJ_EVENT_ID_PLAYER, LookAround
+	waitmovement OBJ_EVENT_ID_PLAYER
+	playse 34
+	playbgm MUS_WEATHER_GROUDON, FALSE
+	msgbox Drought
+	closemessage
+	setvar VAR_WEATHER_EVENT, 1
+	clearflag FLAG_HIDE_GROUDON_ASLEEP
+	releaseall
+	return
+
+
+LookAround:
+	face_left
+	delay_16
+	delay_16
+	face_right
+	delay_16
+	delay_16
+	face_up
+	delay_16
+	delay_16
+	emote_question_mark
+	step_end
+
+LittlerootTown_EventScript_Groudon::
+	lockall
+	delay 20
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_Groudon_Movement_0
+	waitmovement 0
+	playse 21
+	waitse
+	delay 30
+	setvar VAR_RESULT, 1
+	playse SE_M_DETECT
+	setvar VAR_RESULT, 1
+	playfanfare MUS_AWAKEN_LEGEND
+	playse SE_ORB
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	delay 150
+	removeobject LOCALID_GROUDON_SLEEPING
+	addobject LOCALID_GROUDON
+	delay 60
+	applymovement LOCALID_GROUDON, GroudonApproach
+	waitmovement 0
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 8
+	setvar VAR_0x8007, 5
+	special ShakeCamera
+	waitstate
+	playmoncry SPECIES_GROUDON, CRY_MODE_ENCOUNTER
+	waitmoncry
+	applymovement LOCALID_GROUDON, GroudonExit
+	waitmovement 0
+	removeobject LOCALID_GROUDON
+	delay 4
+	setvar VAR_0x8004, 2
+	setvar VAR_0x8005, 2
+	setvar VAR_0x8006, 8
+	setvar VAR_0x8007, 5
+	special ShakeCamera
+	waitstate
+	delay 30
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_Groudon_Movement_1
+	waitmovement 0
+	delay 30
+	setweather WEATHER_DOWNPOUR
+	doweather
+	delay 30
+	playmoncry SPECIES_KYOGRE, CRY_MODE_ENCOUNTER
+	waitmoncry
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_Groudon_Movement_2
+	waitmovement 0
+	playse 21
+	waitse
+	clearflag FLAG_HIDE_KYOGRE_AWAKE
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, CameraPanDown
+	waitmovement 0
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 8
+	setvar VAR_0x8007, 5
+	special ShakeCamera
+	waitstate
+	playmoncry SPECIES_KYOGRE, CRY_MODE_ENCOUNTER
+	waitmoncry
+	applymovement OBJ_EVENT_ID_CAMERA, CameraPanUp
+	waitmovement 0
+	special RemoveCameraObject
+	setflag FLAG_HIDE_GROUDON_ASLEEP
+	setvar VAR_WEATHER_EVENT, 2
+	releaseall
+	return
+
+
+GroudonApproach:
+	delay_16
+	delay_16
+	walk_slow_down
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_down
+	delay_16
+	delay_16
+	delay_16
+	step_end
+
+GroudonExit:
+	slide_up
+	slide_up
+	step_end
+
+CameraPanDown:
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	step_end
+
+CameraPanUp:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+LittlerootTown_EventScript_Kyogre::
+	lockall
+	setweather WEATHER_NONE
+	doweather
+	special Script_FadeOutMapMusic
+	waitstate
+	special WaitWeather
+	waitstate
+	setvar VAR_RESULT, 1
+	playse SE_M_DETECT
+	dofieldeffectsparkle 17, 42, 0
+	waitfieldeffect FLDEFF_SPARKLE
+	setvar VAR_RESULT, 0
+	playfanfare MUS_AWAKEN_LEGEND
+	playse SE_ORB
+	special DoOrbEffect
+	applymovement VAR_0x8004, Common_Movement_WalkInPlaceFasterUp
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	delay 150
+	removeobject LOCALID_KYOGRE_SLEEPING
+	addobject LOCALID_KYOGRE
+	waitstate
+	delay 60
+	applymovement LOCALID_KYOGRE, KyogreApproach
+	waitmovement 0
+	special FadeOutOrbEffect
+	waitstate
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 8
+	setvar VAR_0x8007, 5
+	special ShakeCamera
+	waitstate
+	applymovement LOCALID_KYOGRE, KyogreExit
+	waitmovement 0
+	removeobject LOCALID_KYOGRE
+	delay 4
+	setvar VAR_0x8004, 2
+	setvar VAR_0x8005, 2
+	setvar VAR_0x8006, 8
+	setvar VAR_0x8007, 5
+	special ShakeCamera
+	waitstate
+	delay 30
+	setflag FLAG_HIDE_KYOGRE_ASLEEP
+	releaseall
+	return
+
+
+KyogreApproach:
+	delay_16
+	delay_16
+	walk_slow_down
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_down
+	delay_16
+	delay_16
+	delay_16
+	step_end
+
+KyogreExit:
+	slide_up
+	slide_up
+	step_end
+
+LittlerootTown_EventScript_WalkLeft::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_WalkLeft_Movement_0
+	waitmovement OBJ_EVENT_ID_PLAYER
+	goto LittlerootTown_EventScript_Groudon
+	return
+
+
+LittlerootTown_EventScript_WalkRight::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_WalkRight_Movement_0
+	waitmovement OBJ_EVENT_ID_PLAYER
+	goto LittlerootTown_EventScript_Groudon
+	return
+
+
+LittlerootTown_EventScript_Groudon_Movement_0:
+	emote_exclamation_mark
+	step_end
+
+LittlerootTown_EventScript_Groudon_Movement_1:
+	walk_slow_up
+	delay_16
+	walk_slow_up
+	emote_question_mark
+	step_end
+
+LittlerootTown_EventScript_Groudon_Movement_2:
+	face_down
+	emote_exclamation_mark
+	step_end
+
+LittlerootTown_EventScript_WalkLeft_Movement_0:
+	walk_left
+	face_up
+	step_end
+
+LittlerootTown_EventScript_WalkRight_Movement_0:
+	walk_right
+	face_up
+	step_end
+
 LittlerootTown_EventScript_EthanSign_Text_0:
 	.string "Ethan's House$"
 
@@ -1083,3 +1363,9 @@ LittlerootTown_EventScript_JustinSign_Text_0:
 
 LittlerootTown_EventScript_NickSign_Text_0:
 	.string "Nick's House$"
+
+Drought::
+	.string "The weather appears to have returned to\n"
+	.string "normal...?\p"
+	.string "Actually, it appears that the suns rays\n"
+	.string "have intensified to dangerous levels...$"

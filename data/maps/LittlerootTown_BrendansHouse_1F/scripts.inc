@@ -289,9 +289,13 @@ LittlerootTown_BrendansHouse_1F_Movement_BrendanGoUpstairs2:
 
 PlayersHouse_1F_Text_IsntItNiceInHere:
 	.string "MOM: See, {PLAYER}?\n"
-	.string "Isn't it nice in here, too?$"
+	.string "Isn't it nice in here, too?\p"
+	.string "Let's stay in here for a bit\n"
+	.string "and see if the weather clears.$"
 
 PlayersHouse_1F_Text_MoversPokemonGoSetClock:
+	.string "But, back to the topic of moving...\n"
+	.string "Look, {PLAYER}!\p"
 	.string "The mover's POKéMON do all the work\n"
 	.string "of moving us in and cleaning up after.\l"
 	.string "This is so convenient!\p"

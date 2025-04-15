@@ -5,7 +5,7 @@
   "music": "MUS_LITTLEROOT",
   "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
-  "weather": "WEATHER_ABNORMAL",
+  "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_TOWN",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -136,6 +136,58 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_CutTree",
       "flag": "FLAG_TEMP_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GROUDON_ASLEEP",
+      "x": 51,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "FLAG_HIDE_GROUDON_ASLEEP"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KYOGRE_ASLEEP",
+      "x": 51,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "FLAG_HIDE_KYOGRE_ASLEEP"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GROUDON_FRONT",
+      "x": 51,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "FLAG_HIDE_GROUDON_AWAKE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KYOGRE_FRONT",
+      "x": 51,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "FLAG_HIDE_KYOGRE_AWAKE"
     }
   ],
   "warp_events": [
@@ -276,54 +328,54 @@
       "x": 50,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_WEATHER_EVENT",
       "var_value": "0",
-      "script": "NULL"
+      "script": "LittlerootTown_EventScript_WeatherClear"
     },
     {
       "type": "trigger",
       "x": 51,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_WEATHER_EVENT",
       "var_value": "0",
-      "script": "NULL"
+      "script": "LittlerootTown_EventScript_WeatherClear"
     },
     {
       "type": "trigger",
       "x": 52,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_WEATHER_EVENT",
       "var_value": "0",
-      "script": "NULL"
+      "script": "LittlerootTown_EventScript_WeatherClear"
     },
     {
       "type": "trigger",
       "x": 50,
       "y": 10,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "var": "VAR_WEATHER_EVENT",
+      "var_value": "1",
+      "script": "LittlerootTown_EventScript_WalkRight"
     },
     {
       "type": "trigger",
       "x": 51,
       "y": 10,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "var": "VAR_WEATHER_EVENT",
+      "var_value": "1",
+      "script": "LittlerootTown_EventScript_Groudon"
     },
     {
       "type": "trigger",
       "x": 52,
       "y": 10,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "var": "VAR_WEATHER_EVENT",
+      "var_value": "1",
+      "script": "LittlerootTown_EventScript_WalkLeft"
     }
   ],
   "bg_events": [
