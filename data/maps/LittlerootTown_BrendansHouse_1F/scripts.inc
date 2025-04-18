@@ -1,6 +1,7 @@
 .set LOCALID_MOM, 1
 .set LOCALID_RIVAL_MOM, 4
 .set LOCALID_RIVAL, 7
+.set LOCALID_BIRCH, 8
 
 LittlerootTown_BrendansHouse_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, LittlerootTown_BrendansHouse_1F_OnLoad
@@ -85,6 +86,7 @@ LittlerootTown_BrendansHouse_1F_EventScript_PetalburgGymReport::
 	lockall
 	setvar VAR_0x8004, MALE
 	setvar VAR_0x8005, LOCALID_MOM
+	setvar VAR_0x8006, LOCALID_BIRCH
 	goto PlayersHouse_1F_EventScript_PetalburgGymReportMale
 	end
 
@@ -294,7 +296,7 @@ PlayersHouse_1F_Text_IsntItNiceInHere:
 	.string "and see if the weather clears.$"
 
 PlayersHouse_1F_Text_MoversPokemonGoSetClock:
-	.string "But, back to the topic of moving...\n"
+	.string "MOM: But, back to the topic of moving...\n"
 	.string "Look, {PLAYER}!\p"
 	.string "The mover's POKéMON do all the work\n"
 	.string "of moving us in and cleaning up after.\l"
@@ -317,6 +319,10 @@ PlayersHouse_1F_Text_GoSetTheClock:
 PlayersHouse_1F_Text_OhComeQuickly:
 	.string "MOM: Oh! {PLAYER}, {PLAYER}!\n"
 	.string "Quick! Come quickly!$"
+
+PlayersHouse_1f_Text_NewOrOriginal:
+	.string "(Would you like to see the new\n"
+	.string "introduction, or the original?)$"
 
 PlayersHouse_1F_Text_MaybeDadWillBeOn:
 	.string "MOM: Look! It's PETALBURG GYM!\n"
@@ -442,3 +448,39 @@ PlayersHouse_1F_Text_WhatColorDidTheySay:
 PlayersHouse_1F_Text_StillUnknownPokemon:
 	.string "MOM: Well, isn't that something!\n"
 	.string "There are still unknown POKéMON.$"
+
+PlayersHouse_1F_Text_BirchGreeting:
+	.string "PROF. BIRCH: Excuse me, is anybody\n"
+	.string "home?$"
+
+PlayersHouse_1F_Text_BirchExplanation:
+	.string "PROF. BIRCH: Sorry to intrude. I'm\n"
+	.string "PROF. BIRCH and I live next door.\p"
+	.string "I was on my way back to my house from\n"
+	.string "my LAB to grab something when I saw\l"
+	.string "the moving truck.\p"
+	.string "So, I figured I would pop-in and\n"
+	.string "introduce myself.\p"
+	.string "You both are NORMAN's family,\n"
+	.string "right?$"
+
+PlayersHouse_1F_Text_MomGreeting:
+	.string "MOM: Yes, I am NORMAN's wife, and this\n"
+	.string "is our child {PLAYER}.\p"
+	.string "It is a pleasure to meet you in person,\n"
+	.string "PROF. BIRCH.\p"
+	.string "I was getting ready to send {PLAYER}\n"
+	.string "over next-door to introduce themself\l"
+	.string "when I got distracted by the TV.$"
+
+PlayersHouse_1F_Text_BirchOffer:
+	.string "PROF. BIRCH: No problem, like I was saying\n"
+	.string "I was on my way back home myself.\p"
+	.string "Why don't all of us head over for intro-\n"
+	.string "ductions and then {PLAYER} and I can head\l"
+	.string "over to the LAB so I can give them their\l"
+	.string "first POKéMON?$"
+
+PlayersHouse_1F_Text_MomAgrees:
+	.string "MOM: That sounds like a lovely idea. Okay\n"
+	.string "then, lead the way PROF. BIRCH.$"

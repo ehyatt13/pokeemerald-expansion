@@ -105,3 +105,16 @@ Common_Movement_WalkUp2::
 	walk_up
 	walk_up
 	step_end
+
+Common_Movement_WalkInPlaceUp:
+	walk_in_place_up
+	step_end
+
+Common_Movement_WalkRight:
+	walk_right
+	step_end
+
+Common_Movement_WalkDown2::
+	walk_down
+	walk_down
+	step_end

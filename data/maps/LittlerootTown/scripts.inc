@@ -126,6 +126,7 @@ LittlerootTown_EventScript_SetMomInFrontOfDoorFemale::
 LittlerootTown_OnFrame:
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 1, LittlerootTown_EventScript_StepOffTruckMale
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_StepOffTruckFemale
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 8, LittlerootTown_EventScript_FromMaleToRivalHouse
 	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_BeginDexUpgradeScene
 	.2byte 0
 
@@ -136,6 +137,14 @@ LittlerootTown_EventScript_StepOffTruckMale::
 	call LittlerootTown_EventScript_GoInsideWithMom
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK
 	warpsilent MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 8, 8
+	waitstate
+	releaseall
+	end
+
+LittlerootTown_EventScript_FromMaleToRivalHouse::
+	lockall
+	call LittlerootTown_EventScript_WalkFromMaleToRivalHouse
+	warpsilent MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F, 2, 8
 	waitstate
 	releaseall
 	end
@@ -194,6 +203,7 @@ LittlerootTown_EventScript_GoInsideWithMom::
 	setflag FLAG_HIDE_GROUDON_AWAKE
 	setflag FLAG_HIDE_KYOGRE_ASLEEP
 	setflag FLAG_HIDE_KYOGRE_AWAKE
+	setflag FLAG_HIDE_BOTH_HOUSES_BIRCH
 	return
 
 LittlerootTown_Movement_MomExitHouse:
@@ -212,16 +222,16 @@ LittlerootTown_Movement_MomApproachDoor:
 	step_end
 
 LittlerootTown_Movement_MomLookAround:
-	face_left
+	walk_in_place_faster_left
 	delay_16
 	delay_16
-	face_right
+	walk_in_place_fast_right
 	delay_16
 	delay_16
-	face_left
+	walk_in_place_faster_left
 	delay_16
 	delay_16
-	face_down
+	walk_in_place_faster_down
 	step_end
 
 LittlerootTown_Movement_MomEnterHouse:
@@ -267,6 +277,7 @@ LittlerootTown_EventScript_BeginDexUpgradeScene::
 
 LittlerootTown_OnWarp:
 	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 8, LittlerootTown_EventScript_MoveMomAndBirchOutside
 	.2byte 0
 
 LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade::
@@ -1104,7 +1115,7 @@ LittlerootTown_EventScript_WeatherClear::
 	fadeoutbgm 1
 	applymovement OBJ_EVENT_ID_PLAYER, LookAround
 	waitmovement OBJ_EVENT_ID_PLAYER
-	playse 34
+	playse SE_BIKE_HOP
 	playbgm MUS_WEATHER_GROUDON, FALSE
 	msgbox Drought
 	closemessage
@@ -1115,13 +1126,13 @@ LittlerootTown_EventScript_WeatherClear::
 
 
 LookAround:
-	face_left
+	walk_in_place_faster_left
 	delay_16
 	delay_16
-	face_right
+	walk_in_place_faster_right
 	delay_16
 	delay_16
-	face_up
+	walk_in_place_faster_up
 	delay_16
 	delay_16
 	emote_question_mark
@@ -1132,7 +1143,7 @@ LittlerootTown_EventScript_Groudon::
 	delay 20
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_Groudon_Movement_0
 	waitmovement 0
-	playse 21
+	playse SE_PIN
 	waitse
 	delay 30
 	setvar VAR_RESULT, 1
@@ -1177,7 +1188,7 @@ LittlerootTown_EventScript_Groudon::
 	waitmoncry
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_Groudon_Movement_2
 	waitmovement 0
-	playse 21
+	playse SE_PIN
 	waitse
 	clearflag FLAG_HIDE_KYOGRE_AWAKE
 	special SpawnCameraObject
@@ -1326,6 +1337,50 @@ LittlerootTown_EventScript_WalkRight::
 	return
 
 
+LittlerootTown_EventScript_WalkFromMaleToRivalHouse::
+	applymovement LOCALID_BIRCH, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_0
+	applymovement LOCALID_MOM, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_0
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_0
+	waitmovement 0
+	applymovement LOCALID_BIRCH, BirchLookAround
+	waitmovement 0
+	delay 30
+	msgbox BirchTalkAboutWeather
+	closemessage
+	applymovement LOCALID_BIRCH, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_1
+	applymovement LOCALID_MOM, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_2
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_2
+	waitmovement LOCALID_BIRCH
+	opendoor 14, 8
+	waitdooranim
+	delay 10
+	applymovement LOCALID_BIRCH, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_3
+	applymovement LOCALID_MOM, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_4
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_5
+	waitmovement 0
+	hideobjectat OBJ_EVENT_ID_PLAYER, 0
+	closedoor 14, 8
+	waitdooranim
+	return
+
+
+LittlerootTown_EventScript_MoveMomAndBirchOutside::
+	addobject LOCALID_MOM
+	setobjectxy LOCALID_MOM, 6, 9
+	addobject LOCALID_BIRCH
+	setobjectxy LOCALID_BIRCH, 7, 9
+	applymovement LOCALID_MOM, LittlerootTown_EventScript_MoveMomAndBirchOutside_Movement_0
+	applymovement LOCALID_BIRCH, LittlerootTown_EventScript_MoveMomAndBirchOutside_Movement_0
+	return
+
+
+BirchLookAround:
+	walk_in_place_faster_up
+	delay_16
+	delay_16
+	walk_in_place_faster_down
+	step_end
+
 LittlerootTown_EventScript_Groudon_Movement_0:
 	emote_exclamation_mark
 	step_end
@@ -1352,6 +1407,47 @@ LittlerootTown_EventScript_WalkRight_Movement_0:
 	face_up
 	step_end
 
+LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_0:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_1:
+	walk_right
+	walk_right
+	walk_right
+	walk_in_place_faster_up
+	step_end
+
+LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_2:
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_3:
+	walk_up
+	set_invisible
+	step_end
+
+LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_4:
+	walk_right
+	walk_up
+	set_invisible
+	step_end
+
+LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_5:
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+LittlerootTown_EventScript_MoveMomAndBirchOutside_Movement_0:
+	face_left
+	step_end
+
 LittlerootTown_EventScript_EthanSign_Text_0:
 	.string "Ethan's House$"
 
@@ -1369,3 +1465,19 @@ Drought::
 	.string "normal...?\p"
 	.string "Actually, it appears that the suns rays\n"
 	.string "have intensified to dangerous levels...$"
+
+BirchTalkAboutWeather::
+	.string "PROF. BIRCH: The weather has been really\n"
+	.string "abnormal recently.\p"
+	.string "To be honest, if not for the weather,\n"
+	.string "I was planning on going to ROUTE 101\l"
+	.string "for some field-work.\p"
+	.string "Who knows what could have happened,\n"
+	.string "haha!\p"
+	.string "But back to the weather, I'm unsure\n"
+	.string "what the cause of this phenomena is.\p"
+	.string "I can only hope this doesn't continue,\n"
+	.string "or suggest troubling developments in\l"
+	.string "regards to those legendary POKéMON...\p"
+	.string "But we shouldn't stay out here and\n"
+	.string "should continue to my house.$"

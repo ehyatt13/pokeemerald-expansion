@@ -150,9 +150,13 @@ PlayersHouse_1F_EventScript_SetWatchedBroadcast::
 	end
 
 PlayersHouse_1F_EventScript_PetalburgGymReportMale::
+	message PlayersHouse_1f_Text_NewOrOriginal
+	multichoice 25, 5, MULTI_NEW_OR_ORIGINAL, TRUE
+	closemessage
 	applymovement VAR_0x8005, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
 	call PlayersHouse_1F_EventScript_MomNoticeGymBroadcast
+	goto_if_eq VAR_RESULT, 0, PlayersHouse_1f_EventScript_Professor_Enters
 	applymovement OBJ_EVENT_ID_PLAYER, PlayersHouse_1F_Movement_PlayerApproachTVForGymMale
 	waitmovement 0
 	playbgm MUS_ENCOUNTER_INTERVIEWER, FALSE
@@ -172,6 +176,49 @@ PlayersHouse_1F_EventScript_PetalburgGymReportMale::
 	applymovement VAR_0x8005, PlayersHouse_1F_Movement_MomReturnToSeatMale
 	waitmovement 0
 	goto PlayersHouse_1F_EventScript_SetWatchedBroadcast
+	end
+
+PlayersHouse_1f_EventScript_Professor_Enters::
+	setobjectxyperm VAR_0x8006, 8, 8
+	setobjectmovementtype VAR_0x8006, MOVEMENT_TYPE_FACE_UP
+	playse SE_DOOR
+	waitse
+	addobject VAR_0x8006
+	msgbox PlayersHouse_1F_Text_BirchGreeting, MSGBOX_DEFAULT
+	closemessage
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement VAR_0x8005, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement VAR_0x8005, PlayersHouse_1F_Movement_MomApproachBirch
+	applymovement OBJ_EVENT_ID_PLAYER, PlayersHouse_1F_Movement_PlayerApproachBirch
+	applymovement VAR_0x8006, Common_Movement_WalkUp2
+	waitmovement 0
+	msgbox PlayersHouse_1F_Text_BirchExplanation, MSGBOX_DEFAULT
+	closemessage
+	applymovement VAR_0x8005, Common_Movement_WalkInPlaceRight
+	waitmovement 0
+	msgbox PlayersHouse_1F_Text_MomGreeting, MSGBOX_DEFAULT
+	closemessage
+	applymovement VAR_0x8006, Common_Movement_WalkInPlaceUp
+	waitmovement 0
+	msgbox PlayersHouse_1F_Text_BirchOffer, MSGBOX_DEFAULT
+	closemessage
+	applymovement VAR_0x8005, Common_Movement_WalkInPlaceRight
+	waitmovement 0
+	msgbox PlayersHouse_1F_Text_MomAgrees, MSGBOX_DEFAULT
+	closemessage
+	applymovement VAR_0x8005, Common_Movement_WalkRight
+	waitmovement 0
+	applymovement VAR_0x8006, Common_Movement_WalkInPlaceUp
+	waitmovement 0
+	applymovement VAR_0x8006, PlayersHouse_1F_Movement_BirchExits
+	applymovement VAR_0x8005, PlayersHouse_1F_Movement_MomExits
+	applymovement OBJ_EVENT_ID_PLAYER, PlayersHouse_1F_Movement_PlayerExits
+	waitmovement 0
+	hideobjectat OBJ_EVENT_ID_PLAYER, 0
+	warp MAP_LITTLEROOT_TOWN, 5, 8
+	setvar VAR_LITTLEROOT_INTRO_STATE, 8
 	end
 
 PlayersHouse_1F_EventScript_PetalburgGymReportFemale::
@@ -678,3 +725,33 @@ PlayersHouse_1F_Movement_PlayerApproachTVForLatiFemale:
 EventScript_RunningShoesManual::
 	msgbox PlayersHouse_1F_Text_RunningShoesManual, MSGBOX_SIGN
 	end
+
+PlayersHouse_1F_Movement_MomApproachBirch:
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+PlayersHouse_1F_Movement_PlayerApproachBirch:
+	walk_down
+	step_end
+
+PlayersHouse_1F_Movement_BirchExits:
+	walk_down
+	walk_down
+	set_invisible
+	step_end
+
+PlayersHouse_1F_Movement_MomExits:
+	walk_down
+	walk_down
+	walk_down
+	set_invisible
+	step_end
+
+PlayersHouse_1F_Movement_PlayerExits:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end

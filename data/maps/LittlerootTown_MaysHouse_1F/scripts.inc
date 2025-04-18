@@ -1,11 +1,13 @@
 .set LOCALID_MOM, 1
 .set LOCALID_RIVAL_MOM, 4
 .set LOCALID_RIVAL, 7
+.set LOCALID_BIRCH, 8
 
 LittlerootTown_MaysHouse_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, LittlerootTown_MaysHouse_1F_OnLoad
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_MaysHouse_1F_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_MaysHouse_1F_OnFrame
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, LittlerootTown_MaysHouse_1F_OnWarp
 	.byte 0
 
 LittlerootTown_MaysHouse_1F_OnLoad:
@@ -48,11 +50,35 @@ LittlerootTown_MaysHouse_1F_EventScript_MoveMomToDoor::
 	setobjectmovementtype LOCALID_MOM, MOVEMENT_TYPE_FACE_UP
 	return
 
+LittlerootTown_MaysHouse_1F_EventScript_MoveMomAndBirch::
+	addobject LOCALID_MOM
+	setobjectxy LOCALID_MOM, 2, 7
+	setobjectmovementtype LOCALID_BIRCH, MOVEMENT_TYPE_FACE_UP
+	addobject LOCALID_BIRCH
+	setobjectxy LOCALID_BIRCH, 2, 6
+	setobjectxy LOCALID_RIVAL_MOM, 8, 3
+	applymovement LOCALID_MOM, Common_Movement_FaceUp
+	applymovement LOCALID_RIVAL_MOM, Common_Movement_FaceUp
+	addobject LOCALID_RIVAL
+	setobjectxy LOCALID_RIVAL, 2, 2
+	applymovement LOCALID_RIVAL, LittlerootTown_MaysHouse_1F_Movement_MaySetup
+	return
+
+LittlerootTown_MaysHouse_1F_Movement_MaySetup:
+	face_down
+	set_invisible
+	step_end
+
+LittlerootTown_MaysHouse_1F_OnWarp:
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 8, LittlerootTown_MaysHouse_1F_EventScript_MoveMomAndBirch
+	.2byte 0
+
 @ Many of the below scripts have no gender check because they assume youre in the correct house
 LittlerootTown_MaysHouse_1F_OnFrame:
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 3, LittlerootTown_MaysHouse_1F_EventScript_EnterHouseMovingIn
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 5, LittlerootTown_MaysHouse_1F_EventScript_GoUpstairsToSetClock
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 6, LittlerootTown_MaysHouse_1F_EventScript_PetalburgGymReport
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 8, LittlerootTown_MaysHouse_1F_EventScript_MeetingEveryone
 	map_script_2 VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 1, LittlerootTown_MaysHouse_1F_EventScript_YoureNewNeighbor
 	map_script_2 VAR_LITTLEROOT_HOUSES_STATE_MAY, 3, PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV
 	.2byte 0
@@ -111,6 +137,125 @@ LittlerootTown_MaysHouse_1F_Movement_RivalMomApproach:
 	walk_left
 	walk_left
 	walk_left
+	step_end
+
+LittlerootTown_MaysHouse_1F_EventScript_MeetingEveryone::
+	lockall
+	applymovement LOCALID_BIRCH, LittlerootTown_MaysHouse_1F_Movement_BirchApproach
+	applymovement LOCALID_MOM, LittlerootTown_MaysHouse_1F_Movement_CommonApproach
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_MaysHouse_1F_Movement_CommonApproach
+	waitmovement LOCALID_BIRCH
+	playse SE_PIN
+	applymovement LOCALID_RIVAL_MOM, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_RIVAL_MOM, Common_Movement_Delay48
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_RIVAL_MOM, LittlerootTown_MaysHouse_1F_Movement_RivalMomApproachEveryone
+	waitmovement 0
+	applymovement LOCALID_RIVAL, LittlerootTown_MaysHouse_1F_Movement_MayApproachEveryone
+	waitmovement 0
+	delay 30
+	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceDown
+	delay 45
+	applymovement LOCALID_MOM, Common_Movement_WalkInPlaceRight
+	delay 45
+	applymovement LOCALID_RIVAL_MOM, Common_Movement_WalkInPlaceLeft
+	delay 45
+	applymovement LOCALID_RIVAL, LittlerootTown_MaysHouse_1F_Movement_MayJumps
+	waitmovement 0
+	fadescreen FADE_TO_BLACK
+	setobjectxy LOCALID_MOM, 2, 7
+	applymovement LOCALID_MOM, Common_Movement_FaceUp
+	setobjectxy LOCALID_BIRCH, 1, 6
+	applymovement LOCALID_BIRCH, Common_Movement_FaceDown
+	setobjectxy LOCALID_RIVAL, 3, 6
+	applymovement LOCALID_RIVAL, Common_Movement_FaceDown
+	applymovement LOCALID_RIVAL_MOM, Common_Movement_FaceDown
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	delay 30
+	fadescreen FADE_FROM_BLACK
+	delay 30
+	applymovement LOCALID_MOM, LittlerootTown_MaysHouse_1F_Movement_MomExits
+	waitmovement 0
+	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterRight
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	msgbox RivalsHouse_1F_Text_BirchToLab
+	closemessage
+	applymovement LOCALID_BIRCH, LittlerootTown_MaysHouse_1F_Movement_BirchExits
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown2
+	waitmovement 0
+	hideobjectat OBJ_EVENT_ID_PLAYER, 0
+	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 7, 12
+	setflag FLAG_MET_RIVAL_MOM
+	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 2
+	setvar VAR_LITTLEROOT_RIVAL_STATE, 3
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
+	setvar VAR_LITTLEROOT_INTRO_STATE, 9
+	setvar VAR_LITTLEROOT_TOWN_STATE, 1
+	releaseall
+	end
+
+LittlerootTown_MaysHouse_1F_Movement_BirchApproach:
+	walk_up
+	walk_up
+	walk_right
+	delay_16
+	delay_16
+	walk_in_place_right
+	step_end
+
+LittlerootTown_MaysHouse_1F_Movement_CommonApproach:
+	walk_up
+	walk_up
+	walk_in_place_faster_right
+	step_end
+
+LittlerootTown_MaysHouse_1F_Movement_RivalMomApproachEveryone:
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_left
+	delay_16
+	walk_in_place_left
+	delay_16
+	delay_16
+	delay_16
+	walk_in_place_up
+	delay_16
+	delay_16
+	delay_16
+	walk_down
+	walk_down
+	walk_in_place_faster_left
+	step_end
+
+LittlerootTown_MaysHouse_1F_Movement_MayApproachEveryone:
+	set_visible
+	walk_down
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_in_place_faster_left
+	step_end
+
+LittlerootTown_MaysHouse_1F_Movement_MayJumps:
+	jump_in_place_left
+	step_end
+
+LittlerootTown_MaysHouse_1F_Movement_MomExits:
+	walk_down
+	set_invisible
+	step_end
+
+LittlerootTown_MaysHouse_1F_Movement_BirchExits:
+	walk_down
+	walk_down
+	set_invisible
 	step_end
 
 RivalsHouse_1F_EventScript_RivalMom::
@@ -407,3 +552,7 @@ RivalsHouse_1F_Text_DoYouHavePokemon:
 	.string "Hi, neighbor!\p"
 	.string "Do you already have your\n"
 	.string "own POKéMON?$"
+
+RivalsHouse_1F_Text_BirchToLab:
+	.string "That was a nice conversation! Okay then\n"
+	.string "{PLAYER}, let's head over to the LAB.$"

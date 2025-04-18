@@ -1295,3 +1295,15 @@ const u8 gText_PM[] = _("PM");
 const u8 gText_Relearn[] = _("{START_BUTTON} RELEARN"); // future note: don't decap this, because it mimics the summary screen BG graphics which will not get decapped
 const u8 gText_Rename[] = _("RENAME");
 const u8 gText_CannotSendMonToBoxHM[] = _("Cannot send that mon to the box,\nbecause it knows a HM move.{PAUSE_UNTIL_PRESS}");
+
+const u8 gText_KantoStarter[] = _("KANTO");
+const u8 gText_JohtoStarter[] = _("JOHTO");
+const u8 gText_HoennStarter[] = _("HOENN");
+const u8 gText_SinnohStarter[] = _("SINNOH");
+const u8 gText_UnovaStarter[] = _("UNOVA");
+const u8 gText_KalosStarter[] = _("KALOS");
+const u8 gText_AlolaStarter[] = _("ALOLA");
+const u8 gText_GalarStarter[] = _("GALAR");
+const u8 gText_PaldeaStarter[] = _("PALDEA");
+const u8 gText_Original[] = _("ORIGINAL");
+const u8 gText_New[] = _("NEW");
