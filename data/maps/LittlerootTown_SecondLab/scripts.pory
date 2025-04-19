@@ -1,0 +1,415 @@
+raw `
+.set LOCALID_BIRCH, 1
+
+LittlerootTown_SecondLab_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_SecondLab_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_SecondLab_OnFrame
+	.byte 0
+
+LittlerootTown_SecondLab_OnTransition:
+	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 9, LittlerootTown_SecondLab_MoveBirchToDoor
+	end
+
+LittlerootTown_SecondLab_MoveBirchToDoor:
+	setobjectxyperm LOCALID_BIRCH, 6, 12
+	setobjectmovementtype LOCALID_BIRCH, MOVEMENT_TYPE_FACE_UP
+	return
+
+LittlerootTown_SecondLab_OnFrame:
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 9, LittlerootTown_SecondLab_EventScript_EnterLab
+	.2byte 0
+
+LittlerootTown_SecondLab_EventScript_EnterLab::
+	lockall
+	applymovement LOCALID_BIRCH, LittlerootTown_SecondLab_Movement_ApproachTable
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_SecondLab_Movement_ApproachTable
+	waitmovement 0
+	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterRight
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	msgbox LittlerootTown_SecondLab_Text_BirchPickOne
+	closemessage
+	applymovement LOCALID_BIRCH, LittlerootTown_SecondLab_Movement_BirchToTable
+	waitmovement 0
+    setvar VAR_LITTLEROOT_INTRO_STATE, 10
+    setvar VAR_TEMP_9, 2
+	releaseall
+	end
+
+LittlerootTown_SecondLab_Movement_ApproachTable:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+LittlerootTown_SecondLab_Movement_BirchToTable:
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_in_place_faster_down
+	step_end
+
+LittlerootTown_SecondLab_Text_BirchPickOne:
+	.string "PROF. BIRCH: Well, here we are {PLAYER}.\n"
+	.string "As you can see, there are 3 POKéBALLS\l"
+	.string "on the table.\p"
+	.string "Each one contains a POKéMON of the\n"
+	.string "GRASS, FIRE, or WATER type.\p"
+	.string "The three currently displayed are from\n"
+	.string "our region, HOENN.\p"
+	.string "Take a look and decide which one you\n"
+	.string "like best.\p"
+	.string "However, if you find that you are not\n"
+	.string "drawn to any of the three POKéMON, let\l"
+	.string "me know and I can show you some POKéMON\l"
+	.string "from other regions that I have been\l"
+    .string "studying.$"
+
+LittlerootTown_SecondLab_Text_BirchQuestion:
+	.string "PROF. BIRCH: Would you like to see a\n"
+	.string "different region's POKéMON?$"
+
+LittlerootTown_SecondLab_Text_Wise:
+	.string "Choose wisely, {PLAYER}.$"
+
+LittlerootTown_SecondLab_Text_AlreadyPicked:
+	.string "PROF. BIRCH: You've already picked\n"
+    .string "a POKéMON!$"
+
+LittlerootTown_SecondLab_Text_WhichRegion:
+	.string "Which region's POKéMON would you like to\n"
+	.string "see instead?$"
+
+LittlerootTown_SecondLab_Text_ReceivedStarter:
+	.string "{PLAYER} received the {STR_VAR_1}\n"
+	.string "from PROF. BIRCH!$"
+
+LittlerootTown_SecondLab_Text_DeclineStarter:
+    .string "PROF. BIRCH: Take your time.$"
+
+LittlerootTown_SecondLab_Text_RegionAlreadyShown:
+    .string "That region's POKéMON are already being\n"
+    .string "shown.$"
+
+`
+script LittlerootTown_SecondLab_EventScript_Birch {
+	lockall
+	faceplayer
+	if(!(flag(FLAG_HIDE_GRASS_STARTER) || flag(FLAG_HIDE_FIRE_STARTER) || flag(FLAG_HIDE_WATER_STARTER))) {
+		msgbox(LittlerootTown_SecondLab_Text_BirchQuestion, MSGBOX_YESNO)
+		if(var(VAR_RESULT) == YES) {
+            message(LittlerootTown_SecondLab_Text_WhichRegion)
+            multichoicegrid(25, 5, MULTI_STARTER_REGION_CHOICE, 3, 0)
+            closemessage
+            #compare_var_to_var(VAR_RESULT, VAR_TEMP_9)
+            if(var(VAR_RESULT) == VAR_TEMP_9) {
+                msgbox(LittlerootTown_SecondLab_Text_RegionAlreadyShown)
+            }
+            elif(var(VAR_RESULT) == 0) {
+                setvar(VAR_TEMP_9, 0)
+            }
+            elif(var(VAR_RESULT) == 1) {
+                setvar(VAR_TEMP_9, 1)
+            }
+            elif(var(VAR_RESULT) == 2) {
+                setvar(VAR_TEMP_9, 2)
+            }
+            elif(var(VAR_RESULT) == 3) {
+                setvar(VAR_TEMP_9, 3)
+            }
+            elif(var(VAR_RESULT) == 4) {
+                setvar(VAR_TEMP_9, 4)
+            }
+            elif(var(VAR_RESULT) == 5) {
+                setvar(VAR_TEMP_9, 5)
+            }
+            elif(var(VAR_RESULT) == 6) {
+                setvar(VAR_TEMP_9, 6)
+            }
+            elif(var(VAR_RESULT) == 7) {
+                setvar(VAR_TEMP_9, 7)
+            }
+            elif(var(VAR_RESULT) == 8) {
+                setvar(VAR_TEMP_9, 8)
+            }
+		}
+		msgbox(LittlerootTown_SecondLab_Text_Wise)
+	}
+	else {
+		msgbox(LittlerootTown_SecondLab_Text_AlreadyPicked)
+	}
+    waitmessage
+	releaseall
+	end
+}
+
+script LittlerootTown_SecondLab_EventScript_GrassBall {
+    lockall
+    if(!(flag(FLAG_HIDE_GRASS_STARTER) || flag(FLAG_HIDE_FIRE_STARTER) || flag(FLAG_HIDE_WATER_STARTER))) {
+        if (var(VAR_TEMP_9) == 0) {
+            setvar(VAR_TEMP_8, SPECIES_BULBASAUR)
+        }
+        elif (var(VAR_TEMP_9) == 1) {
+            setvar(VAR_TEMP_8, SPECIES_CHIKORITA)
+        }
+        elif (var(VAR_TEMP_9) == 2) {
+            setvar(VAR_TEMP_8, SPECIES_TREECKO)
+        }
+        elif (var(VAR_TEMP_9) == 3) {
+            setvar(VAR_TEMP_8, SPECIES_TURTWIG)
+        }
+        elif (var(VAR_TEMP_9) == 4) {
+            setvar(VAR_TEMP_8, SPECIES_SNIVY)
+        }
+        elif (var(VAR_TEMP_9) == 5) {
+            setvar(VAR_TEMP_8, SPECIES_CHESPIN)
+        }
+        elif (var(VAR_TEMP_9) == 6) {
+            setvar(VAR_TEMP_8, SPECIES_ROWLET)
+        }
+        elif (var(VAR_TEMP_9) == 7) {
+            setvar(VAR_TEMP_8, SPECIES_GROOKEY)
+        }
+        elif (var(VAR_TEMP_9) == 8) {
+            setvar(VAR_TEMP_8, SPECIES_SPRIGATITO)
+        }
+        bufferspeciesname(STR_VAR_1, VAR_TEMP_8)
+        call(LittlerootTown_SecondLab_EventScript_GrassStarter)
+    }
+    else {
+		msgbox(LittlerootTown_SecondLab_Text_AlreadyPicked)
+	}
+    waitmessage
+    releaseall
+    end
+}
+
+script LittlerootTown_SecondLab_EventScript_FireBall {
+    lockall
+    if(!(flag(FLAG_HIDE_GRASS_STARTER) || flag(FLAG_HIDE_FIRE_STARTER) || flag(FLAG_HIDE_WATER_STARTER))) {
+        if (var(VAR_TEMP_9) == 0) {
+            setvar(VAR_TEMP_8, SPECIES_CHARMANDER)
+        }
+        elif (var(VAR_TEMP_9) == 1) {
+            setvar(VAR_TEMP_8, SPECIES_CYNDAQUIL)
+        }
+        elif (var(VAR_TEMP_9) == 2) {
+            setvar(VAR_TEMP_8, SPECIES_TORCHIC)
+        }
+        elif (var(VAR_TEMP_9) == 3) {
+            setvar(VAR_TEMP_8, SPECIES_CHIMCHAR)
+        }
+        elif (var(VAR_TEMP_9) == 4) {
+            setvar(VAR_TEMP_8, SPECIES_TEPIG)
+        }
+        elif (var(VAR_TEMP_9) == 5) {
+            setvar(VAR_TEMP_8, SPECIES_FENNEKIN)
+        }
+        elif (var(VAR_TEMP_9) == 6) {
+            setvar(VAR_TEMP_8, SPECIES_LITTEN)
+        }
+        elif (var(VAR_TEMP_9) == 7) {
+            setvar(VAR_TEMP_8, SPECIES_SCORBUNNY)
+        }
+        elif (var(VAR_TEMP_9) == 8) {
+            setvar(VAR_TEMP_8, SPECIES_FUECOCO)
+        }
+        bufferspeciesname(STR_VAR_1, VAR_TEMP_8)
+        call(LittlerootTown_SecondLab_EventScript_FireStarter)
+    }
+    else {
+		msgbox(LittlerootTown_SecondLab_Text_AlreadyPicked)
+	}
+    waitmessage
+    releaseall
+    end
+}
+
+script LittlerootTown_SecondLab_EventScript_WaterBall {
+    lockall
+    if(!(flag(FLAG_HIDE_GRASS_STARTER) || flag(FLAG_HIDE_FIRE_STARTER) || flag(FLAG_HIDE_WATER_STARTER))) {
+        if (var(VAR_TEMP_9) == 0) {
+               setvar(VAR_TEMP_8, SPECIES_SQUIRTLE)
+        }
+        elif (var(VAR_TEMP_9) == 1) {
+            setvar(VAR_TEMP_8, SPECIES_TOTODILE)
+        }
+        elif (var(VAR_TEMP_9) == 2) {
+            setvar(VAR_TEMP_8, SPECIES_MUDKIP)
+        }
+        elif (var(VAR_TEMP_9) == 3) {
+            setvar(VAR_TEMP_8, SPECIES_PIPLUP)
+        }
+        elif (var(VAR_TEMP_9) == 4) {
+            setvar(VAR_TEMP_8, SPECIES_OSHAWOTT)
+        }
+        elif (var(VAR_TEMP_9) == 5) {
+            setvar(VAR_TEMP_8, SPECIES_FROAKIE)
+        }
+        elif (var(VAR_TEMP_9) == 6) {
+            setvar(VAR_TEMP_8, SPECIES_POPPLIO)
+        }
+        elif (var(VAR_TEMP_9) == 7) {
+            setvar(VAR_TEMP_8, SPECIES_SOBBLE)
+        }
+        elif (var(VAR_TEMP_9) == 8) {
+            setvar(VAR_TEMP_8, SPECIES_QUAXLY)
+        }
+        bufferspeciesname(STR_VAR_1, VAR_TEMP_8)
+        call(LittlerootTown_SecondLab_EventScript_WaterStarter)
+    }
+    else {
+		msgbox(LittlerootTown_SecondLab_Text_AlreadyPicked)
+	}
+    waitmessage
+    releaseall
+    end
+}
+
+script LittlerootTown_SecondLab_EventScript_GrassStarter {
+    showmonpic(VAR_TEMP_8, 10, 3)
+    playmoncry(VAR_TEMP_8, CRY_MODE_NORMAL)
+    msgbox("Do you want to choose {STR_VAR_1}?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+	    setvar(VAR_TEMP_TRANSFERRED_SPECIES, VAR_TEMP_8)
+        givemon(VAR_TEMP_8, 5)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+            playfanfare(MUS_OBTAIN_ITEM)
+            message(LittlerootTown_SecondLab_Text_ReceivedStarter)
+            waitmessage
+            waitfanfare
+            removeobject(2)
+            msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES) {
+                call(Common_EventScript_GetGiftMonPartySlot)
+	            call(Common_EventScript_NameReceivedPartyMon)
+            }
+            hidemonpic
+            setflag(FLAG_HIDE_GRASS_STARTER)
+            setflag(FLAG_SYS_POKEMON_GET)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+            playfanfare(MUS_OBTAIN_ITEM)
+            message(LittlerootTown_SecondLab_Text_ReceivedStarter)
+            waitmessage
+            waitfanfare
+            removeobject(2)
+            msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES) {
+	            call(Common_EventScript_NameReceivedBoxMon)
+                call(Common_EventScript_TransferredToPC)
+            }
+            hidemonpic
+            setflag(FLAG_HIDE_GRASS_STARTER)
+            setflag(FLAG_SYS_POKEMON_GET) 
+        }
+        else {
+            hidemonpic
+            goto(Common_EventScript_NoMoreRoomForPokemon)
+        }
+    }
+    else {
+        hidemonpic
+        msgbox(LittlerootTown_SecondLab_Text_DeclineStarter)
+    }
+}
+
+script LittlerootTown_SecondLab_EventScript_FireStarter {
+    showmonpic(VAR_TEMP_8, 10, 3)
+    playmoncry(VAR_TEMP_8, CRY_MODE_NORMAL)
+    msgbox("Do you want to choose {STR_VAR_1}?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+	    setvar(VAR_TEMP_TRANSFERRED_SPECIES, VAR_TEMP_8)
+        givemon(VAR_TEMP_8, 5)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+            playfanfare(MUS_OBTAIN_ITEM)
+            message(LittlerootTown_SecondLab_Text_ReceivedStarter)
+            waitmessage
+            waitfanfare
+            removeobject(3)
+            msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES) {
+                call(Common_EventScript_GetGiftMonPartySlot)
+	            call(Common_EventScript_NameReceivedPartyMon)
+            }
+            hidemonpic
+            setflag(FLAG_HIDE_FIRE_STARTER)
+            setflag(FLAG_SYS_POKEMON_GET)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+            playfanfare(MUS_OBTAIN_ITEM)
+            message(LittlerootTown_SecondLab_Text_ReceivedStarter)
+            waitmessage
+            waitfanfare
+            removeobject(3)
+            msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES) {
+	            call(Common_EventScript_NameReceivedBoxMon)
+                call(Common_EventScript_TransferredToPC)
+            }
+            hidemonpic
+            setflag(FLAG_HIDE_FIRE_STARTER)
+            setflag(FLAG_SYS_POKEMON_GET) 
+        }
+        else {
+            hidemonpic
+            goto(Common_EventScript_NoMoreRoomForPokemon)
+        }
+    }
+    else {
+        hidemonpic
+        msgbox(LittlerootTown_SecondLab_Text_DeclineStarter)
+    }
+}
+
+script LittlerootTown_SecondLab_EventScript_WaterStarter {
+    showmonpic(VAR_TEMP_8, 10, 3)
+    playmoncry(VAR_TEMP_8, CRY_MODE_NORMAL)
+    msgbox("Do you want to choose {STR_VAR_1}?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+	    setvar(VAR_TEMP_TRANSFERRED_SPECIES, VAR_TEMP_8)
+        givemon(VAR_TEMP_8, 5)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+            playfanfare(MUS_OBTAIN_ITEM)
+            message(LittlerootTown_SecondLab_Text_ReceivedStarter)
+            waitmessage
+            waitfanfare
+            removeobject(4)
+            msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES) {
+                call(Common_EventScript_GetGiftMonPartySlot)
+	            call(Common_EventScript_NameReceivedPartyMon)
+            }
+            hidemonpic
+            setflag(FLAG_HIDE_WATER_STARTER)
+            setflag(FLAG_SYS_POKEMON_GET)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+            playfanfare(MUS_OBTAIN_ITEM)
+            message(LittlerootTown_SecondLab_Text_ReceivedStarter)
+            waitmessage
+            waitfanfare
+            removeobject(4)
+            msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES) {
+	            call(Common_EventScript_NameReceivedBoxMon)
+                call(Common_EventScript_TransferredToPC)
+            }
+            hidemonpic
+            setflag(FLAG_HIDE_WATER_STARTER)
+            setflag(FLAG_SYS_POKEMON_GET) 
+        }
+        else {
+            hidemonpic
+            goto(Common_EventScript_NoMoreRoomForPokemon)
+        }
+    }
+    else {
+        hidemonpic
+        msgbox(LittlerootTown_SecondLab_Text_DeclineStarter)
+    }
+}

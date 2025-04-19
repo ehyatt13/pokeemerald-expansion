@@ -187,7 +187,7 @@ LittlerootTown_MaysHouse_1F_EventScript_MeetingEveryone::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown2
 	waitmovement 0
 	hideobjectat OBJ_EVENT_ID_PLAYER, 0
-	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 7, 12
+	warp MAP_LITTLEROOT_TOWN_SECOND_LAB, 7, 12
 	setflag FLAG_MET_RIVAL_MOM
 	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 2
 	setvar VAR_LITTLEROOT_RIVAL_STATE, 3

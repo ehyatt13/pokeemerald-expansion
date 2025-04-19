@@ -1510,10 +1510,10 @@
 #define FLAG_HIDE_KYOGRE_ASLEEP                     (SYSTEM_FLAGS + 0x86) // Unused Flag
 #define FLAG_HIDE_GROUDON_AWAKE                     (SYSTEM_FLAGS + 0x87) // Unused Flag
 #define FLAG_HIDE_KYOGRE_AWAKE                      (SYSTEM_FLAGS + 0x88) // Unused Flag
-#define FLAG_HIDE_BOTH_HOUSES_BIRCH                 (SYSTEM_FLAGS + 0x89) // Unused Flag
-#define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
-#define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // Unused Flag
-#define FLAG_UNUSED_0x8EC                           (SYSTEM_FLAGS + 0x8C) // Unused Flag
+#define FLAG_HIDE_BOTH_HOUSES_BIRCH                 (SYSTEM_FLAGS + 0x89) // Flag to hide PROF. BIRCH in both houses in Littleroot
+#define FLAG_HIDE_GRASS_STARTER                     (SYSTEM_FLAGS + 0x8A) // Flag to hide the grass starter pokeball
+#define FLAG_HIDE_FIRE_STARTER                      (SYSTEM_FLAGS + 0x8B) // Flag to hide the fire starter pokeball
+#define FLAG_HIDE_WATER_STARTER                     (SYSTEM_FLAGS + 0x8C) // Flag to hide the water starter pokeball
 #define FLAG_UNUSED_0x8ED                           (SYSTEM_FLAGS + 0x8D) // Unused Flag
 #define FLAG_UNUSED_0x8EE                           (SYSTEM_FLAGS + 0x8E) // Unused Flag
 #define FLAG_UNUSED_0x8EF                           (SYSTEM_FLAGS + 0x8F) // Unused Flag

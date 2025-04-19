@@ -320,10 +320,6 @@ PlayersHouse_1F_Text_OhComeQuickly:
 	.string "MOM: Oh! {PLAYER}, {PLAYER}!\n"
 	.string "Quick! Come quickly!$"
 
-PlayersHouse_1f_Text_NewOrOriginal:
-	.string "(Would you like to see the new\n"
-	.string "introduction, or the original?)$"
-
 PlayersHouse_1F_Text_MaybeDadWillBeOn:
 	.string "MOM: Look! It's PETALBURG GYM!\n"
 	.string "Maybe DAD will be on!$"
@@ -448,6 +444,10 @@ PlayersHouse_1F_Text_WhatColorDidTheySay:
 PlayersHouse_1F_Text_StillUnknownPokemon:
 	.string "MOM: Well, isn't that something!\n"
 	.string "There are still unknown POKéMON.$"
+
+PlayersHouse_1f_Text_NewOrOriginal:
+	.string "(Would you like to see the new\n"
+	.string "introduction, or the original?)$"
 
 PlayersHouse_1F_Text_BirchGreeting:
 	.string "PROF. BIRCH: Excuse me, is anybody\n"
