@@ -8034,7 +8034,7 @@ static void DisplayPokemonPowderJarResult(u8 taskId, u32 status, enum PokemonPow
             break;
         case POKEMON_POWDER_JAR_RESULT_FAIL_TYPE_0:
         case POKEMON_POWDER_JAR_RESULT_FAIL_TYPE_1:
-            gPartyMenuUseExitCallback = FALSE;
+            //gPartyMenuUseExitCallback = FALSE;
             PlaySE(SE_SELECT);
             PokemonPowderJar_ConstructTypeFailureMessage(mon, status, result);
             DisplayPokemonPowderJarMessageAndScheduleTask(taskId, gStringVar4, Task_RetryPokemonPowderJarAfterFailedStatus, FALSE);
@@ -8078,16 +8078,6 @@ void InitPartyMenuForPokemonPowderJarFromField(u8 taskId)
 {
     InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_USE_ITEM, TRUE, PARTY_MSG_USE_ON_WHICH_MON, Task_HandleChooseMonInput, CB2_ReturnToField);
 }
-
-/*void InitPartyMenuForPokemonPowderJar(u8 taskId, void (*callback)(void))
-{
-    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_USE_ITEM, TRUE, PARTY_MSG_USE_ON_WHICH_MON, Task_HandleChooseMonInput, callback);
-}
-
-void InitPartyMEnuForPokemonPowderJarFromBag(u8 taskId)
-{
-    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_USE_ITEM, TRUE, PARTY_MSG_USE_ON_WHICH_MON, Task_HandleChooseMonInput, CB2_ReturnToBagMenuPocket);
-}*/
 
 /*void ItemUseCB_PokemonPowderJar(u8 taskId, TaskFunc task)
 {

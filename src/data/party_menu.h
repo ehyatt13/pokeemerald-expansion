@@ -562,9 +562,9 @@ static const struct WindowTemplate sZygardeCubeSelectWindowTemplate =
 static const struct WindowTemplate sPokemonPowderJarSelectWindowTemplate =
 {
     .bg = 2,
-    .tilemapLeft = 19,
+    .tilemapLeft = 21,
     .tilemapTop = 3,
-    .width = 9,
+    .width = 8,
     .height = 12,
     .paletteNum = 15,
     .baseBlock = 0x299,
