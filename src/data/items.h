@@ -14132,4 +14132,36 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_Flute,
         .iconPalette = gItemIconPalette_BlueFlute,
     },
+
+    [ITEM_REPELLENT] =
+    {
+        .name = _("Repellent"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Keeps wild {PKMN}\n"
+            "away when used."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Repellent,
+        .iconPic = gItemIcon_Repel,
+        .iconPalette = gItemIconPalette_Repel,
+    },
+
+    [ITEM_POKEMON_POWDER_JAR] =
+    {
+        .name = _("{PKMN} Powder Jar"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Can inflict a\n"
+            "selected STATUS\n"
+            "on a chosen {PKMN}."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_PokemonPowderJar,
+        .effect = gItemEffect_PokemonPowderJar,
+        .iconPic = gItemIcon_PowderJar,
+        .iconPalette = gItemIconPalette_PowderJar,
+    },
 };

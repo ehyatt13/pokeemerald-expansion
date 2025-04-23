@@ -95,6 +95,10 @@ LittlerootTown_SecondLab_Text_RegionAlreadyShown:
     .string "That region's POKéMON are already being\n"
     .string "shown.$"
 
+LittlerootTown_SecondLab_Text_SwapText:
+    .string "Okay, I've swapped in a new batch of\n"
+    .string "POKéMON from the region you selected.$"
+
 LittlerootTown_SecondLab_EventScript_Birch::
 	lockall
 	faceplayer
@@ -124,69 +128,79 @@ LittlerootTown_SecondLab_EventScript_Birch_6:
 
 LittlerootTown_SecondLab_EventScript_Birch_10:
 	message LittlerootTown_SecondLab_Text_WhichRegion
-	multichoicegrid 25, 5, MULTI_STARTER_REGION_CHOICE, 3, 0
+	multichoicegrid 25, 5, MULTI_STARTER_REGION_CHOICE, 3, 1
 	closemessage
 	compare VAR_RESULT, VAR_TEMP_9
 	goto_if_eq LittlerootTown_SecondLab_EventScript_Birch_12
 	compare VAR_RESULT, 0
-	goto_if_eq LittlerootTown_SecondLab_EventScript_Birch_13
-	compare VAR_RESULT, 1
-	goto_if_eq LittlerootTown_SecondLab_EventScript_Birch_14
-	compare VAR_RESULT, 2
-	goto_if_eq LittlerootTown_SecondLab_EventScript_Birch_15
-	compare VAR_RESULT, 3
 	goto_if_eq LittlerootTown_SecondLab_EventScript_Birch_16
-	compare VAR_RESULT, 4
+	compare VAR_RESULT, 1
 	goto_if_eq LittlerootTown_SecondLab_EventScript_Birch_17
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 2
 	goto_if_eq LittlerootTown_SecondLab_EventScript_Birch_18
-	compare VAR_RESULT, 6
+	compare VAR_RESULT, 3
 	goto_if_eq LittlerootTown_SecondLab_EventScript_Birch_19
-	compare VAR_RESULT, 7
+	compare VAR_RESULT, 4
 	goto_if_eq LittlerootTown_SecondLab_EventScript_Birch_20
-	compare VAR_RESULT, 8
+	compare VAR_RESULT, 5
 	goto_if_eq LittlerootTown_SecondLab_EventScript_Birch_21
+	compare VAR_RESULT, 6
+	goto_if_eq LittlerootTown_SecondLab_EventScript_Birch_22
+	compare VAR_RESULT, 7
+	goto_if_eq LittlerootTown_SecondLab_EventScript_Birch_23
+	compare VAR_RESULT, 8
+	goto_if_eq LittlerootTown_SecondLab_EventScript_Birch_24
+LittlerootTown_SecondLab_EventScript_Birch_15:
+	call LittlerootTown_SecondLab_EventScript_BirchSwap
 	goto LittlerootTown_SecondLab_EventScript_Birch_9
 
 LittlerootTown_SecondLab_EventScript_Birch_12:
 	msgbox LittlerootTown_SecondLab_Text_RegionAlreadyShown
 	goto LittlerootTown_SecondLab_EventScript_Birch_9
 
-LittlerootTown_SecondLab_EventScript_Birch_13:
-	setvar VAR_TEMP_9, 0
-	goto LittlerootTown_SecondLab_EventScript_Birch_9
-
-LittlerootTown_SecondLab_EventScript_Birch_14:
-	setvar VAR_TEMP_9, 1
-	goto LittlerootTown_SecondLab_EventScript_Birch_9
-
-LittlerootTown_SecondLab_EventScript_Birch_15:
-	setvar VAR_TEMP_9, 2
-	goto LittlerootTown_SecondLab_EventScript_Birch_9
-
 LittlerootTown_SecondLab_EventScript_Birch_16:
-	setvar VAR_TEMP_9, 3
-	goto LittlerootTown_SecondLab_EventScript_Birch_9
+	setvar VAR_TEMP_9, 0
+	goto LittlerootTown_SecondLab_EventScript_Birch_15
 
 LittlerootTown_SecondLab_EventScript_Birch_17:
-	setvar VAR_TEMP_9, 4
-	goto LittlerootTown_SecondLab_EventScript_Birch_9
+	setvar VAR_TEMP_9, 1
+	goto LittlerootTown_SecondLab_EventScript_Birch_15
 
 LittlerootTown_SecondLab_EventScript_Birch_18:
-	setvar VAR_TEMP_9, 5
-	goto LittlerootTown_SecondLab_EventScript_Birch_9
+	setvar VAR_TEMP_9, 2
+	goto LittlerootTown_SecondLab_EventScript_Birch_15
 
 LittlerootTown_SecondLab_EventScript_Birch_19:
-	setvar VAR_TEMP_9, 6
-	goto LittlerootTown_SecondLab_EventScript_Birch_9
+	setvar VAR_TEMP_9, 3
+	goto LittlerootTown_SecondLab_EventScript_Birch_15
 
 LittlerootTown_SecondLab_EventScript_Birch_20:
-	setvar VAR_TEMP_9, 7
-	goto LittlerootTown_SecondLab_EventScript_Birch_9
+	setvar VAR_TEMP_9, 4
+	goto LittlerootTown_SecondLab_EventScript_Birch_15
 
 LittlerootTown_SecondLab_EventScript_Birch_21:
+	setvar VAR_TEMP_9, 5
+	goto LittlerootTown_SecondLab_EventScript_Birch_15
+
+LittlerootTown_SecondLab_EventScript_Birch_22:
+	setvar VAR_TEMP_9, 6
+	goto LittlerootTown_SecondLab_EventScript_Birch_15
+
+LittlerootTown_SecondLab_EventScript_Birch_23:
+	setvar VAR_TEMP_9, 7
+	goto LittlerootTown_SecondLab_EventScript_Birch_15
+
+LittlerootTown_SecondLab_EventScript_Birch_24:
 	setvar VAR_TEMP_9, 8
-	goto LittlerootTown_SecondLab_EventScript_Birch_9
+	goto LittlerootTown_SecondLab_EventScript_Birch_15
+
+
+LittlerootTown_SecondLab_EventScript_BirchSwap::
+	fadescreen FADE_TO_BLACK
+	delay 16
+	fadescreen FADE_FROM_BLACK
+	msgbox LittlerootTown_SecondLab_Text_SwapText
+	return
 
 
 LittlerootTown_SecondLab_EventScript_GrassBall::

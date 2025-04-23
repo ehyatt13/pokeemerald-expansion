@@ -48,6 +48,7 @@
 #include "pokemon.h"
 #include "pokemon_icon.h"
 #include "pokemon_jump.h"
+#include "pokemon_powder_jar.h"
 #include "pokemon_storage_system.h"
 #include "pokemon_summary_screen.h"
 #include "region_map.h"
@@ -104,6 +105,11 @@ enum {
     MENU_CATALOG_MOWER,
     MENU_CHANGE_FORM,
     MENU_CHANGE_ABILITY,
+    MENU_INFLICT_BURN,
+    MENU_INFLICT_PARALYSIS,
+    MENU_INFLICT_POISON,
+    MENU_INFLICT_FREEZE,
+    MENU_INFLICT_SLEEP,
     MENU_FIELD_MOVES
 };
 
@@ -125,6 +131,7 @@ enum {
     ACTIONS_TAKEITEM_TOSS,
     ACTIONS_ROTOM_CATALOG,
     ACTIONS_ZYGARDE_CUBE,
+    ACTIONS_POKEMON_POWDER_JAR,
 };
 
 // In CursorCb_FieldMove, field moves <= FIELD_MOVE_WATERFALL are assumed to line up with the badge flags.
@@ -515,6 +522,11 @@ static bool8 SetUpFieldMove_Dive(void);
 void TryItemHoldFormChange(struct Pokemon *mon);
 static void ShowMoveSelectWindow(u8 slot);
 static void Task_HandleWhichMoveInput(u8 taskId);
+static void TryPokemonPowderJarAndPrintResult(u8);
+static void DisplayPokemonPowderJarResult(u8, u32, enum PokemonPowderJarResultCodes, struct Pokemon*);
+static void Task_RetryPokemonPowderJarAfterFailedStatus(u8);
+static void Task_RetryPokemonPowderJarAfterFailedMon(u8);
+static void DisplayPokemonPowderJarMessageAndScheduleTask(u8, const u8*, TaskFunc, bool32);
 
 // static const data
 #include "data/party_menu.h"
@@ -2719,6 +2731,9 @@ void DisplayPartyMenuStdMessage(u32 stringId)
         case PARTY_MSG_WHICH_APPLIANCE:
             *windowPtr = AddWindow(&sOrderWhichApplianceMsgWindowTemplate);
             break;
+        case PARTY_MSG_GIVE_WHICH_STATUS:
+            *windowPtr = AddWindow(&sInflictWhichStatusMsgWindowTemplate);
+            break;
         default:
             *windowPtr = AddWindow(&sDefaultPartyMsgWindowTemplate);
             break;
@@ -2783,6 +2798,9 @@ static u8 DisplaySelectionWindow(u8 windowType)
         break;
     case SELECTWINDOW_ZYGARDECUBE:
         window = sZygardeCubeSelectWindowTemplate;
+        break;
+    case SELECTWINDOW_POKEMONPOWDERJAR:
+        window = sPokemonPowderJarSelectWindowTemplate;
         break;
     default: // SELECTWINDOW_MOVES
         window = sMoveSelectWindowTemplate;
@@ -6702,6 +6720,8 @@ u8 GetItemEffectType(u16 item)
         return ITEM_EFFECT_SACRED_ASH;
     else if (itemEffect[3] & ITEM3_LEVEL_UP)
         return ITEM_EFFECT_RAISE_LEVEL;
+    else if (itemEffect[0] & ITEM0_POKEMON_POWDER_JAR)
+        return ITEM_EFFECT_POKEMON_POWDER_JAR;
 
     statusCure = itemEffect[3] & ITEM3_STATUS_ALL;
     if (statusCure || (itemEffect[0] >> 7))
@@ -7956,3 +7976,305 @@ void ItemUseCB_EndlessCandy(u8 taskId, TaskFunc task)
         }
     }
 }
+
+static void DisplayPokemonPowderJarMessageAndScheduleTask(u8 taskId, const u8* message, TaskFunc nextTask, bool32 useExitCallback)
+{
+    gPartyMenuUseExitCallback = useExitCallback;
+    DisplayPartyMenuMessage(message, TRUE);
+    ScheduleBgCopyTilemapToVram(2);
+    gTasks[taskId].func = nextTask;
+}
+
+void ItemUseCB_PokemonPowderJar(u8 taskId, TaskFunc task)
+{
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+
+    if (!GetMonData(mon, MON_DATA_HP))
+    {
+        DisplayPokemonPowderJarResult(taskId, 0, POKEMON_POWDER_JAR_RESULT_FAIL_FAINTED, mon);
+        return;
+    }
+
+    SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_POKEMON_POWDER_JAR);
+    GetMonNickname(mon, gStringVar1);
+    DisplaySelectionWindow(SELECTWINDOW_POKEMONPOWDERJAR);
+    DisplayPartyMenuStdMessage(PARTY_MSG_GIVE_WHICH_STATUS);
+    gTasks[taskId].data[0] = TASK_NONE;
+    gTasks[taskId].func = Task_HandleSelectionMenuInput;
+}
+
+
+static void TryPokemonPowderJarAndPrintResult(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    u32 status = PokemonPowderJar_ConvertMenuPosToStatus(data[0]);
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    enum PokemonPowderJarResultCodes result = (PokemonPowderJar_TryInflictStatus(mon, status));
+
+    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+
+    DisplayPokemonPowderJarResult(taskId, status, result, mon);
+}
+
+static void DisplayPokemonPowderJarResult(u8 taskId, u32 status, enum PokemonPowderJarResultCodes result, struct Pokemon* mon)
+{
+    switch (result)
+    {
+        case POKEMON_POWDER_JAR_RESULT_SUCCESS:
+            UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
+            PlayCry_ByMode(GetMonData(mon, MON_DATA_SPECIES), 0, CRY_MODE_WEAK);
+            PokemonPowderJar_ConstructSuccessMessage(mon, status);
+            DisplayPokemonPowderJarMessageAndScheduleTask(taskId, gStringVar4, Task_ClosePartyMenuAfterText, TRUE);
+            break;
+        case POKEMON_POWDER_JAR_RESULT_FAIL_ABILITY:
+            PlaySE(SE_SELECT);
+            PokemonPowderJar_ConstructAbilityFailureMessage(mon,status);
+            DisplayPokemonPowderJarMessageAndScheduleTask(taskId, gStringVar4, Task_RetryPokemonPowderJarAfterFailedStatus, FALSE);
+            break;
+        case POKEMON_POWDER_JAR_RESULT_FAIL_TYPE_0:
+        case POKEMON_POWDER_JAR_RESULT_FAIL_TYPE_1:
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            PokemonPowderJar_ConstructTypeFailureMessage(mon, status, result);
+            DisplayPokemonPowderJarMessageAndScheduleTask(taskId, gStringVar4, Task_RetryPokemonPowderJarAfterFailedStatus, FALSE);
+            break;
+        case POKEMON_POWDER_JAR_RESULT_FAIL_HAS_STATUS:
+            PlaySE(SE_SELECT);
+            PokemonPowderJar_ConstructStatusFailureMessage(mon);
+            DisplayPokemonPowderJarMessageAndScheduleTask(taskId, gStringVar4, Task_RetryPokemonPowderJarAfterFailedMon, FALSE);
+            break;
+        default:
+        case POKEMON_POWDER_JAR_RESULT_FAIL_FAINTED:
+            PlaySE(SE_SELECT);
+            PokemonPowderJar_ConstructStatusFailureMessage(mon);
+            DisplayPokemonPowderJarMessageAndScheduleTask(taskId, gText_WontHaveEffect, Task_RetryPokemonPowderJarAfterFailedMon, FALSE);
+            break;
+    }
+}
+
+static void Task_RetryPokemonPowderJarAfterFailedStatus(u8 taskId)
+{
+    if (!JOY_NEW(A_BUTTON | B_BUTTON))
+        return;
+
+    ClearDialogWindowAndFrame(WIN_MSG,FALSE);
+    PlaySE(SE_SELECT);
+    ItemUseCB_PokemonPowderJar(taskId, Task_HandleSelectionMenuInput);
+}
+
+static void Task_RetryPokemonPowderJarAfterFailedMon(u8 taskId)
+{
+    if (!JOY_NEW(A_BUTTON | B_BUTTON))
+        return;
+
+    ClearDialogWindowAndFrame(WIN_MSG,FALSE);
+    DisplayPartyMenuStdMessage(PARTY_MSG_USE_ON_WHICH_MON);
+    PlaySE(SE_SELECT);
+    gTasks[taskId].func = Task_HandleChooseMonInput;
+}
+
+void InitPartyMenuForPokemonPowderJarFromField(u8 taskId)
+{
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_USE_ITEM, TRUE, PARTY_MSG_USE_ON_WHICH_MON, Task_HandleChooseMonInput, CB2_ReturnToField);
+}
+
+/*void InitPartyMenuForPokemonPowderJar(u8 taskId, void (*callback)(void))
+{
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_USE_ITEM, TRUE, PARTY_MSG_USE_ON_WHICH_MON, Task_HandleChooseMonInput, callback);
+}
+
+void InitPartyMEnuForPokemonPowderJarFromBag(u8 taskId)
+{
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_USE_ITEM, TRUE, PARTY_MSG_USE_ON_WHICH_MON, Task_HandleChooseMonInput, CB2_ReturnToBagMenuPocket);
+}*/
+
+/*void ItemUseCB_PokemonPowderJar(u8 taskId, TaskFunc task)
+{
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    //struct PartyMenuInternal *ptr = sPartyMenuInternal;
+    //s16 *arrayPtr = ptr->data;
+    u16 *itemPtr = &gSpecialVar_ItemId;
+    bool8 cannotUse;
+    u32 oldStatus = GetMonAilment(mon);
+    //u8 holdEffectParam = ItemId_GetHoldEffectParam(*itemPtr);
+
+    if (!(oldStatus == AILMENT_NONE || oldStatus == AILMENT_PKRS))
+        cannotUse = TRUE;
+    else
+        cannotUse = ExecuteTableBasedItemEffect(mon, *itemPtr, gPartyMenu.slotId, 0);
+    PlaySE(SE_SELECT);
+    if (cannotUse != FALSE)
+    {
+        gPartyMenuUseExitCallback = FALSE;
+        if(oldStatus == AILMENT_FNT)
+            DisplayPartyMenuMessage(gText_PkmnIsFainted, TRUE);
+        else
+            DisplayPartyMenuMessage(gText_PkmnAlreadyHasStatus, TRUE);
+        ScheduleBgCopyTilemapToVram(2);
+        if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD)
+            gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+        else
+            gTasks[taskId].func = task;
+        return;
+    }
+    else
+    {
+        //gPartyMenuUseExitCallback = TRUE;
+        SetPartyMonAilmentGfx(mon, &sPartyMenuBoxes[gPartyMenu.slotId]);
+        if(gSprites[sPartyMenuBoxes[gPartyMenu.slotId].statusSpriteId].invisible)
+            DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[gPartyMenu.slotId], 1);
+        GetMonNickname(mon, gStringVar1);
+        SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_POKEMON_POWDER_JAR);
+        DisplaySelectionWindow(SELECTWINDOW_MOVES);
+        DisplayPartyMenuStdMessage(PARTY_MSG_GIVE_WHICH_STATUS);
+        static const u32 statusMap =
+        {
+            STATUS1_BURN,
+            STATUS1_PARALYSIS,
+            STATUS1_POISON,
+            STATUS1_FREEZE,
+            STATUS1_SLEEP,
+        };
+        gTasks[taskId].data[0] = TASK_NONE;
+        gTasks[taskId].func = Task_HandleSelectionMenuInput;
+        s16 *data = gTasks[taskId].data;
+        u32 newStatus = statusMap[data[0]];
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+        TryGiveStatusToMon(taskId, newStatus);
+        ScheduleBgCopyTilemapToVram(2);
+        if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD)
+            gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+        else
+            gTasks[taskId].func = task;
+        //ShowStatusSelectionWindow();
+        s8 input = Menu_ProcessInput();
+
+        if (input != MENU_NOTHING_CHOSEN)
+        {
+            if (input == MENU_B_PRESSED)
+            {
+                PlaySE(SE_SELECT);
+                ReturnToUseOnWhichMon(taskId);
+            }
+            else
+            {
+                PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+                PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+                gPartyMenu.data1 = Menu_GetCursorPos();
+                TryGiveStatusToMon(taskId);
+                ScheduleBgCopyTilemapToVram(2);
+                if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD)
+                    gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+                else
+                    gTasks[taskId].func = task;
+            }
+        }
+
+        /*StringExpandPlaceholders()
+        DisplayPartyMenuMessage(gStringVar4, TRUE);
+        
+        //message which status
+        //multichoice(25, 5, MULTI_STATUS, TRUE))
+    }
+}
+
+static void ShowStatusSelectionWindow()
+{
+    u8 fontId = FONT_NORMAL;
+    u8 windowId = DisplaySelectionWindow(SELECTWINDOW_MOVES);
+    AddTextPrinterParameterized(windowId, fontId, "Burn", 8, 1, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId, fontId, "Paralyze", 8, 17, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId, fontId, "Poison", 8, 33, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId, fontId, "Freeze", 8, 49, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId, fontId, "Sleep", 8, 65, TEXT_SKIP_DRAW, NULL);
+    InitMenuInUpperLeftCornerNormal(windowId, 5, 0);
+    ScheduleBgCopyTilemapToVram(2);
+}
+
+void TryGiveStatusToMon(u8 taskId, u32 status)
+{
+    struct PartyMenu *ptr = &gPartyMenu;
+    struct Pokemon *mon = &gPlayerParty[ptr->slotId];
+    //s16 status = data[0];
+    //u16 item = gSpecialVar_ItemId;
+    u32 type1 = gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES)].types[0];
+    u32 type2 = gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES)].types[1];
+    switch (status)
+    {
+    case STATUS1_BURN:
+        if (type1 == TYPE_FIRE || type2 == TYPE_FIRE)
+        {
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+        }
+        else
+        {
+            gPartyMenuUseExitCallback = TRUE;
+            PlaySE(SE_USE_ITEM);
+            SetMonData(mon, MON_DATA_STATUS, &status);
+            StringExpandPlaceholders(gStringVar4, gText_PkmnBurned);
+            DisplayPartyMenuMessage(gStringVar4, TRUE);
+        }
+        break;
+    case 1:
+        if (type1 == TYPE_ELECTRIC || type2 == TYPE_ELECTRIC)
+        {
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+        }
+        else
+        {
+            gPartyMenuUseExitCallback = TRUE;
+            PlaySE(SE_USE_ITEM);
+            SetMonData(mon, MON_DATA_STATUS, &status);
+            StringExpandPlaceholders(gStringVar4, gText_PkmnParalyzed);
+            DisplayPartyMenuMessage(gStringVar4, TRUE);
+        }
+        break;
+    case 2:
+        if ((type1 == TYPE_POISON || type2 == TYPE_POISON) || (type1 == TYPE_STEEL || type2 == TYPE_STEEL))
+        {
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+        }
+        else
+        {
+            gPartyMenuUseExitCallback = TRUE;
+            PlaySE(SE_USE_ITEM);
+            SetMonData(mon, MON_DATA_STATUS, &status);
+            StringExpandPlaceholders(gStringVar4, gText_PkmnPoisoned);
+            DisplayPartyMenuMessage(gStringVar4, TRUE);
+        }
+        break;
+    case 3:
+        if (type1 == TYPE_ICE || type2 == TYPE_ICE)
+        {
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+        }
+        else
+        {
+            gPartyMenuUseExitCallback = TRUE;
+            PlaySE(SE_USE_ITEM);
+            SetMonData(mon, MON_DATA_STATUS, &status);
+            StringExpandPlaceholders(gStringVar4, gText_PkmnFrozen);
+            DisplayPartyMenuMessage(gStringVar4, TRUE);
+        }
+        break;
+    case 4:
+        gPartyMenuUseExitCallback = TRUE;
+        PlaySE(SE_USE_ITEM);
+        SetMonData(mon, MON_DATA_STATUS, &status);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnPutToSleep);
+        DisplayPartyMenuMessage(gStringVar4, TRUE);
+        break;
+    default:
+        break;
+    }
+}*/

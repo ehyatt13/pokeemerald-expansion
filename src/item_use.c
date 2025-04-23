@@ -79,6 +79,9 @@ static void SetDistanceOfClosestHiddenItem(u8, s16, s16);
 static void CB2_OpenPokeblockFromBag(void);
 static void ItemUseOnFieldCB_Honey(u8 taskId);
 static bool32 IsValidLocationForVsSeeker(void);
+void ItemUseOutOfBattle_PokemonPowderJar(u8 taskId);
+void Task_OpenRegisteredPokemonPowderJar(u8 taskId);
+//static void CB2_OpenPokemonPowderJarFromBag(u8 taskId);
 
 static const u8 sText_CantDismountBike[] = _("You can't dismount your BIKE here.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_ItemFinderNearby[] = _("Huh?\nThe ITEMFINDER's responding!\pThere's an item buried around here!{PAUSE_UNTIL_PRESS}");
@@ -1616,9 +1619,10 @@ void ItemUseOutOfBattle_EndlessCandy(u8 taskId)
 
 extern u8 PokeVialHealScript[];
 
-void ItemUseOnFieldCB_PokeVial(u8 taskId)
+static void ItemUseOnFieldCB_PokeVial(u8 taskId)
 {
     LockPlayerFieldControls();
+    PlaySE(SE_USE_ITEM);
     ScriptContext_SetupScript(PokeVialHealScript);
     DestroyTask(taskId);
 }
@@ -1635,6 +1639,36 @@ void ItemUseOutOfBattle_PokeVial(u8 taskId)
     else {
         sItemUseOnFieldCB = ItemUseOnFieldCB_PokeVial;
         SetUpItemUseOnFieldCallback(taskId);
+    }
+}
+
+void ItemUseOutOfBattle_Repellent(u8 taskId)
+{
+    //here
+}
+
+void ItemUseOutOfBattle_PokemonPowderJar(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_PokemonPowderJar;
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+    {
+        SetUpItemUseCallback(taskId);
+    }
+    else
+    {
+        gFieldCallback = FieldCB_ReturnToFieldNoScript;
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = Task_OpenRegisteredPokemonPowderJar;
+    }
+}
+
+void Task_OpenRegisteredPokemonPowderJar(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        InitPartyMenuForPokemonPowderJarFromField(taskId);
+        DestroyTask(taskId);
     }
 }
 

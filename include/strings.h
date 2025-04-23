@@ -2432,5 +2432,13 @@ extern const u8 gText_GalarStarter[];
 extern const u8 gText_PaldeaStarter[];
 extern const u8 gText_Original[];
 extern const u8 gText_New[];
+extern const u8 gText_PkmnBurned[];
+extern const u8 gText_PkmnPoisoned[];
+extern const u8 gText_PkmnParalyzed[];
+extern const u8 gText_PkmnFrozen[];
+extern const u8 gText_PkmnPutToSleep[];
+extern const u8 gText_PkmnAlreadyHasStatus[];
+extern const u8 gText_PkmnIsFainted[];
+extern const u8 gText_WhichStatus[];
 
 #endif // GUARD_STRINGS_H

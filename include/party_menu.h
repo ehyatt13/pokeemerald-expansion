@@ -106,5 +106,8 @@ void BufferMoveDeleterNicknameAndMove(void);
 void GetNumMovesSelectedMonHas(void);
 void MoveDeleterChooseMoveToForget(void);
 void ItemUseCB_EndlessCandy(u8 taskId, TaskFunc task);
+void ItemUseCB_PokemonPowderJar(u8 taskId, TaskFunc task);
+void InitPartyMenuForPokemonPowderJarFromField(u8 taskId);
+//void InitPartyMenuForPokemonPowderJar(u8 taskId, void (*callback)(void));
 
 #endif // GUARD_PARTY_MENU_H
