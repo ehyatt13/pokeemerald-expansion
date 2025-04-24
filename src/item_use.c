@@ -1642,9 +1642,28 @@ void ItemUseOutOfBattle_PokeVial(u8 taskId)
     }
 }
 
+extern u8 EventScript_UseRepellent[];
+
+static void ItemUseOnFieldCB_Repellent(u8 taskId)
+{
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(EventScript_UseRepellent);
+    DestroyTask(taskId);
+}
+
 void ItemUseOutOfBattle_Repellent(u8 taskId)
 {
-    //here
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_Repellent;
+        gFieldCallback = FieldCB_UseItemOnField;
+        gBagMenu->newScreenCallback = CB2_ReturnToField;
+        Task_FadeAndCloseBagMenu(taskId);
+    }
+    else {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_Repellent;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
 }
 
 void ItemUseOutOfBattle_PokemonPowderJar(u8 taskId)

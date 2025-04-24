@@ -136,6 +136,22 @@ EventScript_UseSpray::
 	return
 
 
+EventScript_UseRepellent::
+	goto_if_set FLAG_REPELLENT_ACTIVE, EventScript_RepellentActive
+	setflag FLAG_REPELLENT_ACTIVE
+	playse SE_REPEL
+	msgbox Text_RepellentOn, MSGBOX_DEFAULT
+	releaseall
+	end
+
+
+EventScript_RepellentActive::
+	clearflag FLAG_REPELLENT_ACTIVE
+	playse SE_SWITCH
+	msgbox Text_RepellentOff, MSGBOX_DEFAULT
+	releaseall
+	end
+
 Text_SprayWoreOff::
 	.string "{STR_VAR_1}'s effect wore off…$"
 
@@ -150,3 +166,9 @@ Text_SprayWoreOffAskUseX::
 Text_SprayWoreOffUseX::
 	.string "{PLAYER} used the\n"
 	.string "{STR_VAR_2}.$"
+
+Text_RepellentOn::
+	.string "The Repellent is now active.$"
+
+Text_RepellentOff::
+	.string "The Repellent is now inactive.$"
