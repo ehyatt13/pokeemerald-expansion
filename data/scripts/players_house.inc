@@ -198,7 +198,7 @@ PlayersHouse_1f_EventScript_Professor_Enters::
 	closemessage
 	applymovement VAR_0x8005, Common_Movement_WalkInPlaceRight
 	waitmovement 0
-	msgbox PlayersHouse_1F_Text_MomGreeting, MSGBOX_DEFAULT
+	msgbox PlayersHouse_1F_Text_MomGreetingMale, MSGBOX_DEFAULT
 	closemessage
 	applymovement VAR_0x8006, Common_Movement_WalkInPlaceUp
 	waitmovement 0

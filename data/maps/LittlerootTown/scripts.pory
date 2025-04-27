@@ -1391,19 +1391,27 @@ movement BirchLookAround {
 	step_end
 }
 
+#text BirchTalkAboutWeather {
+	#"PROF. BIRCH: The weather has been really\n"
+	#"abnormal recently.\p"
+	#"To be honest, if not for the weather,\n"
+	#"I was planning on going to ROUTE 101\l"
+	#"for some field-work.\p"
+	#"Who knows what could have happened,\n"
+	#"haha!\p"
+	#"But back to the weather, I'm unsure\n"
+	#"what the cause of this phenomena is.\p"
+	#"I can only hope this doesn't continue,\n"
+	#"or suggest troubling developments in\l"
+	#"regards to those legendary POKéMON...\p"
+	#"But we shouldn't stay out here and\n"
+	#"should continue to my house."
+#}
+
 text BirchTalkAboutWeather {
-	"PROF. BIRCH: The weather has been really\n"
-	"abnormal recently.\p"
-	"To be honest, if not for the weather,\n"
-	"I was planning on going to ROUTE 101\l"
-	"for some field-work.\p"
-	"Who knows what could have happened,\n"
-	"haha!\p"
-	"But back to the weather, I'm unsure\n"
-	"what the cause of this phenomena is.\p"
-	"I can only hope this doesn't continue,\n"
-	"or suggest troubling developments in\l"
-	"regards to those legendary POKéMON...\p"
-	"But we shouldn't stay out here and\n"
-	"should continue to my house."
+	format("PROF. BIRCH: The weather has been really abnormal recently.\p"
+		"To be honest, if not for the weather, I was planning on going to ROUTE 101 for some field-work.\p"
+		"Who knows what could have happened, haha!\pBut back to the weather, I'm unsure what the cause of this phenomena is.\p"
+		"I can only hope this doesn't continue, or suggest troubling developments in regards to those legendary POKéMON...\p"
+		"But we shouldn't stay out here and should continue to my house.")
 }

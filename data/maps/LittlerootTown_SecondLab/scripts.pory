@@ -305,6 +305,8 @@ script LittlerootTown_SecondLab_EventScript_GrassStarter {
             hidemonpic
             setflag(FLAG_HIDE_GRASS_STARTER)
             setflag(FLAG_SYS_POKEMON_GET)
+            setvar(VAR_STARTER_MON, 0)
+            goto(LittlerootTown_SecondLab_EventScript_BirchAfterChoice)
         }
         elif(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
             playfanfare(MUS_OBTAIN_ITEM)
@@ -319,7 +321,9 @@ script LittlerootTown_SecondLab_EventScript_GrassStarter {
             }
             hidemonpic
             setflag(FLAG_HIDE_GRASS_STARTER)
-            setflag(FLAG_SYS_POKEMON_GET) 
+            setflag(FLAG_SYS_POKEMON_GET)
+            setvar(VAR_STARTER_MON, 0)
+            goto(LittlerootTown_SecondLab_EventScript_BirchAfterChoice) 
         }
         else {
             hidemonpic
@@ -353,6 +357,8 @@ script LittlerootTown_SecondLab_EventScript_FireStarter {
             hidemonpic
             setflag(FLAG_HIDE_FIRE_STARTER)
             setflag(FLAG_SYS_POKEMON_GET)
+            setvar(VAR_STARTER_MON, 1)
+            goto(LittlerootTown_SecondLab_EventScript_BirchAfterChoice)
         }
         elif(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
             playfanfare(MUS_OBTAIN_ITEM)
@@ -367,7 +373,9 @@ script LittlerootTown_SecondLab_EventScript_FireStarter {
             }
             hidemonpic
             setflag(FLAG_HIDE_FIRE_STARTER)
-            setflag(FLAG_SYS_POKEMON_GET) 
+            setflag(FLAG_SYS_POKEMON_GET)
+            setvar(VAR_STARTER_MON, 1)
+            goto(LittlerootTown_SecondLab_EventScript_BirchAfterChoice)
         }
         else {
             hidemonpic
@@ -401,6 +409,8 @@ script LittlerootTown_SecondLab_EventScript_WaterStarter {
             hidemonpic
             setflag(FLAG_HIDE_WATER_STARTER)
             setflag(FLAG_SYS_POKEMON_GET)
+            setvar(VAR_STARTER_MON, 2)
+            goto(LittlerootTown_SecondLab_EventScript_BirchAfterChoice)
         }
         elif(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
             playfanfare(MUS_OBTAIN_ITEM)
@@ -415,7 +425,9 @@ script LittlerootTown_SecondLab_EventScript_WaterStarter {
             }
             hidemonpic
             setflag(FLAG_HIDE_WATER_STARTER)
-            setflag(FLAG_SYS_POKEMON_GET) 
+            setflag(FLAG_SYS_POKEMON_GET)
+            setvar(VAR_STARTER_MON, 2)
+            goto(LittlerootTown_SecondLab_EventScript_BirchAfterChoice)
         }
         else {
             hidemonpic
@@ -426,4 +438,47 @@ script LittlerootTown_SecondLab_EventScript_WaterStarter {
         hidemonpic
         msgbox(LittlerootTown_SecondLab_Text_DeclineStarter)
     }
+}
+
+script LittlerootTown_SecondLab_EventScript_BirchAfterChoice {
+    lock
+    applymovement(LOCALID_BIRCH, moves(walk_in_place_faster_left))
+    delay(15)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_in_place_faster_right))
+    delay(15)
+    msgbox(GoSeeRival)
+    closemessage
+    clearflag(FLAG_HIDE_ROUTE_101_BOY)
+	setvar(VAR_BIRCH_LAB_STATE, 3)
+    setflag(FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE)
+	clearflag(FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH)
+	setflag(FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG)
+    setflag(FLAG_RESCUED_BIRCH)
+    setflag(FLAG_HIDE_ROUTE_101_ZIGZAGOON)
+	setvar(VAR_ROUTE101_STATE, 3)
+    setvar(VAR_LITTLEROOT_TOWN_STATE, 2)
+    checkplayergender
+	call_if_eq(VAR_RESULT, MALE, Route101_EventScript_HideMayInBedroom)
+	call_if_eq(VAR_RESULT, FEMALE, Route101_EventScript_HideBrendanInBedroom)
+    release
+}
+
+text GoSeeRival {
+    format("PROF. BIRCH: So, you chose {STR_VAR_1}, {PLAYER}?\pThat seems like a good choice. I can see a connection between the two of you.\p"
+        "Well, as a trial run so to speak, you should go see {RIVAL} on ROUTE 103.\p"
+        "I'm sure {RIVAL} would enjoy the company and this would be a good opportunity for you and {STR_VAR_1} get used to working together.\p"
+        "I'll see you when you get back. Have fun!")
+}
+
+script LittlerootTown_SecondLab_EventScript_DontLeave {
+    lock
+    msgbox(WhereAreYouGoing)
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up))
+    waitmovement(0)
+    release
+}
+
+text WhereAreYouGoing {
+    format("PROF. BIRCH: Where are you going {PLAYER}?\p Don't be shy! Go ahead and pick a POKéMON!")
 }

@@ -464,13 +464,13 @@ PlayersHouse_1F_Text_BirchExplanation:
 	.string "You both are NORMAN's family,\n"
 	.string "right?$"
 
-PlayersHouse_1F_Text_MomGreeting:
+PlayersHouse_1F_Text_MomGreetingMale:
 	.string "MOM: Yes, I am NORMAN's wife, and this\n"
 	.string "is our child {PLAYER}.\p"
 	.string "It is a pleasure to meet you in person,\n"
 	.string "PROF. BIRCH.\p"
 	.string "I was getting ready to send {PLAYER}\n"
-	.string "over next-door to introduce themself\l"
+	.string "over next-door to introduce himself\l"
 	.string "when I got distracted by the TV.$"
 
 PlayersHouse_1F_Text_BirchOffer:

@@ -474,6 +474,7 @@ LittlerootTown_SecondLab_EventScript_GrassStarter_9:
 	hidemonpic
 	setflag FLAG_HIDE_GRASS_STARTER
 	setflag FLAG_SYS_POKEMON_GET
+	goto LittlerootTown_SecondLab_EventScript_BirchAfterChoice
 	return
 
 LittlerootTown_SecondLab_EventScript_GrassStarter_5:
@@ -489,6 +490,7 @@ LittlerootTown_SecondLab_EventScript_GrassStarter_12:
 	hidemonpic
 	setflag FLAG_HIDE_GRASS_STARTER
 	setflag FLAG_SYS_POKEMON_GET
+	goto LittlerootTown_SecondLab_EventScript_BirchAfterChoice
 	return
 
 LittlerootTown_SecondLab_EventScript_GrassStarter_10:
@@ -536,6 +538,7 @@ LittlerootTown_SecondLab_EventScript_FireStarter_9:
 	hidemonpic
 	setflag FLAG_HIDE_FIRE_STARTER
 	setflag FLAG_SYS_POKEMON_GET
+	goto LittlerootTown_SecondLab_EventScript_BirchAfterChoice
 	return
 
 LittlerootTown_SecondLab_EventScript_FireStarter_5:
@@ -551,6 +554,7 @@ LittlerootTown_SecondLab_EventScript_FireStarter_12:
 	hidemonpic
 	setflag FLAG_HIDE_FIRE_STARTER
 	setflag FLAG_SYS_POKEMON_GET
+	goto LittlerootTown_SecondLab_EventScript_BirchAfterChoice
 	return
 
 LittlerootTown_SecondLab_EventScript_FireStarter_10:
@@ -598,6 +602,7 @@ LittlerootTown_SecondLab_EventScript_WaterStarter_9:
 	hidemonpic
 	setflag FLAG_HIDE_WATER_STARTER
 	setflag FLAG_SYS_POKEMON_GET
+	goto LittlerootTown_SecondLab_EventScript_BirchAfterChoice
 	return
 
 LittlerootTown_SecondLab_EventScript_WaterStarter_5:
@@ -613,6 +618,7 @@ LittlerootTown_SecondLab_EventScript_WaterStarter_12:
 	hidemonpic
 	setflag FLAG_HIDE_WATER_STARTER
 	setflag FLAG_SYS_POKEMON_GET
+	goto LittlerootTown_SecondLab_EventScript_BirchAfterChoice
 	return
 
 LittlerootTown_SecondLab_EventScript_WaterStarter_10:
@@ -626,5 +632,71 @@ LittlerootTown_SecondLab_EventScript_WaterStarter_13:
 	goto LittlerootTown_SecondLab_EventScript_WaterStarter_12
 
 
+LittlerootTown_SecondLab_EventScript_BirchAfterChoice::
+	lock
+	applymovement LOCALID_BIRCH, LittlerootTown_SecondLab_EventScript_BirchAfterChoice_Movement_0
+	delay 15
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_SecondLab_EventScript_BirchAfterChoice_Movement_1
+	delay 15
+	msgbox GoSeeRival
+	closemessage
+	clearflag FLAG_HIDE_ROUTE_101_BOY
+	setvar VAR_BIRCH_LAB_STATE, 3
+	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
+	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
+	setflag FLAG_RESCUED_BIRCH
+	setflag FLAG_HIDE_ROUTE_101_ZIGZAGOON
+	setvar VAR_ROUTE101_STATE, 3
+	setvar VAR_LITTLEROOT_TOWN_STATE, 2
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, Route101_EventScript_HideMayInBedroom
+	call_if_eq VAR_RESULT, FEMALE, Route101_EventScript_HideBrendanInBedroom
+	release
+	return
+
+
+LittlerootTown_SecondLab_EventScript_DontLeave::
+	lock
+	msgbox WhereAreYouGoing
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_SecondLab_EventScript_DontLeave_Movement_0
+	waitmovement 0
+	release
+	return
+
+
+LittlerootTown_SecondLab_EventScript_BirchAfterChoice_Movement_0:
+	walk_in_place_faster_left
+	step_end
+
+LittlerootTown_SecondLab_EventScript_BirchAfterChoice_Movement_1:
+	walk_in_place_faster_right
+	step_end
+
+LittlerootTown_SecondLab_EventScript_DontLeave_Movement_0:
+	walk_up
+	step_end
+
 LittlerootTown_SecondLab_EventScript_GrassStarter_Text_0:
 	.string "Do you want to choose {STR_VAR_1}?$"
+
+GoSeeRival::
+	.string "PROF. BIRCH: So, you chose\n"
+	.string "{STR_VAR_1}, {PLAYER}?\p"
+	.string "That seems like a good choice. I can see\n"
+	.string "a connection between the two of you.\p"
+	.string "Well, as a trial run so to speak, you\n"
+	.string "should go see {RIVAL} on ROUTE 103.\p"
+	.string "I'm sure {RIVAL} would enjoy the\n"
+	.string "company and this would be a good\l"
+	.string "opportunity for you and {STR_VAR_1}\l"
+	.string "get used to working together.\p"
+	.string "I'll see you when you get back. Have\n"
+	.string "fun!$"
+
+WhereAreYouGoing::
+	.string "PROF. BIRCH: Where are you going\n"
+	.string "{PLAYER}?\p"
+	.string "Don't be shy! Go ahead and pick a\n"
+	.string "POKéMON!$"

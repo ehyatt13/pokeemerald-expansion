@@ -1467,11 +1467,11 @@ Drought::
 	.string "have intensified to dangerous levels...$"
 
 BirchTalkAboutWeather::
-	.string "PROF. BIRCH: The weather has been really\n"
-	.string "abnormal recently.\p"
-	.string "To be honest, if not for the weather,\n"
-	.string "I was planning on going to ROUTE 101\l"
-	.string "for some field-work.\p"
+	.string "PROF. BIRCH: The weather has been\n"
+	.string "really abnormal recently.\p"
+	.string "To be honest, if not for the weather, I\n"
+	.string "was planning on going to ROUTE 101 for\l"
+	.string "some field-work.\p"
 	.string "Who knows what could have happened,\n"
 	.string "haha!\p"
 	.string "But back to the weather, I'm unsure\n"
