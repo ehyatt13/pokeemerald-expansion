@@ -304,7 +304,7 @@ static const u8 gText_ContinueMenuBadges[] = _("BADGES");
 #define MENU_WIN_VCOORDS(n) WIN_RANGE(((MENU_TOP_WIN##n - 1) * 8) + MENU_SHADOW_PADDING, (MENU_TOP_WIN##n + MENU_HEIGHT_WIN##n + 1) * 8 - MENU_SHADOW_PADDING)
 #define MENU_SCROLL_SHIFT WIN_RANGE(32, 32)
 
-#define INTRO_POKEMON SPECIES_GIRATINA_ORIGIN
+#define INTRO_POKEMON SPECIES_ARCEUS
 
 static const struct WindowTemplate sWindowTemplates_MainMenu[] =
 {
