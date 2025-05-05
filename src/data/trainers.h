@@ -42178,3 +42178,45 @@ F_TRAINER_FEMALE |
             },
         },
     },
+#line 16877
+    [DIFFICULTY_NORMAL][TRAINER_SECOND_LAB_BIRCH] =
+    {
+#line 16878
+        .trainerName = _("BIRCH"),
+#line 16879
+        .trainerClass = TRAINER_CLASS_PROFESSOR,
+#line 16880
+        .trainerPic = TRAINER_PIC_BIRCH,
+        .encounterMusic_gender =
+#line 16882
+            TRAINER_ENCOUNTER_MUSIC_MALE,
+#line 16883
+        .items = { ITEM_POTION },
+#line 16884
+        .doubleBattle = FALSE,
+#line 16886
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+#line 16885
+        .mugshotColor = MUGSHOT_COLOR_GREEN,
+        .partySize = 1,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 16888
+            .species = SPECIES_ZIGZAGOON,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 16888
+            .heldItem = ITEM_SITRUS_BERRY,
+#line 16890
+            .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
+#line 16889
+            .lvl = 2,
+            .nature = NATURE_HARDY,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 16891
+                MOVE_POUND,
+            },
+            },
+        },
+    },

@@ -446,6 +446,10 @@ script LittlerootTown_SecondLab_EventScript_BirchAfterChoice {
     delay(15)
     applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_in_place_faster_right))
     delay(15)
+    msgbox(TestBattle)
+    closemessage
+    trainerbattle_no_intro(TRAINER_SECOND_LAB_BIRCH, SecondLab_Text_Birch_Defeat)
+    bufferspeciesname(STR_VAR_1, VAR_TEMP_8)
     msgbox(GoSeeRival)
     closemessage
     clearflag(FLAG_HIDE_ROUTE_101_BOY)
@@ -463,10 +467,14 @@ script LittlerootTown_SecondLab_EventScript_BirchAfterChoice {
     release
 }
 
-text GoSeeRival {
+text TestBattle {
     format("PROF. BIRCH: So, you chose {STR_VAR_1}, {PLAYER}?\pThat seems like a good choice. I can see a connection between the two of you.\p"
-        "Well, as a trial run so to speak, you should go see {RIVAL} on ROUTE 103.\p"
-        "I'm sure {RIVAL} would enjoy the company and this would be a good opportunity for you and {STR_VAR_1} get used to working together.\p"
+        "Okay then! Why don't we have a battle to see just how well you and {STR_VAR_1} can work together!")
+}
+
+text GoSeeRival {
+    format("Great battle {PLAYER}, you and {STR_VAR_1} were really in-sync!\p Now that you two have shown you can handle yourselves, you should go see {RIVAL} on ROUTE 103.\p"
+        "I'm sure {RIVAL} would enjoy the company and this would be a good opportunity for you and {STR_VAR_1} to grow even closer.\p"
         "I'll see you when you get back. Have fun!")
 }
 

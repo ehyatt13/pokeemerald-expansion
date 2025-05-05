@@ -4794,3 +4794,7 @@ VSSeeker_Text_TrainersNotReady::
 	.string "The other Trainers don't appear\n"
 	.string "to be ready for battle.\p"
 	.string "Let's wait till later.{PAUSE_UNTIL_PRESS}$"
+
+SecondLab_Text_Birch_Defeat::
+	.string "Nice! You have the makings of\n"
+	.string "a great Trainer, {PLAYER}!$"

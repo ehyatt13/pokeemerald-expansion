@@ -474,6 +474,7 @@ LittlerootTown_SecondLab_EventScript_GrassStarter_9:
 	hidemonpic
 	setflag FLAG_HIDE_GRASS_STARTER
 	setflag FLAG_SYS_POKEMON_GET
+	setvar VAR_STARTER_MON, 0
 	goto LittlerootTown_SecondLab_EventScript_BirchAfterChoice
 	return
 
@@ -490,6 +491,7 @@ LittlerootTown_SecondLab_EventScript_GrassStarter_12:
 	hidemonpic
 	setflag FLAG_HIDE_GRASS_STARTER
 	setflag FLAG_SYS_POKEMON_GET
+	setvar VAR_STARTER_MON, 0
 	goto LittlerootTown_SecondLab_EventScript_BirchAfterChoice
 	return
 
@@ -538,6 +540,7 @@ LittlerootTown_SecondLab_EventScript_FireStarter_9:
 	hidemonpic
 	setflag FLAG_HIDE_FIRE_STARTER
 	setflag FLAG_SYS_POKEMON_GET
+	setvar VAR_STARTER_MON, 1
 	goto LittlerootTown_SecondLab_EventScript_BirchAfterChoice
 	return
 
@@ -554,6 +557,7 @@ LittlerootTown_SecondLab_EventScript_FireStarter_12:
 	hidemonpic
 	setflag FLAG_HIDE_FIRE_STARTER
 	setflag FLAG_SYS_POKEMON_GET
+	setvar VAR_STARTER_MON, 1
 	goto LittlerootTown_SecondLab_EventScript_BirchAfterChoice
 	return
 
@@ -602,6 +606,7 @@ LittlerootTown_SecondLab_EventScript_WaterStarter_9:
 	hidemonpic
 	setflag FLAG_HIDE_WATER_STARTER
 	setflag FLAG_SYS_POKEMON_GET
+	setvar VAR_STARTER_MON, 2
 	goto LittlerootTown_SecondLab_EventScript_BirchAfterChoice
 	return
 
@@ -618,6 +623,7 @@ LittlerootTown_SecondLab_EventScript_WaterStarter_12:
 	hidemonpic
 	setflag FLAG_HIDE_WATER_STARTER
 	setflag FLAG_SYS_POKEMON_GET
+	setvar VAR_STARTER_MON, 2
 	goto LittlerootTown_SecondLab_EventScript_BirchAfterChoice
 	return
 
@@ -638,6 +644,10 @@ LittlerootTown_SecondLab_EventScript_BirchAfterChoice::
 	delay 15
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_SecondLab_EventScript_BirchAfterChoice_Movement_1
 	delay 15
+	msgbox TestBattle
+	closemessage
+	trainerbattle_no_intro TRAINER_SECOND_LAB_BIRCH, SecondLab_Text_Birch_Defeat
+	bufferspeciesname STR_VAR_1, VAR_TEMP_8
 	msgbox GoSeeRival
 	closemessage
 	clearflag FLAG_HIDE_ROUTE_101_BOY
@@ -681,17 +691,25 @@ LittlerootTown_SecondLab_EventScript_DontLeave_Movement_0:
 LittlerootTown_SecondLab_EventScript_GrassStarter_Text_0:
 	.string "Do you want to choose {STR_VAR_1}?$"
 
-GoSeeRival::
+TestBattle::
 	.string "PROF. BIRCH: So, you chose\n"
 	.string "{STR_VAR_1}, {PLAYER}?\p"
 	.string "That seems like a good choice. I can see\n"
 	.string "a connection between the two of you.\p"
-	.string "Well, as a trial run so to speak, you\n"
-	.string "should go see {RIVAL} on ROUTE 103.\p"
+	.string "Okay then! Why don't we have a battle\n"
+	.string "to see just how well you and\l"
+	.string "{STR_VAR_1} can work together!$"
+
+GoSeeRival::
+	.string "Great battle {PLAYER}, you and\n"
+	.string "{STR_VAR_1} were really in-sync!\p"
+	.string "Now that you two have shown you can\n"
+	.string "handle yourselves, you should go see\l"
+	.string "{RIVAL} on ROUTE 103.\p"
 	.string "I'm sure {RIVAL} would enjoy the\n"
 	.string "company and this would be a good\l"
 	.string "opportunity for you and {STR_VAR_1}\l"
-	.string "get used to working together.\p"
+	.string "to grow even closer.\p"
 	.string "I'll see you when you get back. Have\n"
 	.string "fun!$"
 
