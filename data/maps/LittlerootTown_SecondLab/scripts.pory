@@ -469,11 +469,11 @@ script LittlerootTown_SecondLab_EventScript_BirchAfterChoice {
 
 text TestBattle {
     format("PROF. BIRCH: So, you chose {STR_VAR_1}, {PLAYER}?\pThat seems like a good choice. I can see a connection between the two of you.\p"
-        "Okay then! Why don't we have a battle to see just how well you and {STR_VAR_1} can work together!")
+        "Okay then, why don't we have a battle to see just how well you and {STR_VAR_1} can work together!")
 }
 
 text GoSeeRival {
-    format("Great battle {PLAYER}, you and {STR_VAR_1} were really in-sync!\p Now that you two have shown you can handle yourselves, you should go see {RIVAL} on ROUTE 103.\p"
+    format("Great battle, {PLAYER}! You and {STR_VAR_1} were really in-sync!\p Now that you two have shown you can handle yourselves, you should go see {RIVAL} on ROUTE 103.\p"
         "I'm sure {RIVAL} would enjoy the company and this would be a good opportunity for you and {STR_VAR_1} to grow even closer.\p"
         "I'll see you when you get back. Have fun!")
 }

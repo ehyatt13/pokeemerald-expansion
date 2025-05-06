@@ -696,12 +696,12 @@ TestBattle::
 	.string "{STR_VAR_1}, {PLAYER}?\p"
 	.string "That seems like a good choice. I can see\n"
 	.string "a connection between the two of you.\p"
-	.string "Okay then! Why don't we have a battle\n"
-	.string "to see just how well you and\l"
+	.string "Okay then, why don't we have a battle to\n"
+	.string "see just how well you and\l"
 	.string "{STR_VAR_1} can work together!$"
 
 GoSeeRival::
-	.string "Great battle {PLAYER}, you and\n"
+	.string "Great battle, {PLAYER}! You and\n"
 	.string "{STR_VAR_1} were really in-sync!\p"
 	.string "Now that you two have shown you can\n"
 	.string "handle yourselves, you should go see\l"
