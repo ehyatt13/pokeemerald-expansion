@@ -142,6 +142,7 @@
       "flag": "FLAG_TEMP_1"
     },
     {
+      "local_id": "LOCALID_LITTLEROOT_GROUDON_ASLEEP",
       "graphics_id": "OBJ_EVENT_GFX_GROUDON_ASLEEP",
       "x": 51,
       "y": 6,
@@ -155,6 +156,7 @@
       "flag": "FLAG_HIDE_GROUDON_ASLEEP"
     },
     {
+      "local_id": "LOCALID_LITTLEROOT_KYOGRE_ASLEEP",
       "graphics_id": "OBJ_EVENT_GFX_KYOGRE_ASLEEP",
       "x": 51,
       "y": 16,
@@ -168,6 +170,7 @@
       "flag": "FLAG_HIDE_KYOGRE_ASLEEP"
     },
     {
+      "local_id": "LOCALID_LITTLEROOT_GROUDON",
       "graphics_id": "OBJ_EVENT_GFX_GROUDON_FRONT",
       "x": 51,
       "y": 6,
@@ -181,6 +184,7 @@
       "flag": "FLAG_HIDE_GROUDON_AWAKE"
     },
     {
+      "local_id": "LOCALID_LITTLEROOT_KYOGRE",
       "graphics_id": "OBJ_EVENT_GFX_KYOGRE_FRONT",
       "x": 51,
       "y": 16,

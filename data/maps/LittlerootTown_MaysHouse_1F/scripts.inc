@@ -48,15 +48,15 @@ LittlerootTown_MaysHouse_1F_EventScript_MoveMomToDoor::
 LittlerootTown_MaysHouse_1F_EventScript_MoveMomAndBirch::
 	addobject LOCALID_PLAYERS_HOUSE_1F_MOM
 	setobjectxy LOCALID_PLAYERS_HOUSE_1F_MOM, 2, 7
-	setobjectmovementtype LOCALID_BIRCH, MOVEMENT_TYPE_FACE_UP
-	addobject LOCALID_BIRCH
-	setobjectxy LOCALID_BIRCH, 2, 6
+	setobjectmovementtype LOCALID_RIVALS_HOUSE_1F_BIRCH, MOVEMENT_TYPE_FACE_UP
+	addobject LOCALID_RIVALS_HOUSE_1F_BIRCH
+	setobjectxy LOCALID_RIVALS_HOUSE_1F_BIRCH, 2, 6
 	setobjectxy LOCALID_RIVALS_HOUSE_1F_MOM, 8, 3
 	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, Common_Movement_FaceUp
-	applymovement LOCALID_RIVAL_HOUSE_1F_MOM, Common_Movement_FaceUp
-	addobject LOCALID_RIVAL
-	setobjectxy LOCALID_RIVAL, 2, 2
-	applymovement LOCALID_RIVAL, LittlerootTown_MaysHouse_1F_Movement_MaySetup
+	applymovement LOCALID_RIVALS_HOUSE_1F_MOM, Common_Movement_FaceUp
+	addobject LOCALID_RIVALS_HOUSE_1F_RIVAL
+	setobjectxy LOCALID_RIVALS_HOUSE_1F_RIVAL, 2, 2
+	applymovement LOCALID_RIVALS_HOUSE_1F_RIVAL, LittlerootTown_MaysHouse_1F_Movement_MaySetup
 	return
 
 LittlerootTown_MaysHouse_1F_Movement_MaySetup:
@@ -136,52 +136,52 @@ LittlerootTown_MaysHouse_1F_Movement_RivalMomApproach:
 
 LittlerootTown_MaysHouse_1F_EventScript_MeetingEveryone::
 	lockall
-	applymovement LOCALID_BIRCH, LittlerootTown_MaysHouse_1F_Movement_BirchApproach
-	applymovement LOCALID_MOM, LittlerootTown_MaysHouse_1F_Movement_CommonApproach
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_MaysHouse_1F_Movement_CommonApproach
-	waitmovement LOCALID_BIRCH
+	applymovement LOCALID_RIVALS_HOUSE_1F_BIRCH, LittlerootTown_MaysHouse_1F_Movement_BirchApproach
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, LittlerootTown_MaysHouse_1F_Movement_CommonApproach
+	applymovement LOCALID_PLAYER, LittlerootTown_MaysHouse_1F_Movement_CommonApproach
+	waitmovement LOCALID_RIVALS_HOUSE_1F_BIRCH
 	playse SE_PIN
-	applymovement LOCALID_RIVAL_MOM, Common_Movement_ExclamationMark
+	applymovement LOCALID_RIVALS_HOUSE_1F_MOM, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement LOCALID_RIVAL_MOM, Common_Movement_Delay48
+	applymovement LOCALID_RIVALS_HOUSE_1F_MOM, Common_Movement_Delay48
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	applymovement LOCALID_RIVAL_MOM, LittlerootTown_MaysHouse_1F_Movement_RivalMomApproachEveryone
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_RIVALS_HOUSE_1F_MOM, LittlerootTown_MaysHouse_1F_Movement_RivalMomApproachEveryone
 	waitmovement 0
-	applymovement LOCALID_RIVAL, LittlerootTown_MaysHouse_1F_Movement_MayApproachEveryone
+	applymovement LOCALID_RIVALS_HOUSE_1F_RIVAL, LittlerootTown_MaysHouse_1F_Movement_MayApproachEveryone
 	waitmovement 0
 	delay 30
-	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceDown
+	applymovement LOCALID_RIVALS_HOUSE_1F_BIRCH, Common_Movement_WalkInPlaceDown
 	delay 45
-	applymovement LOCALID_MOM, Common_Movement_WalkInPlaceRight
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, Common_Movement_WalkInPlaceRight
 	delay 45
-	applymovement LOCALID_RIVAL_MOM, Common_Movement_WalkInPlaceLeft
+	applymovement LOCALID_RIVALS_HOUSE_1F_MOM, Common_Movement_WalkInPlaceLeft
 	delay 45
-	applymovement LOCALID_RIVAL, LittlerootTown_MaysHouse_1F_Movement_MayJumps
+	applymovement LOCALID_RIVALS_HOUSE_1F_RIVAL, LittlerootTown_MaysHouse_1F_Movement_MayJumps
 	waitmovement 0
 	fadescreen FADE_TO_BLACK
-	setobjectxy LOCALID_MOM, 2, 7
-	applymovement LOCALID_MOM, Common_Movement_FaceUp
-	setobjectxy LOCALID_BIRCH, 1, 6
-	applymovement LOCALID_BIRCH, Common_Movement_FaceDown
-	setobjectxy LOCALID_RIVAL, 3, 6
-	applymovement LOCALID_RIVAL, Common_Movement_FaceDown
-	applymovement LOCALID_RIVAL_MOM, Common_Movement_FaceDown
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	setobjectxy LOCALID_PLAYERS_HOUSE_1F_MOM, 2, 7
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, Common_Movement_FaceUp
+	setobjectxy LOCALID_RIVALS_HOUSE_1F_BIRCH, 1, 6
+	applymovement LOCALID_RIVALS_HOUSE_1F_BIRCH, Common_Movement_FaceDown
+	setobjectxy LOCALID_RIVALS_HOUSE_1F_RIVAL, 3, 6
+	applymovement LOCALID_RIVALS_HOUSE_1F_RIVAL, Common_Movement_FaceDown
+	applymovement LOCALID_RIVALS_HOUSE_1F_MOM, Common_Movement_FaceDown
+	applymovement LOCALID_PLAYER, Common_Movement_FaceDown
 	delay 30
 	fadescreen FADE_FROM_BLACK
 	delay 30
-	applymovement LOCALID_MOM, LittlerootTown_MaysHouse_1F_Movement_MomExits
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, LittlerootTown_MaysHouse_1F_Movement_MomExits
 	waitmovement 0
-	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterRight
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_RIVALS_HOUSE_1F_BIRCH, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	msgbox RivalsHouse_1F_Text_BirchToLab
 	closemessage
-	applymovement LOCALID_BIRCH, LittlerootTown_MaysHouse_1F_Movement_BirchExits
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown2
+	applymovement LOCALID_RIVALS_HOUSE_1F_BIRCH, LittlerootTown_MaysHouse_1F_Movement_BirchExits
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown2
 	waitmovement 0
-	hideobjectat OBJ_EVENT_ID_PLAYER, 0
+	hideobjectat LOCALID_PLAYER, 0
 	warp MAP_LITTLEROOT_TOWN_SECOND_LAB, 7, 12
 	setflag FLAG_MET_RIVAL_MOM
 	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 2

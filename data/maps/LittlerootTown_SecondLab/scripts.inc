@@ -1,6 +1,4 @@
 
-.set LOCALID_BIRCH, 1
-
 LittlerootTown_SecondLab_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_SecondLab_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_SecondLab_OnFrame
@@ -11,8 +9,8 @@ LittlerootTown_SecondLab_OnTransition:
 	end
 
 LittlerootTown_SecondLab_MoveBirchToDoor:
-	setobjectxyperm LOCALID_BIRCH, 6, 12
-	setobjectmovementtype LOCALID_BIRCH, MOVEMENT_TYPE_FACE_UP
+	setobjectxyperm LOCALID_LAB_BIRCH, 6, 12
+	setobjectmovementtype LOCALID_LAB_BIRCH, MOVEMENT_TYPE_FACE_UP
 	return
 
 LittlerootTown_SecondLab_OnFrame:
@@ -21,15 +19,15 @@ LittlerootTown_SecondLab_OnFrame:
 
 LittlerootTown_SecondLab_EventScript_EnterLab::
 	lockall
-	applymovement LOCALID_BIRCH, LittlerootTown_SecondLab_Movement_ApproachTable
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_SecondLab_Movement_ApproachTable
+	applymovement LOCALID_LAB_BIRCH, LittlerootTown_SecondLab_Movement_ApproachTable
+	applymovement LOCALID_PLAYER, LittlerootTown_SecondLab_Movement_ApproachTable
 	waitmovement 0
-	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterRight
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_LAB_BIRCH, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	msgbox LittlerootTown_SecondLab_Text_BirchPickOne
 	closemessage
-	applymovement LOCALID_BIRCH, LittlerootTown_SecondLab_Movement_BirchToTable
+	applymovement LOCALID_LAB_BIRCH, LittlerootTown_SecondLab_Movement_BirchToTable
 	waitmovement 0
     setvar VAR_LITTLEROOT_INTRO_STATE, 10
     setvar VAR_TEMP_9, 2
@@ -451,7 +449,7 @@ LittlerootTown_SecondLab_EventScript_GrassStarter::
 	return
 
 LittlerootTown_SecondLab_EventScript_GrassStarter_1:
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, VAR_TEMP_8
+	copyvar VAR_TEMP_TRANSFERRED_SPECIES, VAR_TEMP_8
 	givemon VAR_TEMP_8, 5
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq LittlerootTown_SecondLab_EventScript_GrassStarter_4
@@ -517,7 +515,7 @@ LittlerootTown_SecondLab_EventScript_FireStarter::
 	return
 
 LittlerootTown_SecondLab_EventScript_FireStarter_1:
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, VAR_TEMP_8
+	copyvar VAR_TEMP_TRANSFERRED_SPECIES, VAR_TEMP_8
 	givemon VAR_TEMP_8, 5
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq LittlerootTown_SecondLab_EventScript_FireStarter_4
@@ -583,7 +581,7 @@ LittlerootTown_SecondLab_EventScript_WaterStarter::
 	return
 
 LittlerootTown_SecondLab_EventScript_WaterStarter_1:
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, VAR_TEMP_8
+	copyvar VAR_TEMP_TRANSFERRED_SPECIES, VAR_TEMP_8
 	givemon VAR_TEMP_8, 5
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq LittlerootTown_SecondLab_EventScript_WaterStarter_4
@@ -640,7 +638,7 @@ LittlerootTown_SecondLab_EventScript_WaterStarter_13:
 
 LittlerootTown_SecondLab_EventScript_BirchAfterChoice::
 	lock
-	applymovement LOCALID_BIRCH, LittlerootTown_SecondLab_EventScript_BirchAfterChoice_Movement_0
+	applymovement LOCALID_LAB_BIRCH, LittlerootTown_SecondLab_EventScript_BirchAfterChoice_Movement_0
 	delay 15
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_SecondLab_EventScript_BirchAfterChoice_Movement_1
 	delay 15

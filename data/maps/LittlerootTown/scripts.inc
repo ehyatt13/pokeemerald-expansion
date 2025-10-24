@@ -1,3 +1,4 @@
+
 LittlerootTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_OnFrame
@@ -1103,8 +1104,8 @@ LittlerootTown_EventScript_WeatherClear::
 	setweather WEATHER_DROUGHT
 	doweather
 	fadeoutbgm 1
-	applymovement OBJ_EVENT_ID_PLAYER, LookAround
-	waitmovement OBJ_EVENT_ID_PLAYER
+	applymovement LOCALID_PLAYER, LookAround
+	waitmovement LOCALID_PLAYER
 	playse SE_BIKE_HOP
 	playbgm MUS_WEATHER_GROUDON, FALSE
 	msgbox Drought
@@ -1131,7 +1132,7 @@ LookAround:
 LittlerootTown_EventScript_Groudon::
 	lockall
 	delay 20
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_Groudon_Movement_0
+	applymovement LOCALID_PLAYER, LittlerootTown_EventScript_Groudon_Movement_0
 	waitmovement 0
 	playse SE_PIN
 	waitse
@@ -1141,13 +1142,13 @@ LittlerootTown_EventScript_Groudon::
 	setvar VAR_RESULT, 1
 	playfanfare MUS_AWAKEN_LEGEND
 	playse SE_ORB
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	delay 150
-	removeobject LOCALID_GROUDON_SLEEPING
-	addobject LOCALID_GROUDON
+	removeobject LOCALID_LITTLEROOT_GROUDON_ASLEEP
+	addobject LOCALID_LITTLEROOT_GROUDON
 	delay 60
-	applymovement LOCALID_GROUDON, GroudonApproach
+	applymovement LOCALID_LITTLEROOT_GROUDON, GroudonApproach
 	waitmovement 0
 	setvar VAR_0x8004, 1
 	setvar VAR_0x8005, 1
@@ -1157,9 +1158,9 @@ LittlerootTown_EventScript_Groudon::
 	waitstate
 	playmoncry SPECIES_GROUDON, CRY_MODE_ENCOUNTER
 	waitmoncry
-	applymovement LOCALID_GROUDON, GroudonExit
+	applymovement LOCALID_LITTLEROOT_GROUDON, GroudonExit
 	waitmovement 0
-	removeobject LOCALID_GROUDON
+	removeobject LOCALID_LITTLEROOT_GROUDON
 	delay 4
 	setvar VAR_0x8004, 2
 	setvar VAR_0x8005, 2
@@ -1168,7 +1169,7 @@ LittlerootTown_EventScript_Groudon::
 	special ShakeCamera
 	waitstate
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_Groudon_Movement_1
+	applymovement LOCALID_PLAYER, LittlerootTown_EventScript_Groudon_Movement_1
 	waitmovement 0
 	delay 30
 	setweather WEATHER_DOWNPOUR
@@ -1176,7 +1177,7 @@ LittlerootTown_EventScript_Groudon::
 	delay 30
 	playmoncry SPECIES_KYOGRE, CRY_MODE_ENCOUNTER
 	waitmoncry
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_Groudon_Movement_2
+	applymovement LOCALID_PLAYER, LittlerootTown_EventScript_Groudon_Movement_2
 	waitmovement 0
 	playse SE_PIN
 	waitse
@@ -1260,14 +1261,14 @@ LittlerootTown_EventScript_Kyogre::
 	playse SE_ORB
 	special DoOrbEffect
 	applymovement VAR_0x8004, Common_Movement_WalkInPlaceFasterUp
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	delay 150
-	removeobject LOCALID_KYOGRE_SLEEPING
-	addobject LOCALID_KYOGRE
+	removeobject LOCALID_LITTLEROOT_KYOGRE_ASLEEP
+	addobject LOCALID_LITTLEROOT_KYOGRE
 	waitstate
 	delay 60
-	applymovement LOCALID_KYOGRE, KyogreApproach
+	applymovement LOCALID_LITTLEROOT_KYOGRE, KyogreApproach
 	waitmovement 0
 	special FadeOutOrbEffect
 	waitstate
@@ -1277,9 +1278,9 @@ LittlerootTown_EventScript_Kyogre::
 	setvar VAR_0x8007, 5
 	special ShakeCamera
 	waitstate
-	applymovement LOCALID_KYOGRE, KyogreExit
+	applymovement LOCALID_LITTLEROOT_KYOGRE, KyogreExit
 	waitmovement 0
-	removeobject LOCALID_KYOGRE
+	removeobject LOCALID_LITTLEROOT_KYOGRE
 	delay 4
 	setvar VAR_0x8004, 2
 	setvar VAR_0x8005, 2
@@ -1313,54 +1314,54 @@ KyogreExit:
 
 LittlerootTown_EventScript_WalkLeft::
 	lockall
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_WalkLeft_Movement_0
-	waitmovement OBJ_EVENT_ID_PLAYER
+	applymovement LOCALID_PLAYER, LittlerootTown_EventScript_WalkLeft_Movement_0
+	waitmovement LOCALID_PLAYER
 	goto LittlerootTown_EventScript_Groudon
 	return
 
 
 LittlerootTown_EventScript_WalkRight::
 	lockall
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_WalkRight_Movement_0
-	waitmovement OBJ_EVENT_ID_PLAYER
+	applymovement LOCALID_PLAYER, LittlerootTown_EventScript_WalkRight_Movement_0
+	waitmovement LOCALID_PLAYER
 	goto LittlerootTown_EventScript_Groudon
 	return
 
 
 LittlerootTown_EventScript_WalkFromMaleToRivalHouse::
-	applymovement LOCALID_BIRCH, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_0
-	applymovement LOCALID_MOM, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_0
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_0
+	applymovement LOCALID_LITTLEROOT_BIRCH, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_0
+	applymovement LOCALID_LITTLEROOT_MOM, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_0
+	applymovement LOCALID_PLAYER, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_0
 	waitmovement 0
-	applymovement LOCALID_BIRCH, BirchLookAround
+	applymovement LOCALID_LITTLEROOT_BIRCH, BirchLookAround
 	waitmovement 0
 	delay 30
 	msgbox BirchTalkAboutWeather
 	closemessage
-	applymovement LOCALID_BIRCH, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_1
-	applymovement LOCALID_MOM, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_2
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_2
-	waitmovement LOCALID_BIRCH
+	applymovement LOCALID_LITTLEROOT_BIRCH, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_1
+	applymovement LOCALID_LITTLEROOT_MOM, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_2
+	applymovement LOCALID_PLAYER, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_2
+	waitmovement LOCALID_LITTLEROOT_BIRCH
 	opendoor 14, 8
 	waitdooranim
 	delay 10
-	applymovement LOCALID_BIRCH, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_3
-	applymovement LOCALID_MOM, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_4
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_5
+	applymovement LOCALID_LITTLEROOT_BIRCH, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_3
+	applymovement LOCALID_LITTLEROOT_MOM, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_4
+	applymovement LOCALID_PLAYER, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_5
 	waitmovement 0
-	hideobjectat OBJ_EVENT_ID_PLAYER, 0
+	hideobjectat LOCALID_PLAYER, 0
 	closedoor 14, 8
 	waitdooranim
 	return
 
 
 LittlerootTown_EventScript_MoveMomAndBirchOutside::
-	addobject LOCALID_MOM
-	setobjectxy LOCALID_MOM, 6, 9
-	addobject LOCALID_BIRCH
-	setobjectxy LOCALID_BIRCH, 7, 9
-	applymovement LOCALID_MOM, LittlerootTown_EventScript_MoveMomAndBirchOutside_Movement_0
-	applymovement LOCALID_BIRCH, LittlerootTown_EventScript_MoveMomAndBirchOutside_Movement_0
+	addobject LOCALID_LITTLEROOT_MOM
+	setobjectxy LOCALID_LITTLEROOT_MOM, 6, 9
+	addobject LOCALID_LITTLEROOT_BIRCH
+	setobjectxy LOCALID_LITTLEROOT_BIRCH, 7, 9
+	applymovement LOCALID_LITTLEROOT_MOM, LittlerootTown_EventScript_MoveMomAndBirchOutside_Movement_0
+	applymovement LOCALID_LITTLEROOT_BIRCH, LittlerootTown_EventScript_MoveMomAndBirchOutside_Movement_0
 	return
 
 

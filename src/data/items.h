@@ -14592,7 +14592,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_ENDLESS_CANDY] =
     {
-        .name = _("Endless Candy"),
+        .name = ITEM_NAME("Endless Candy"),
         .price = 0,
         .description = COMPOUND_STRING(
             "Raises the level\n"
@@ -14609,7 +14609,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_POKE_VIAL] =
     {
-        .name = _("Poké Vial"),
+        .name = ITEM_NAME("Poké Vial"),
         .price = 0,
         .description = COMPOUND_STRING(
             "Fully restores all\n"
@@ -14625,7 +14625,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_REPELLENT] =
     {
-        .name = _("Repellent"),
+        .name = ITEM_NAME("Repellent"),
         .price = 0,
         .description = COMPOUND_STRING(
             "Keeps wild {PKMN}\n"
@@ -14640,7 +14640,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_POKEMON_POWDER_JAR] =
     {
-        .name = _("{PKMN} Powder Jar"),
+        .name = ITEM_NAME("{PKMN} Powder Jar"),
         .price = 0,
         .description = COMPOUND_STRING(
             "Can inflict a\n"
