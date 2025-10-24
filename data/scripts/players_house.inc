@@ -182,11 +182,11 @@ PlayersHouse_1f_EventScript_Professor_Enters::
 	msgbox PlayersHouse_1F_Text_BirchGreeting, MSGBOX_DEFAULT
 	closemessage
 	playse SE_PIN
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	applymovement VAR_0x8005, Common_Movement_ExclamationMark
 	waitmovement 0
 	applymovement VAR_0x8005, PlayersHouse_1F_Movement_MomApproachBirch
-	applymovement OBJ_EVENT_ID_PLAYER, PlayersHouse_1F_Movement_PlayerApproachBirch
+	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_PlayerApproachBirch
 	applymovement VAR_0x8006, Common_Movement_WalkUp2
 	waitmovement 0
 	msgbox PlayersHouse_1F_Text_BirchExplanation, MSGBOX_DEFAULT
@@ -209,9 +209,9 @@ PlayersHouse_1f_EventScript_Professor_Enters::
 	waitmovement 0
 	applymovement VAR_0x8006, PlayersHouse_1F_Movement_BirchExits
 	applymovement VAR_0x8005, PlayersHouse_1F_Movement_MomExits
-	applymovement OBJ_EVENT_ID_PLAYER, PlayersHouse_1F_Movement_PlayerExits
+	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_PlayerExits
 	waitmovement 0
-	hideobjectat OBJ_EVENT_ID_PLAYER, 0
+	hideobjectat LOCALID_PLAYER, 0
 	warp MAP_LITTLEROOT_TOWN, 5, 8
 	setvar VAR_LITTLEROOT_INTRO_STATE, 8
 	end
