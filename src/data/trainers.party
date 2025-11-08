@@ -4798,29 +4798,69 @@ Items: Potion / Potion
 Double Battle: No
 AI: Basic Trainer
 
-Geodude
-Level: 12
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Tackle
-- Defense Curl
-- Rock Throw
-- Rock Tomb
+Rockruff @ Quick Claw  
+Level: 13  
+Tera Type: Rock  
+Jolly Nature  
+IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe  
+- Stealth Rock  
+- Sand Attack  
+- Rock Throw  
+- Take Down  
 
-Geodude
-Level: 12
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Tackle
-- Defense Curl
-- Rock Throw
-- Rock Tomb
+Lileep @ Eviolite  
+Ability: Storm Drain  
+Level: 13  
+Tera Type: Rock  
+Sassy Nature  
+IVs: 0 Atk  
+- Ingrain  
+- Acid  
+- Confuse Ray  
+- Protect  
 
-Nosepass @ Oran Berry
-Level: 15
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Block
-- Harden
-- Tackle
-- Rock Tomb
+Growlithe-Hisui @ Rocky Helmet  
+Ability: Intimidate  
+Level: 14  
+Tera Type: Fire  
+Relaxed Nature  
+IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe  
+- Ember  
+- Howl  
+- Bite  
+- Sandstorm  
+
+Cranidos @ Life Orb  
+Level: 14  
+Tera Type: Rock  
+Adamant Nature  
+IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe  
+- Take Down  
+- Zen Headbutt  
+- Rock Tomb  
+- Rock Smash  
+
+Minior @ Salac Berry  
+Ability: Shields Down  
+Level: 14  
+Tera Type: Rock  
+Adamant Nature  
+- Rollout  
+- Defense Curl  
+- Acrobatics  
+- Shell Smash  
+
+Diancie @ Diancite  
+Level: 15  
+Tera Type: Rock  
+Hardy Nature  
+IVs: 24 HP / 24 Def / 24 SpA / 24 SpD / 24 Spe  
+- Rock Throw  
+- Calm Mind  
+- Power Gem  
+- Psyshock  
+
+
 
 === TRAINER_BRAWLY_1 ===
 Name: BRAWLY
