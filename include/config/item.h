@@ -23,6 +23,7 @@
 
 // TM config
 #define I_REUSABLE_TMS          TRUE       // In Gen5-8, TMs are reusable. Setting this to TRUE will make all vanilla TMs reusable, though they can also be cherry-picked by setting their importance to 1.
+#define I_GEN_IX_TMS            TRUE       // If TRUE, use the 229 TMs and order from Gen 9. If FALSE, use the original 50 TMs and order from Gen 3.
 
 // Exp. Share config
 // To use this feature, replace the 0 with the flag ID you're assigning it to.
