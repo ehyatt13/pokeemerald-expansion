@@ -181,7 +181,7 @@ LittlerootTown_MaysHouse_1F_EventScript_MeetingEveryone::
 	applymovement LOCALID_RIVALS_HOUSE_1F_BIRCH, LittlerootTown_MaysHouse_1F_Movement_BirchExits
 	applymovement LOCALID_PLAYER, Common_Movement_WalkDown2
 	waitmovement 0
-	hideobjectat LOCALID_PLAYER, 0
+	hideplayer
 	warp MAP_LITTLEROOT_TOWN_SECOND_LAB, 7, 12
 	setflag FLAG_MET_RIVAL_MOM
 	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 2

@@ -185,7 +185,7 @@ LittlerootTown_EventScript_GoInsideWithMom::
 	waitmovement 0
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE
 	setvar VAR_LITTLEROOT_INTRO_STATE, 3
-	hideobjectat LOCALID_PLAYER, 0
+	hideplayer
 	closedoor VAR_0x8004, VAR_0x8005
 	waitdooranim
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN
@@ -1354,7 +1354,7 @@ script LittlerootTown_EventScript_WalkFromMaleToRivalHouse {
 	applymovement(LOCALID_LITTLEROOT_MOM, moves(walk_right, walk_up, set_invisible))
 	applymovement(LOCALID_PLAYER, moves(walk_right * 2, walk_up))
 	waitmovement(0)
-	hideobjectat(LOCALID_PLAYER, 0)
+	hideplayer
 	closedoor(14, 8)
 	waitdooranim
 }
@@ -1370,7 +1370,7 @@ script LittlerootTown_EventScript_MoveMomAndBirchOutside {
 	#setobjectmovementtype(LOCALID_LITTLEROOT_BIRCH, MOVEMENT_TYPE_FACE_LEFT)
 	applymovement(LOCALID_LITTLEROOT_MOM, moves(face_left))
 	applymovement(LOCALID_LITTLEROOT_BIRCH, moves(face_left))
-	#hideobjectat(LOCALID_PLAYER, 0)
+	#hideplayer
 	return
 }
 

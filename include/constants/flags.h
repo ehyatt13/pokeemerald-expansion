@@ -1515,8 +1515,8 @@
 #define FLAG_HIDE_GRASS_STARTER                     (SYSTEM_FLAGS + 0x8A) // Flag to hide the grass starter pokeball
 #define FLAG_HIDE_FIRE_STARTER                      (SYSTEM_FLAGS + 0x8B) // Flag to hide the fire starter pokeball
 #define FLAG_HIDE_WATER_STARTER                     (SYSTEM_FLAGS + 0x8C) // Flag to hide the water starter pokeball
-#define FLAG_REPELLENT_ACTIVE                       (SYSTEM_FLAGS + 0x8D) //
-#define FLAG_UNUSED_0x8EE                           (SYSTEM_FLAGS + 0x8E) // Unused Flag
+#define FLAG_REPELLENT_ACTIVE                       (SYSTEM_FLAGS + 0x8D) // Flag to disable wild encounters
+#define FLAG_NEW_TMS                                (SYSTEM_FLAGS + 0x8E) // Flag denoting new or old tms
 #define FLAG_UNUSED_0x8EF                           (SYSTEM_FLAGS + 0x8F) // Unused Flag
 #define FLAG_UNUSED_0x8F0                           (SYSTEM_FLAGS + 0x90) // Unused Flag
 #define FLAG_UNUSED_0x8F1                           (SYSTEM_FLAGS + 0x91) // Unused Flag

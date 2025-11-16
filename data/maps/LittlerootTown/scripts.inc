@@ -1349,7 +1349,7 @@ LittlerootTown_EventScript_WalkFromMaleToRivalHouse::
 	applymovement LOCALID_LITTLEROOT_MOM, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_4
 	applymovement LOCALID_PLAYER, LittlerootTown_EventScript_WalkFromMaleToRivalHouse_Movement_5
 	waitmovement 0
-	hideobjectat LOCALID_PLAYER, 0
+	hideplayer
 	closedoor 14, 8
 	waitdooranim
 	return

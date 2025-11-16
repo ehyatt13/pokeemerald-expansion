@@ -240,6 +240,236 @@
 // - MOVE_VACUUM_WAVE                                  //
 // - MOVE_LUNGE                                        //
 // - MOVE_HIGH_HORSEPOWER                              //
+// - MOVE_ICICLE_SPEAR                                 //
+// - MOVE_SCALD                                        //
+// - MOVE_HEAT_CRASH                                   //
+// - MOVE_SOLAR_BLADE                                  //
+// - MOVE_UPROAR                                       //
+// - MOVE_FOCUS_PUNCH                                  //
+// - MOVE_WEATHER_BALL                                 //
+// - MOVE_GRASSY_GLIDE                                 //
+// - MOVE_BURNING_JEALOUSY                             //
+// - MOVE_FLIP_TURN                                    //
+// - MOVE_DUAL_WINGBEAT                                //
+// - MOVE_POLTERGEIST                                  //
+// - MOVE_LASH_OUT                                     //
+// - MOVE_SCALE_SHOT                                   //
+// - MOVE_MISTY_EXPLOSION                              //
+// - MOVE_PAIN_SPLIT                                   //
+// - MOVE_PSYCH_UP                                     //
+// - MOVE_DOUBLE_EDGE                                  //
+// - MOVE_ENDEAVOR                                     //
+// - MOVE_PETAL_BLIZZARD                               //
+// - MOVE_TEMPER_FLARE                                 //
+// - MOVE_WHIRLPOOL                                    //
+// - MOVE_MUDDY_WATER                                  //
+// - MOVE_SUPERCELL_SLAM                               //
+// - MOVE_ELECTROWEB                                   //
+// - MOVE_TRIPLE_AXEL                                  //
+// - MOVE_COACHING                                     //
+// - MOVE_SLUDGE_WAVE                                  //
+// - MOVE_SCORCHING_SANDS                              //
+// - MOVE_FEATHER_DANCE                                //
+// - MOVE_FUTURE_SIGHT                                 //
+// - MOVE_EXPANDING_FORCE                              //
+// - MOVE_SKITTER_SMACK                                //
+// - MOVE_METEOR_BEAM                                  //
+// - MOVE_THROAT_CHOP                                  //
+// - MOVE_BREAKING_SWIPE                               //
+// - MOVE_METAL_SOUND                                  //
+// - MOVE_CURSE                                        //
+// - MOVE_HARD_PRESS                                   //
+// - MOVE_DRAGON_CHEER                                 //
+// - MOVE_ALLURING_VOICE                               //
+// - MOVE_PSYCHIC_NOISE                                //
+// - MOVE_UPPER_HAND                                   //
+// - MOVE_TAKE_DOWN                                    //
+// - MOVE_CHARM                                        //
+// - MOVE_FAKE_TEARS                                   //
+// - MOVE_AGILITY                                      //
+// - MOVE_MUD_SLAP                                     //
+// - MOVE_SCARY_FACE                                   //
+// - MOVE_PROTECT                                      //
+// - MOVE_FIRE_FANG                                    //
+// - MOVE_THUNDER_FANG                                 //
+// - MOVE_ICE_FANG                                     //
+// - MOVE_WATER_PULSE                                  //
+// - MOVE_LOW_KICK                                     //
+// - MOVE_ACID_SPRAY                                   //
+// - MOVE_ACROBATICS                                   //
+// - MOVE_STRUGGLE_BUG                                 //
+// - MOVE_PSYBEAM                                      //
+// - MOVE_CONFUSE_RAY                                  //
+// - MOVE_THIEF                                        //
+// - MOVE_DISARMING_VOICE                              //
+// - MOVE_TRAILBLAZE                                   //
+// - MOVE_POUNCE                                       //
+// - MOVE_CHILLING_WATER                               //
+// - MOVE_CHARGE_BEAM                                  //
+// - MOVE_FIRE_SPIN                                    //
+// - MOVE_FACADE                                       //
+// - MOVE_POISON_TAIL                                  //
+// - MOVE_AERIAL_ACE                                   //
+// - MOVE_BULLDOZE                                     //
+// - MOVE_HEX                                          //
+// - MOVE_SNARL                                        //
+// - MOVE_METAL_CLAW                                   //
+// - MOVE_SWIFT                                        //
+// - MOVE_MAGICAL_LEAF                                 //
+// - MOVE_ICY_WIND                                     //
+// - MOVE_MUD_SHOT                                     //
+// - MOVE_ROCK_TOMB                                    //
+// - MOVE_DRAINING_KISS                                //
+// - MOVE_FLAME_CHARGE                                 //
+// - MOVE_LOW_SWEEP                                    //
+// - MOVE_AIR_CUTTER                                   //
+// - MOVE_STORED_POWER                                 //
+// - MOVE_NIGHT_SHADE                                  //
+// - MOVE_FLING                                        //
+// - MOVE_DRAGON_TAIL                                  //
+// - MOVE_VENOSHOCK                                    //
+// - MOVE_AVALANCHE                                    //
+// - MOVE_ENDURE                                       //
+// - MOVE_VOLT_SWITCH                                  //
+// - MOVE_SUNNY_DAY                                    //
+// - MOVE_RAIN_DANCE                                   //
+// - MOVE_SANDSTORM                                    //
+// - MOVE_SNOWSCAPE                                    //
+// - MOVE_SMART_STRIKE                                 //
+// - MOVE_PSYSHOCK                                     //
+// - MOVE_DIG                                          //
+// - MOVE_BULLET_SEED                                  //
+// - MOVE_FALSE_SWIPE                                  //
+// - MOVE_BRICK_BREAK                                  //
+// - MOVE_ZEN_HEADBUTT                                 //
+// - MOVE_U_TURN                                       //
+// - MOVE_SHADOW_CLAW                                  //
+// - MOVE_FOUL_PLAY                                    //
+// - MOVE_PSYCHIC_FANGS                                //
+// - MOVE_BULK_UP                                      //
+// - MOVE_AIR_SLASH                                    //
+// - MOVE_BODY_SLAM                                    //
+// - MOVE_FIRE_PUNCH                                   //
+// - MOVE_ICE_PUNCH                                    //
+// - MOVE_THUNDER_PUNCH                                //
+// - MOVE_SLEEP_TALK                                   //
+// - MOVE_SEED_BOMB                                    //
+// - MOVE_ELECTRO_BALL                                 //
+// - MOVE_DRAIN_PUNCH                                  //
+// - MOVE_REFLECT                                      //
+// - MOVE_LIGHT_SCREEN                                 //
+// - MOVE_ROCK_BLAST                                   //
+// - MOVE_ROAR_OF_TIME                                 //
+// - MOVE_DRAGON_CLAW                                  //
+// - MOVE_DAZZLING_GLEAM                               //
+// - MOVE_METRONOME                                    //
+// - MOVE_GRASS_KNOT                                   //
+// - MOVE_THUNDER_WAVE                                 //
+// - MOVE_POISON_JAB                                   //
+// - MOVE_STOMPING_TANTRUM                             //
+// - MOVE_REST                                         //
+// - MOVE_ROCK_SLIDE                                   //
+// - MOVE_TAUNT                                        //
+// - MOVE_SWORDS_DANCE                                 //
+// - MOVE_BODY_PRESS                                   //
+// - MOVE_SPIKES                                       //
+// - MOVE_TOXIC_SPIKES                                 //
+// - MOVE_IMPRISON                                     //
+// - MOVE_FLASH_CANNON                                 //
+// - MOVE_DARK_PULSE                                   //
+// - MOVE_LEECH_LIFE                                   //
+// - MOVE_EERIE_IMPULSE                                //
+// - MOVE_SPACIAL_REND                                 //
+// - MOVE_SKILL_SWAP                                   //
+// - MOVE_IRON_HEAD                                    //
+// - MOVE_DRAGON_DANCE                                 //
+// - MOVE_POWER_GEM                                    //
+// - MOVE_GUNK_SHOT                                    //
+// - MOVE_SUBSTITUTE                                   //
+// - MOVE_IRON_DEFENSE                                 //
+// - MOVE_X_SCISSOR                                    //
+// - MOVE_DRILL_RUN                                    //
+// - MOVE_WILL_O_WISP                                  //
+// - MOVE_CRUNCH                                       //
+// - MOVE_TRICK                                        //
+// - MOVE_LIQUIDATION                                  //
+// - MOVE_GIGA_DRAIN                                   //
+// - MOVE_AURA_SPHERE                                  //
+// - MOVE_TAILWIND                                     //
+// - MOVE_SHADOW_BALL                                  //
+// - MOVE_DRAGON_PULSE                                 //
+// - MOVE_STEALTH_ROCK                                 //
+// - MOVE_HYPER_VOICE                                  //
+// - MOVE_HEAT_WAVE                                    //
+// - MOVE_ENERGY_BALL                                  //
+// - MOVE_PSYCHIC                                      //
+// - MOVE_HEAVY_SLAM                                   //
+// - MOVE_ENCORE                                       //
+// - MOVE_SHADOW_FORCE                                 //
+// - MOVE_ICE_SPINNER                                  //
+// - MOVE_FLAMETHROWER                                 //
+// - MOVE_THUNDERBOLT                                  //
+// - MOVE_PLAY_ROUGH                                   //
+// - MOVE_AMNESIA                                      //
+// - MOVE_CALM_MIND                                    //
+// - MOVE_HELPING_HAND                                 //
+// - MOVE_POLLEN_PUFF                                  //
+// - MOVE_BATON_PASS                                   //
+// - MOVE_EARTH_POWER                                  //
+// - MOVE_REVERSAL                                     //
+// - MOVE_ICE_BEAM                                     //
+// - MOVE_ELECTRIC_TERRAIN                             //
+// - MOVE_GRASSY_TERRAIN                               //
+// - MOVE_PSYCHIC_TERRAIN                              //
+// - MOVE_MISTY_TERRAIN                                //
+// - MOVE_NASTY_PLOT                                   //
+// - MOVE_FIRE_BLAST                                   //
+// - MOVE_HYDRO_PUMP                                   //
+// - MOVE_BLIZZARD                                     //
+// - MOVE_FIRE_PLEDGE                                  //
+// - MOVE_WATER_PLEDGE                                 //
+// - MOVE_GRASS_PLEDGE                                 //
+// - MOVE_WILD_CHARGE                                  //
+// - MOVE_SLUDGE_BOMB                                  //
+// - MOVE_EARTHQUAKE                                   //
+// - MOVE_STONE_EDGE                                   //
+// - MOVE_PHANTOM_FORCE                                //
+// - MOVE_GIGA_IMPACT                                  //
+// - MOVE_BLAST_BURN                                   //
+// - MOVE_HYDRO_CANNON                                 //
+// - MOVE_FRENZY_PLANT                                 //
+// - MOVE_OUTRAGE                                      //
+// - MOVE_OVERHEAT                                     //
+// - MOVE_FOCUS_BLAST                                  //
+// - MOVE_LEAF_STORM                                   //
+// - MOVE_HURRICANE                                    //
+// - MOVE_TRICK_ROOM                                   //
+// - MOVE_BUG_BUZZ                                     //
+// - MOVE_HYPER_BEAM                                   //
+// - MOVE_BRAVE_BIRD                                   //
+// - MOVE_FLARE_BLITZ                                  //
+// - MOVE_THUNDER                                      //
+// - MOVE_CLOSE_COMBAT                                 //
+// - MOVE_SOLAR_BEAM                                   //
+// - MOVE_DRACO_METEOR                                 //
+// - MOVE_STEEL_BEAM                                   //
+// - MOVE_TERA_BLAST                                   //
+// - MOVE_ROAR                                         //
+// - MOVE_CHARGE                                       //
+// - MOVE_HAZE                                         //
+// - MOVE_TOXIC                                        //
+// - MOVE_SAND_TOMB                                    //
+// - MOVE_SPITE                                        //
+// - MOVE_GRAVITY                                      //
+// - MOVE_SMACK_DOWN                                   //
+// - MOVE_GYRO_BALL                                    //
+// - MOVE_KNOCK_OFF                                    //
+// - MOVE_BUG_BITE                                     //
+// - MOVE_SUPER_FANG                                   //
+// - MOVE_VACUUM_WAVE                                  //
+// - MOVE_LUNGE                                        //
+// - MOVE_HIGH_HORSEPOWER                              //
+// - MOVE_ICICLE_SPEAR                                 //
 // - MOVE_SCALD                                        //
 // - MOVE_HEAT_CRASH                                   //
 // - MOVE_SOLAR_BLADE                                  //
@@ -2054,6 +2284,7 @@ static const u16 sSandshrewAlolaTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_PUNCH,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_IRON_HEAD,
@@ -2124,6 +2355,7 @@ static const u16 sSandslashAlolaTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_PUNCH,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_IRON_HEAD,
@@ -2965,6 +3197,7 @@ static const u16 sVulpixAlolaTeachableLearnset[] = {
     MOVE_HEX,
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IMPRISON,
     MOVE_IRON_TAIL,
@@ -3025,6 +3258,7 @@ static const u16 sNinetalesAlolaTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IMPRISON,
     MOVE_IRON_TAIL,
@@ -7500,6 +7734,7 @@ static const u16 sSeelTeachableLearnset[] = {
     MOVE_HYDRO_PUMP,
     MOVE_ICE_BEAM,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_TAIL,
     MOVE_MUDDY_WATER,
@@ -7553,6 +7788,7 @@ static const u16 sDewgongTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_TAIL,
     MOVE_KNOCK_OFF,
@@ -7867,6 +8103,7 @@ static const u16 sShellderTeachableLearnset[] = {
     MOVE_HYDRO_PUMP,
     MOVE_ICE_BEAM,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_LIQUIDATION,
@@ -7913,6 +8150,7 @@ static const u16 sCloysterTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_LIGHT_SCREEN,
@@ -10868,6 +11106,7 @@ static const u16 sMrMimeGalarTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
     MOVE_ICE_PUNCH,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_LIGHT_SCREEN,
@@ -10935,6 +11174,7 @@ static const u16 sMrRimeTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
     MOVE_ICE_PUNCH,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_LIGHT_SCREEN,
@@ -11255,6 +11495,7 @@ static const u16 sJynxTeachableLearnset[] = {
     MOVE_HYPER_VOICE,
     MOVE_ICE_BEAM,
     MOVE_ICE_PUNCH,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_LIGHT_SCREEN,
     MOVE_MEGA_KICK,
@@ -12058,6 +12299,7 @@ static const u16 sLaprasTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_HYPER_VOICE,
     MOVE_ICE_BEAM,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_HEAD,
     MOVE_IRON_TAIL,
@@ -12523,6 +12765,7 @@ static const u16 sGlaceonTeachableLearnset[] = {
     MOVE_HYPER_VOICE,
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_TAIL,
     MOVE_MUD_SHOT,
@@ -13250,6 +13493,7 @@ static const u16 sArticunoTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_LIGHT_SCREEN,
     MOVE_MUD_SLAP,
@@ -18094,6 +18338,7 @@ static const u16 sSneaselTeachableLearnset[] = {
     MOVE_HELPING_HAND,
     MOVE_ICE_BEAM,
     MOVE_ICE_PUNCH,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_TAIL,
     MOVE_KNOCK_OFF,
@@ -18176,6 +18421,7 @@ static const u16 sWeavileTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_PUNCH,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_TAIL,
     MOVE_KNOCK_OFF,
@@ -18767,6 +19013,7 @@ static const u16 sSwinubTeachableLearnset[] = {
     MOVE_HIGH_HORSEPOWER,
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_LIGHT_SCREEN,
     MOVE_MUD_SHOT,
@@ -18823,6 +19070,7 @@ static const u16 sPiloswineTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_LIGHT_SCREEN,
     MOVE_MUD_SHOT,
@@ -18884,6 +19132,7 @@ static const u16 sMamoswineTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_HEAD,
     MOVE_KNOCK_OFF,
@@ -18944,6 +19193,7 @@ static const u16 sCorsolaTeachableLearnset[] = {
     MOVE_HAIL,
     MOVE_HYDRO_PUMP,
     MOVE_ICE_BEAM,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_LIGHT_SCREEN,
@@ -19001,6 +19251,7 @@ static const u16 sCorsolaGalarTeachableLearnset[] = {
     MOVE_HEX,
     MOVE_HYDRO_PUMP,
     MOVE_ICE_BEAM,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_LIGHT_SCREEN,
@@ -19058,6 +19309,7 @@ static const u16 sCursolaTeachableLearnset[] = {
     MOVE_HYDRO_PUMP,
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_LEECH_LIFE,
@@ -19241,6 +19493,7 @@ static const u16 sDelibirdTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_PUNCH,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_MEGA_KICK,
     MOVE_MEGA_PUNCH,
@@ -27674,6 +27927,7 @@ static const u16 sSnoruntTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_LIGHT_SCREEN,
     MOVE_PROTECT,
@@ -27724,6 +27978,7 @@ static const u16 sGlalieTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_HEAD,
     MOVE_LIGHT_SCREEN,
@@ -27780,6 +28035,7 @@ static const u16 sFroslassTeachableLearnset[] = {
     MOVE_ICE_FANG,
     MOVE_ICE_PUNCH,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IMPRISON,
     MOVE_LIGHT_SCREEN,
@@ -27880,6 +28136,7 @@ static const u16 sSealeoTeachableLearnset[] = {
     MOVE_FACADE,
     MOVE_HAIL,
     MOVE_ICE_BEAM,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_TAIL,
     MOVE_LIQUIDATION,
@@ -27930,6 +28187,7 @@ static const u16 sWalreinTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_HEAD,
     MOVE_IRON_TAIL,
@@ -28608,6 +28866,7 @@ static const u16 sRegiceTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_PUNCH,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_HEAD,
     MOVE_MEGA_KICK,
@@ -33137,6 +33396,7 @@ static const u16 sSnoverTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_PUNCH,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_TAIL,
     MOVE_LEAF_STORM,
@@ -33197,6 +33457,7 @@ static const u16 sAbomasnowTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_PUNCH,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_TAIL,
     MOVE_LEAF_STORM,
@@ -33557,6 +33818,7 @@ static const u16 sDialgaTeachableLearnset[] = {
     MOVE_RAIN_DANCE,
     MOVE_REST,
     MOVE_ROAR,
+    MOVE_ROAR_OF_TIME,
     MOVE_ROCK_SLIDE,
     MOVE_ROCK_SMASH,
     MOVE_ROCK_TOMB,
@@ -33648,6 +33910,7 @@ static const u16 sPalkiaTeachableLearnset[] = {
     MOVE_SLEEP_TALK,
     MOVE_SNORE,
     MOVE_SNOWSCAPE,
+    MOVE_SPACIAL_REND,
     MOVE_STOMPING_TANTRUM,
     MOVE_STONE_EDGE,
     MOVE_STRENGTH,
@@ -33852,6 +34115,7 @@ static const u16 sGiratinaTeachableLearnset[] = {
     MOVE_SCARY_FACE,
     MOVE_SHADOW_BALL,
     MOVE_SHADOW_CLAW,
+    MOVE_SHADOW_FORCE,
     MOVE_SHOCK_WAVE,
     MOVE_SKITTER_SMACK,
     MOVE_SLEEP_TALK,
@@ -39529,6 +39793,7 @@ static const u16 sVanilliteTeachableLearnset[] = {
     MOVE_HAIL,
     MOVE_HYPER_VOICE,
     MOVE_ICE_BEAM,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IMPRISON,
     MOVE_IRON_DEFENSE,
@@ -39558,6 +39823,7 @@ static const u16 sVanillishTeachableLearnset[] = {
     MOVE_HAIL,
     MOVE_HYPER_VOICE,
     MOVE_ICE_BEAM,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IMPRISON,
     MOVE_IRON_DEFENSE,
@@ -39589,6 +39855,7 @@ static const u16 sVanilluxeTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_HYPER_VOICE,
     MOVE_ICE_BEAM,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IMPRISON,
     MOVE_IRON_DEFENSE,
@@ -40965,6 +41232,7 @@ static const u16 sCubchooTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
     MOVE_ICE_PUNCH,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_LIQUIDATION,
     MOVE_LOW_KICK,
@@ -41035,6 +41303,7 @@ static const u16 sBearticTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
     MOVE_ICE_PUNCH,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_LIQUIDATION,
     MOVE_LOW_KICK,
@@ -41095,6 +41364,7 @@ static const u16 sCryogonalTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_KNOCK_OFF,
@@ -43057,6 +43327,7 @@ static const u16 sKyuremTeachableLearnset[] = {
     MOVE_HYPER_VOICE,
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IMPRISON,
     MOVE_IRON_HEAD,
@@ -46040,6 +46311,7 @@ static const u16 sAurorusTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_HYPER_VOICE,
     MOVE_ICE_BEAM,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_IRON_HEAD,
@@ -46830,6 +47102,7 @@ static const u16 sBergmiteTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_PROTECT,
@@ -46879,6 +47152,7 @@ static const u16 sAvaluggTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_IRON_HEAD,
@@ -46931,6 +47205,7 @@ static const u16 sAvaluggHisuiTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_IRON_HEAD,
@@ -52575,6 +52850,7 @@ static const u16 sInteleonTeachableLearnset[] = {
     MOVE_HYDRO_PUMP,
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_LIGHT_SCREEN,
     MOVE_LIQUIDATION,
@@ -54586,6 +54862,7 @@ static const u16 sSnomTeachableLearnset[] = {
     MOVE_BUG_BUZZ,
     MOVE_ENDURE,
     MOVE_FACADE,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_LUNGE,
     MOVE_POUNCE,
@@ -54620,6 +54897,7 @@ static const u16 sFrosmothTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IMPRISON,
     MOVE_LEECH_LIFE,
@@ -54715,6 +54993,7 @@ static const u16 sEiscueTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_PUNCH,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_IRON_HEAD,
@@ -55056,6 +55335,7 @@ static const u16 sArctozoltTeachableLearnset[] = {
     MOVE_HYPER_VOICE,
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_TAIL,
     MOVE_LOW_KICK,
@@ -55143,6 +55423,7 @@ static const u16 sArctovishTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_IRON_HEAD,
@@ -55876,6 +56157,7 @@ static const u16 sGlastrierTeachableLearnset[] = {
     MOVE_HIGH_HORSEPOWER,
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_DEFENSE,
     MOVE_LASH_OUT,
@@ -56035,6 +56317,7 @@ static const u16 sCalyrexIceTeachableLearnset[] = {
     MOVE_HIGH_HORSEPOWER,
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IMPRISON,
     MOVE_IRON_DEFENSE,
@@ -59066,6 +59349,7 @@ static const u16 sCetoddleTeachableLearnset[] = {
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_KNOCK_OFF,
     MOVE_LIQUIDATION,
@@ -59106,6 +59390,7 @@ static const u16 sCetitanTeachableLearnset[] = {
     MOVE_ICE_FANG,
     MOVE_ICE_PUNCH,
     MOVE_ICE_SPINNER,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_KNOCK_OFF,
     MOVE_LIQUIDATION,
@@ -59890,6 +60175,7 @@ static const u16 sFrigibaxTeachableLearnset[] = {
     MOVE_HELPING_HAND,
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_OUTRAGE,
     MOVE_PROTECT,
@@ -59919,6 +60205,7 @@ static const u16 sArctibaxTeachableLearnset[] = {
     MOVE_HELPING_HAND,
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_HEAD,
     MOVE_OUTRAGE,
@@ -59961,6 +60248,7 @@ static const u16 sBaxcaliburTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_ICE_BEAM,
     MOVE_ICE_FANG,
+    MOVE_ICICLE_SPEAR,
     MOVE_ICY_WIND,
     MOVE_IRON_HEAD,
     MOVE_OUTRAGE,

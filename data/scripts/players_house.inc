@@ -211,7 +211,7 @@ PlayersHouse_1f_EventScript_Professor_Enters::
 	applymovement VAR_0x8005, PlayersHouse_1F_Movement_MomExits
 	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_PlayerExits
 	waitmovement 0
-	hideobjectat LOCALID_PLAYER, 0
+	hideplayer
 	warp MAP_LITTLEROOT_TOWN, 5, 8
 	setvar VAR_LITTLEROOT_INTRO_STATE, 8
 	end
