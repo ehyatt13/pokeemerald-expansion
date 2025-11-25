@@ -265,17 +265,6 @@ static const struct MenuAction MultichoiceList_GameCornerDolls[] =
     {gText_Exit},
 };
 
-#if I_GEN_IX_TMS == FALSE
-static const struct MenuAction MultichoiceList_GameCornerTMs[] =
-{
-    {COMPOUND_STRING("TM32{CLEAR_TO 0x48}1,500 COINS")},
-    {COMPOUND_STRING("TM29{CLEAR_TO 0x48}3,500 COINS")},
-    {COMPOUND_STRING("TM35{CLEAR_TO 0x48}4,000 COINS")},
-    {COMPOUND_STRING("TM24{CLEAR_TO 0x48}4,000 COINS")},
-    {COMPOUND_STRING("TM13{CLEAR_TO 0x48}4,000 COINS")},
-    {gText_Exit},
-};
-#else
 static const struct MenuAction MultichoiceList_GameCornerTMs[] =
 {
     {COMPOUND_STRING("TM004{CLEAR_TO 0x48}1,500 COINS")},
@@ -285,7 +274,6 @@ static const struct MenuAction MultichoiceList_GameCornerTMs[] =
     {COMPOUND_STRING("TM135{CLEAR_TO 0x48}4,000 COINS")},
     {gText_Exit},
 };
-#endif
 
 static const struct MenuAction MultichoiceList_GameCornerCoins[] =
 {

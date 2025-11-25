@@ -186,7 +186,7 @@
 #define FLAG_TOUGH_PAINTING_MADE             0xA4
 #define FLAG_RECEIVED_TM_ROCK_TOMB           0xA5
 #define FLAG_RECEIVED_TM_BULK_UP             0xA6
-#define FLAG_RECEIVED_TM_SHOCK_WAVE          0xA7
+#define FLAG_RECEIVED_TM_VOLT_SWITCH          0xA7
 #define FLAG_RECEIVED_TM_OVERHEAT            0xA8
 #define FLAG_RECEIVED_TM_FACADE              0xA9
 #define FLAG_RECEIVED_TM_AERIAL_ACE          0xAA
@@ -258,7 +258,7 @@
 #define FLAG_UNUSED_0x0E9                    0xE9 // Unused Flag
 
 #define FLAG_RECEIVED_TM_REST                0xEA
-#define FLAG_RECEIVED_TM_ATTRACT             0xEB
+#define FLAG_RECEIVED_TM_CHARM             0xEB
 #define FLAG_RECEIVED_GLASS_ORNAMENT         0xEC
 #define FLAG_RECEIVED_SILVER_SHIELD          0xED
 #define FLAG_RECEIVED_GOLD_SHIELD            0xEE
@@ -283,12 +283,12 @@
 #define FLAG_RECEIVED_OLD_ROD                0x101
 #define FLAG_RECEIVED_COIN_CASE              0x102
 #define FLAG_RETURNED_RED_OR_BLUE_ORB        0x103
-#define FLAG_RECEIVED_TM_SNATCH              0x104
+#define FLAG_RECEIVED_TM_KNOCK_OFF              0x104
 #define FLAG_RECEIVED_TM_DIG                 0x105
 #define FLAG_RECEIVED_TM_BULLET_SEED         0x106
 #define FLAG_ENTERED_ELITE_FOUR              0x107
 #define FLAG_RECEIVED_TM_HIDDEN_POWER        0x108
-#define FLAG_RECEIVED_TM_TORMENT             0x109
+#define FLAG_RECEIVED_TM_TAUNT             0x109
 #define FLAG_RECEIVED_LAVARIDGE_EGG          0x10A
 #define FLAG_RECEIVED_REVIVED_FOSSIL_MON     0x10B
 #define FLAG_SECRET_BASE_REGISTRY_ENABLED    0x10C
@@ -573,7 +573,7 @@
 #define FLAG_HIDDEN_ITEM_LILYCOVE_CITY_HEART_SCALE           (FLAG_HIDDEN_ITEMS_START + 0x1B)
 #define FLAG_HIDDEN_ITEM_FALLARBOR_TOWN_NUGGET               (FLAG_HIDDEN_ITEMS_START + 0x1C)
 #define FLAG_HIDDEN_ITEM_MT_PYRE_EXTERIOR_ULTRA_BALL         (FLAG_HIDDEN_ITEMS_START + 0x1D)
-#define FLAG_HIDDEN_ITEM_ROUTE_113_TM_DOUBLE_TEAM            (FLAG_HIDDEN_ITEMS_START + 0x1E)
+#define FLAG_HIDDEN_ITEM_ROUTE_113_TM_AGILITY            (FLAG_HIDDEN_ITEMS_START + 0x1E)
 #define FLAG_HIDDEN_ITEM_ABANDONED_SHIP_RM_1_KEY             (FLAG_HIDDEN_ITEMS_START + 0x1F)
 #define FLAG_HIDDEN_ITEM_ABANDONED_SHIP_RM_2_KEY             (FLAG_HIDDEN_ITEMS_START + 0x20)
 #define FLAG_HIDDEN_ITEM_ABANDONED_SHIP_RM_4_KEY             (FLAG_HIDDEN_ITEMS_START + 0x21)
@@ -1094,7 +1094,7 @@
 #define FLAG_ITEM_RUSTBORO_CITY_X_DEFEND                            0x411
 #define FLAG_ITEM_LILYCOVE_CITY_MAX_REPEL                           0x412
 #define FLAG_ITEM_MOSSDEEP_CITY_NET_BALL                            0x413
-#define FLAG_ITEM_METEOR_FALLS_1F_1R_TM_IRON_TAIL                   0x414
+#define FLAG_ITEM_METEOR_FALLS_1F_1R_TM_IRON_HEAD                   0x414
 #define FLAG_ITEM_METEOR_FALLS_1F_1R_FULL_HEAL                      0x415
 #define FLAG_ITEM_METEOR_FALLS_1F_1R_MOON_STONE                     0x416
 #define FLAG_ITEM_METEOR_FALLS_1F_1R_PP_UP                          0x417
@@ -1162,7 +1162,7 @@
 #define FLAG_ITEM_ROUTE_123_ELIXIR                                  0x455
 #define FLAG_ITEM_NEW_MAUVILLE_THUNDER_STONE                        0x456
 #define FLAG_ITEM_FIERY_PATH_FIRE_STONE                             0x457
-#define FLAG_ITEM_SHOAL_CAVE_ICE_ROOM_TM_HAIL                       0x458
+#define FLAG_ITEM_SHOAL_CAVE_ICE_ROOM_TM_SNOWSCAPE                       0x458
 #define FLAG_ITEM_SHOAL_CAVE_ICE_ROOM_NEVER_MELT_ICE                0x459
 #define FLAG_ITEM_ROUTE_103_GUARD_SPEC                              0x45A
 #define FLAG_ITEM_ROUTE_104_X_ACCURACY                              0x45B
