@@ -1127,6 +1127,7 @@
 
 #define ITEM_STRANGE_BALL 957
 
+//My added items
 #define ITEM_ENDLESS_CANDY 958
 #define ITEM_POKE_VIAL 959
 #define ITEM_REPELLENT 960
