@@ -1517,8 +1517,8 @@
 #define FLAG_HIDE_WATER_STARTER                     (SYSTEM_FLAGS + 0x8C) // Flag to hide the water starter pokeball
 #define FLAG_REPELLENT_ACTIVE                       (SYSTEM_FLAGS + 0x8D) // Flag to disable wild encounters
 #define FLAG_NEW_TMS                                (SYSTEM_FLAGS + 0x8E) // Flag denoting new or old tms
-#define FLAG_UNUSED_0x8EF                           (SYSTEM_FLAGS + 0x8F) // Unused Flag
-#define FLAG_UNUSED_0x8F0                           (SYSTEM_FLAGS + 0x90) // Unused Flag
+#define FLAG_LEADERS_GIVE_TERA_SHARDS               (SYSTEM_FLAGS + 0x8F) // Flag to give tera shards or not
+#define FLAG_TERA_USABLE                           (SYSTEM_FLAGS + 0x90) // Unused Flag
 #define FLAG_UNUSED_0x8F1                           (SYSTEM_FLAGS + 0x91) // Unused Flag
 #define FLAG_UNUSED_0x8F2                           (SYSTEM_FLAGS + 0x92) // Unused Flag
 #define FLAG_UNUSED_0x8F3                           (SYSTEM_FLAGS + 0x93) // Unused Flag

@@ -56,7 +56,7 @@ static void WarpToTruck(void);
 static void ResetMiniGamesRecords(void);
 static void ResetItemFlags(void);
 static void ResetDexNav(void);
-static void InitTMFlag(void);
+static void InitTeraFlag(void);
 
 EWRAM_DATA bool8 gDifferentSaveFile = FALSE;
 EWRAM_DATA bool8 gEnableContestDebugging = FALSE;
@@ -214,7 +214,7 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
-    InitTMFlag();
+    InitTeraFlag();
 }
 
 static void ResetMiniGamesRecords(void)
@@ -240,9 +240,9 @@ static void ResetDexNav(void)
     gSaveBlock3Ptr->dexNavChain = 0;
 }
 
-static void InitTMFlag(void)
+static void InitTeraFlag(void)
 {
-#if I_GEN_IX_TMS == TRUE
-    FlagSet(FLAG_NEW_TMS);
+#if I_LEADERS_GIVE_TERA == TRUE
+    FlagSet(FLAG_LEADERS_GIVE_TERA_SHARDS);
 #endif
 }

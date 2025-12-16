@@ -112,6 +112,8 @@ void ItemUseCB_EndlessCandy(u8 taskId, TaskFunc task);
 void ItemUseCB_PokemonPowderJar(u8 taskId, TaskFunc task);
 void InitPartyMenuForPokemonPowderJarFromField(u8 taskId);
 //void InitPartyMenuForPokemonPowderJar(u8 taskId, void (*callback)(void));
+void ItemUseCB_TeraShard(u8 taskId, TaskFunc task);
+void ItemUseCB_Transitioner(u8 taskId, TaskFunc task);
 
 bool32 SetUpFieldMove_Surf(void);
 bool32 SetUpFieldMove_Fly(void);

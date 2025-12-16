@@ -55,6 +55,8 @@ void ItemUseOutOfBattle_EndlessCandy(u8 taskId);
 void ItemUseOutOfBattle_PokeVial(u8 taskId);
 void ItemUseOutOfBattle_Repellent(u8 taskId);
 void ItemUseOutOfBattle_PokemonPowderJar(u8 taskId);
+void ItemUseOutOfBattle_TeraShard(u8 taskId);
+void ItemUseOutOfBattle_Transitioner(u8 taskId);
 
 enum {
     BALL_THROW_UNABLE_TWO_MONS,

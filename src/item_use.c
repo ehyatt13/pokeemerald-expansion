@@ -1701,4 +1701,16 @@ void Task_OpenRegisteredPokemonPowderJar(u8 taskId)
     }
 }
 
+void ItemUseOutOfBattle_TeraShard(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_TeraShard;
+    SetUpItemUseCallback(taskId);
+}
+
+void ItemUseOutOfBattle_Transitioner(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_Transitioner;
+    SetUpItemUseCallback(taskId);
+}
+
 #undef tUsingRegisteredKeyItem
