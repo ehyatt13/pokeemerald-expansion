@@ -8852,10 +8852,18 @@ void Task_Transitioner(u8 taskId)
             tState++;
         break;
     case 5:
-        if (tOldGender == MON_MALE)
-            SetMonData(&gPlayerParty[tMonId], MON_DATA_OT_GENDER, MON_FEMALE);
-        else
-            SetMonData(&gPlayerParty[tMonId], MON_DATA_OT_GENDER, MON_MALE);
+        u8 newGender = tOldGender == MON_FEMALE ? MON_MALE : MON_FEMALE;
+        bool8 isShiny = IsMonShiny(&gPlayerParty[tMonId]);
+        u8 nature = GetNature(&gPlayerParty[tMonId]);
+        u32 newPersonality;
+        do
+        {
+            newPersonality = Random32();
+        } while ((GetNatureFromPersonality(newPersonality) != nature) || (GetGenderFromSpeciesAndPersonality(GetMonData(&gPlayerParty[tMonId], MON_DATA_SPECIES, NULL), newPersonality) != newGender));
+        
+        UpdateMonPersonality(&((&gPlayerParty[tMonId])->box), newPersonality);
+        SetMonData(&gPlayerParty[tMonId], MON_DATA_IS_SHINY, &isShiny);
+        CalculateMonStats(&gPlayerParty[tMonId]);
         gTasks[taskId].func = Task_ClosePartyMenu;
         break;
     }
@@ -8867,7 +8875,8 @@ void ItemUseCB_Transitioner(u8 taskId, TaskFunc task)
 
     tState = 0;
     tMonId = gPartyMenu.slotId;
-    tGenderRatio = GetMonData(&gPlayerParty[tMonId], MON_DATA_SPECIES).genderRatio;
+    u16 species = GetMonData(&gPlayerParty[tMonId], MON_DATA_SPECIES, NULL);
+    tGenderRatio = (&gSpeciesInfo[species])->genderRatio;
     tOldGender = GetMonGender(&gPlayerParty[tMonId]);
     SetWordTaskArg(taskId, tOldFunc, (uintptr_t)(gTasks[taskId].func));
     gTasks[taskId].func = Task_Transitioner;

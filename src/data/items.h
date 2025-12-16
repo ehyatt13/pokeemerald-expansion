@@ -17151,6 +17151,23 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_PowderJar,
         .iconPalette = gItemIconPalette_PowderJar,
     },
+
+    [ITEM_TRANSITIONER] =
+    {
+        .name = ITEM_NAME("Transitioner"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Changes the gender\n"
+            "of a Pokémon if\n"
+            "possible."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Transitioner,
+        .iconPic = gItemIcon_BoosterEnergy,
+        .iconPalette = gItemIconPalette_BoosterEnergy,
+    }
+
 };
 
 #undef ITEM_NAME
