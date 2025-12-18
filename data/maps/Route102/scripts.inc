@@ -73,6 +73,18 @@ Route102_EventScript_Allen::
 	msgbox Route102_Text_AllenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route102_EventScript_Promoter::
+	goto_if_not_defeated TRAINER_CALVIN_1, Route102_EventScript_PromoterGoDefeat
+	goto_if_not_defeated TRAINER_RICK, Route102_EventScript_PromoterGoDefeat
+	goto_if_not_defeated TRAINER_ALLEN, Route102_EventScript_PromoterGoDefeat
+	goto_if_not_defeated TRAINER_TIANA, Route102_EventScript_PromoterGoDefeat
+	msgbox Route102_Text_Congratulations, MSGBOX_NPC
+	end
+
+Route102_EventScript_PromoterGoDefeat::
+	msgbox Route102_Text_DefeatAllTrainers, MSGBOX_NPC
+	end
+
 Route102_Text_WatchMeCatchPokemon:
 	.string "WALLY: {PLAYER}…\n"
 	.string "POKéMON hide in tall grass like this,\l"
@@ -107,3 +119,15 @@ Route102_Text_RouteSignOldale:
 Route102_Text_RouteSignPetalburg:
 	.string "ROUTE 102\n"
 	.string "{LEFT_ARROW} PETALBURG CITY$"
+
+Route102_Text_DefeatAllTrainers:
+	.string "My company is running a\n"
+	.string "promotion right now.\p"
+	.string "If you can defeat all of the\n"
+	.string "trainers on this route, you'll\l"
+	.string "get a prize!\p"
+	.string "Get to it, trainer!$"
+
+Route102_Text_Congratulations:
+	.string "Congratulations! You did it!\n"
+	.string "Here's your prize!$"

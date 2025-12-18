@@ -442,7 +442,7 @@ script LittlerootTown_SecondLab_EventScript_BirchAfterChoice {
     lock
     applymovement(LOCALID_LAB_BIRCH, moves(walk_in_place_faster_left))
     delay(15)
-    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_in_place_faster_right))
+    applymovement(LOCALID_PLAYER, moves(walk_in_place_faster_right))
     delay(15)
     msgbox(TestBattle)
     closemessage
@@ -480,7 +480,7 @@ script LittlerootTown_SecondLab_EventScript_DontLeave {
     lock
     msgbox(WhereAreYouGoing)
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up))
+    applymovement(LOCALID_PLAYER, moves(walk_up))
     waitmovement(0)
     release
 }
