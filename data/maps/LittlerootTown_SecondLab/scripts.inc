@@ -640,7 +640,7 @@ LittlerootTown_SecondLab_EventScript_BirchAfterChoice::
 	lock
 	applymovement LOCALID_LAB_BIRCH, LittlerootTown_SecondLab_EventScript_BirchAfterChoice_Movement_0
 	delay 15
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_SecondLab_EventScript_BirchAfterChoice_Movement_1
+	applymovement LOCALID_PLAYER, LittlerootTown_SecondLab_EventScript_BirchAfterChoice_Movement_1
 	delay 15
 	msgbox TestBattle
 	closemessage
@@ -668,7 +668,7 @@ LittlerootTown_SecondLab_EventScript_DontLeave::
 	lock
 	msgbox WhereAreYouGoing
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_SecondLab_EventScript_DontLeave_Movement_0
+	applymovement LOCALID_PLAYER, LittlerootTown_SecondLab_EventScript_DontLeave_Movement_0
 	waitmovement 0
 	release
 	return

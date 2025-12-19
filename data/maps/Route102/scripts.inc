@@ -3,6 +3,7 @@ Route102_MapScripts::
 
 Route102_EventScript_LittleBoy::
 	msgbox Route102_Text_ImNotVeryTall, MSGBOX_NPC
+	giverandomtm
 	end
 
 Route102_EventScript_RouteSignOldale::
@@ -74,15 +75,49 @@ Route102_EventScript_Allen::
 	end
 
 Route102_EventScript_Promoter::
-	goto_if_not_defeated TRAINER_CALVIN_1, Route102_EventScript_PromoterGoDefeat
-	goto_if_not_defeated TRAINER_RICK, Route102_EventScript_PromoterGoDefeat
-	goto_if_not_defeated TRAINER_ALLEN, Route102_EventScript_PromoterGoDefeat
-	goto_if_not_defeated TRAINER_TIANA, Route102_EventScript_PromoterGoDefeat
-	msgbox Route102_Text_Congratulations, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_set FLAG_ROUTE_102_PROMOTER, Route102_EventScript_PromoterSeeOthers
+	bufferitemname STR_VAR_1, ITEM_COVERT_CLOAK
+	msgbox Route102_Text_Promotion, MSGBOX_DEFAULT
+	call Route102_EventScript_CountTrainersRemaining
+	copyvar VAR_0x8001, VAR_0x8000
+	goto_if_ne VAR_0x8001, 0, Route102_EventScript_PromoterGoDefeat
+	playfanfare(MUS_SLOTS_JACKPOT)
+	msgbox Route102_Text_Congratulations, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	giveitem ITEM_COVERT_CLOAK, 1
+	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
+	setflag FLAG_ROUTE_102_PROMOTER
+	release
 	end
 
+Route102_EventScript_CountTrainersRemaining::
+	setvar VAR_0x8000, 4
+	goto_if_not_defeated TRAINER_CALVIN_1, Route102_EventScript_CheckRick
+	subvar VAR_0x8000, 1
+Route102_EventScript_CheckRick::
+	goto_if_not_defeated TRAINER_RICK, Route102_EventScript_CheckAllen
+	subvar VAR_0x8000, 1
+Route102_EventScript_CheckAllen::
+	goto_if_not_defeated TRAINER_ALLEN, Route102_EventScript_CheckTiana
+	subvar VAR_0x8000, 1
+Route102_EventScript_CheckTiana::
+	goto_if_not_defeated TRAINER_TIANA, Route102_EventScript_StopCountingTrainers
+	subvar VAR_0x8000, 1
+Route102_EventScript_StopCountingTrainers::
+	return
+
 Route102_EventScript_PromoterGoDefeat::
-	msgbox Route102_Text_DefeatAllTrainers, MSGBOX_NPC
+	buffernumberstring STR_VAR_1, VAR_0x8000
+	msgbox Route102_Text_RemainingTrainers, MSGBOX_DEFAULT
+	release
+	end
+
+Route102_EventScript_PromoterSeeOthers::
+	msgbox Route102_Text_OtherPromoters, MSGBOX_DEFAULT
+	release
 	end
 
 Route102_Text_WatchMeCatchPokemon:
@@ -120,14 +155,27 @@ Route102_Text_RouteSignPetalburg:
 	.string "ROUTE 102\n"
 	.string "{LEFT_ARROW} PETALBURG CITY$"
 
-Route102_Text_DefeatAllTrainers:
-	.string "My company is running a\n"
-	.string "promotion right now.\p"
-	.string "If you can defeat all of the\n"
+Route102_Text_Promotion:
+	.string "My company is currently\n"
+	.string "running a promotion for\l"
+	.string "a prize!\p"
+	.string "My promotion is: \n"
+	.string "If you can defeat all of the\l"
 	.string "trainers on this route, you'll\l"
-	.string "get a prize!\p"
+	.string "get a {STR_VAR_1}!$"
+
+Route102_Text_RemainingTrainers:
+	.string "You still have {STR_VAR_1}\n"
+	.string "trainer(s) left to defeat.\p"
 	.string "Get to it, trainer!$"
 
 Route102_Text_Congratulations:
 	.string "Congratulations! You did it!\n"
 	.string "Here's your prize!$"
+
+Route102_Text_OtherPromoters:
+	.string "You might come across my\n"
+	.string "coworkers on other routes.\p"
+	.string "If you do, you should see\n"
+	.string "if you can complete their tasks\l"
+	.string "for a prize!$"

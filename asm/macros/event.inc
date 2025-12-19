@@ -2075,6 +2075,16 @@
 	callstd STD_OBTAIN_ITEM
 	.endm
 
+	@Gives 'amount' of the randomly selected TM and plays fanfare. Basically, giveitem but with a
+	@random number in the TM range.
+	.macro giverandomtm amount=1
+	random 229
+	setorcopyvar VAR_0x8000, VAR_RESULT
+	addvar VAR_0x8000, 582
+	setorcopyvar VAR_0x8001, \amount
+	callstd STD_OBTAIN_ITEM
+	.endm
+
 	@ For picking up items in the overworld. Similar to giveitem, but with different language and
 	@ sets the flag of the last-talked to object (the item the player picked up).
 	.macro finditem item:req, amount=1
