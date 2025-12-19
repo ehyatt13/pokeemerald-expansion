@@ -81,6 +81,151 @@ Gender: Male
 Music: Male
 Double Battle: No
 
+=== TRAINER_SECOND_LAB_BIRCH ===
+Name: BIRCH
+Class: Professor
+Pic: Birch
+Gender: Male
+Music: Male
+Items: Potion
+Double Battle: No
+Mugshot: Green
+AI: Check Bad Move
+
+Zigzagoon @ Sitrus Berry
+Level: 4
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Pound
+
+/* ROUTE 102 */
+
+=== TRAINER_CALVIN_1 ===
+Name: CALVIN
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Good Trainer / Ace Pokemon
+
+Poochyena
+Ability: Rattled
+Level: 5
+Bashful Nature
+- Bite
+- Quick Attack
+- Sand Attack
+
+Kasumi (Rookidee) (F)  
+Ability: Keen Eye
+Level: 6    
+Bashful Nature 
+Shiny: Yes 
+- Wing Attack  
+- Sand Attack  
+- Swagger
+
+Nick (Rattata) (M)  
+Level: 6    
+Bashful Nature  
+- Tackle
+- Quick Attack  
+- Tail Whip
+
+=== TRAINER_RICK ===
+Name: RICK
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Good Trainer
+
+Grubbin @ Oran Berry
+Ability: Swarm
+Level: 6
+Bashful Nature
+- Bug Bite
+- Spark
+- Vise Grip
+
+Pineco
+Ability: Sturdy
+Level: 6
+Bashful Nature
+- Pin Missile
+- Iron Defense
+
+Sizzlipede @ Oran Berry
+Ability: Flash Fire
+Level: 7
+Bashful Nature
+- Bug Bite
+- Ember
+- Wrap
+
+=== TRAINER_ALLEN ===
+Name: ALLEN
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Good Trainer
+
+Skiddo @ Lum Berry
+Ability: Sap Sipper
+Level: 7
+Bashful Nature
+- Vine Whip
+- Tackle
+- Synthesis
+
+Litleo @ Oran Berry
+Ability: Unnerve
+Level: 6
+Bashful Nature
+- Headbutt
+- Ember
+- Work Up
+
+Psyduck @ Oran Berry
+Ability: Swift Swim
+Level: 7
+Bashful Nature
+- Bubble Beam
+- Psywave
+
+=== TRAINER_TIANA ===
+Name: TIANA
+Class: Lass
+Pic: Lass
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Good Trainer
+
+Swirlix @ Berry Juice
+Level: 7
+Ability: Unburden
+Bashful Nature
+- Fairy Wind
+- Metronome
+
+Spinda @ Berry Juice
+Level: 8
+Ability: Own Tempo
+Bashful Nature
+- Fake Out
+- Metronome
+
+Lechonk @ Leftovers
+Level: 7
+Ability: Thick Fat
+Bashful Nature
+- Disarming Voice
+- Dig
+
 === TRAINER_SAWYER_1 ===
 Name: SAWYER
 Class: Hiker
@@ -4796,11 +4941,11 @@ Gender: Female
 Music: Female
 Items: Potion / Potion
 Double Battle: No
-AI: Basic Trainer
+Mugshot: Purple
+AI: Boss Trainer
 
 Rockruff @ Quick Claw  
-Level: 13  
-Tera Type: Rock  
+Level: 14    
 Jolly Nature  
 IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe  
 - Stealth Rock  
@@ -4810,7 +4955,7 @@ IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Lileep @ Eviolite  
 Ability: Storm Drain  
-Level: 13  
+Level: 14  
 Tera Type: Rock  
 Sassy Nature  
 IVs: 0 Atk  
@@ -4821,7 +4966,7 @@ IVs: 0 Atk
 
 Growlithe-Hisui @ Rocky Helmet  
 Ability: Intimidate  
-Level: 14  
+Level: 15  
 Tera Type: Fire  
 Relaxed Nature  
 IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe  
@@ -4831,8 +4976,7 @@ IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Sandstorm  
 
 Cranidos @ Life Orb  
-Level: 14  
-Tera Type: Rock  
+Level: 15    
 Adamant Nature  
 IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe  
 - Take Down  
@@ -4842,7 +4986,7 @@ IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Minior @ Salac Berry  
 Ability: Shields Down  
-Level: 14  
+Level: 15  
 Tera Type: Rock  
 Adamant Nature  
 - Rollout  
@@ -4851,8 +4995,7 @@ Adamant Nature
 - Shell Smash  
 
 Diancie @ Diancite  
-Level: 15  
-Tera Type: Rock  
+Level: 16    
 Hardy Nature  
 IVs: 24 HP / 24 Def / 24 SpA / 24 SpD / 24 Spe  
 - Rock Throw  
@@ -5980,19 +6123,6 @@ Hariyama
 Level: 39
 IVs: 29 HP / 29 Atk / 29 Def / 29 SpA / 29 SpD / 29 Spe
 
-=== TRAINER_CALVIN_1 ===
-Name: CALVIN
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Poochyena
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 === TRAINER_BILLY ===
 Name: BILLY
 Class: Youngster
@@ -6244,23 +6374,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Zigzagoon
 Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_ALLEN ===
-Name: ALLEN
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Zigzagoon
-Level: 4
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Taillow
-Level: 3
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TIMMY ===
@@ -11084,23 +11197,6 @@ Camerupt
 Level: 25
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_TIANA ===
-Name: TIANA
-Class: Lass
-Pic: Lass
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Zigzagoon
-Level: 4
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Shroomish
-Level: 4
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 === TRAINER_HALEY_1 ===
 Name: HALEY
 Class: Lass
@@ -11287,23 +11383,6 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 Wailmer
 Level: 39
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-=== TRAINER_RICK ===
-Name: RICK
-Class: Bug Catcher
-Pic: Bug Catcher
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Wurmple
-Level: 4
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Wurmple
-Level: 4
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LYLE ===
 Name: LYLE
@@ -16913,19 +16992,3 @@ Double Battle: No
 Kyogre
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_SECOND_LAB_BIRCH ===
-Name: BIRCH
-Class: Professor
-Pic: Birch
-Gender: Male
-Music: Male
-Items: Potion
-Double Battle: No
-Mugshot: Green
-AI: Check Bad Move
-
-Zigzagoon @ Sitrus Berry
-Level: 4
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Pound

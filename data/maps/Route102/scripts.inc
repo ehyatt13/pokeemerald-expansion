@@ -3,7 +3,6 @@ Route102_MapScripts::
 
 Route102_EventScript_LittleBoy::
 	msgbox Route102_Text_ImNotVeryTall, MSGBOX_NPC
-	giverandomtm
 	end
 
 Route102_EventScript_RouteSignOldale::

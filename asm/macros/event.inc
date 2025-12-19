@@ -2085,6 +2085,46 @@
 	callstd STD_OBTAIN_ITEM
 	.endm
 
+	@Gives 'amount' of the randomly selected mint and plays fanfare. Basically, giveitem but with a
+	@random number in the mint range.
+	.macro giverandommint amount=1
+	random 21
+	setorcopyvar VAR_0x8000, VAR_RESULT
+	addvar VAR_0x8000, 81
+	setorcopyvar VAR_0x8001, \amount
+	callstd STD_OBTAIN_ITEM
+	.endm
+
+	@Gives 'amount' of the randomly selected evolution item and plays fanfare. Basically, giveitem but with a
+	@random number in the evolution item range.
+	.macro giverandomevoitem amount=1
+	random 33
+	setorcopyvar VAR_0x8000, VAR_RESULT
+	addvar VAR_0x8000, 211
+	setorcopyvar VAR_0x8001, \amount
+	callstd STD_OBTAIN_ITEM
+	.endm
+
+	@Gives 'amount' of the randomly selected held item and plays fanfare. Basically, giveitem but with a
+	@random number in the held item range.
+	.macro giverandomhelditemfirst amount=1
+	random 21
+	setorcopyvar VAR_0x8000, VAR_RESULT
+	addvar VAR_0x8000, 425
+	setorcopyvar VAR_0x8001, \amount
+	callstd STD_OBTAIN_ITEM
+	.endm
+
+	@Gives 'amount' of the randomly selected held item and plays fanfare. Basically, giveitem but with a
+	@random number in the held item range.
+	.macro giverandomhelditemsecond amount=1
+	random 55
+	setorcopyvar VAR_0x8000, VAR_RESULT
+	addvar VAR_0x8000, 458
+	setorcopyvar VAR_0x8001, \amount
+	callstd STD_OBTAIN_ITEM
+	.endm
+
 	@ For picking up items in the overworld. Similar to giveitem, but with different language and
 	@ sets the flag of the last-talked to object (the item the player picked up).
 	.macro finditem item:req, amount=1

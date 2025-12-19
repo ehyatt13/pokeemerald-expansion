@@ -1226,7 +1226,7 @@
 #define FLAG_ITEM_SOLLYS_HOUSE_ITEM                                 0x494 // Solly's House item
 #define FLAG_ITEM_JUSTINS_HOUSE_ITEM                                0x495 // Justin's House item
 #define FLAG_ITEM_NICKS_HOUSE_ITEM                                  0x496 // Nick's House item
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
+#define FLAG_ROUTE_102_TM                                           0x497 // Route 102 TM item ball
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
 #define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
@@ -1520,7 +1520,7 @@
 #define FLAG_LEADERS_GIVE_TERA_SHARDS               (SYSTEM_FLAGS + 0x8F) // Flag to give tera shards or not
 #define FLAG_TERA_USABLE                           (SYSTEM_FLAGS + 0x90) // Unused Flag
 #define FLAG_ROUTE_102_PROMOTER                      (SYSTEM_FLAGS + 0x91) // Unused Flag
-#define FLAG_ROUTE_102_TM                         (SYSTEM_FLAGS + 0x92) // Unused Flag
+#define FLAG_COLLISION_OFF                         (SYSTEM_FLAGS + 0x92) // Unused Flag
 #define FLAG_UNUSED_0x8F3                           (SYSTEM_FLAGS + 0x93) // Unused Flag
 #define FLAG_UNUSED_0x8F4                           (SYSTEM_FLAGS + 0x94) // Unused Flag
 #define FLAG_UNUSED_0x8F5                           (SYSTEM_FLAGS + 0x95) // Unused Flag

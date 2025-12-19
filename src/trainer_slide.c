@@ -61,6 +61,10 @@ static const u8* const sTrainerSlides[DIFFICULTY_COUNT][TRAINERS_COUNT][TRAINER_
             [TRAINER_SLIDE_BEFORE_FIRST_TURN] = COMPOUND_STRING("Let's see how you do in your first battle!{PAUSE_UNTIL_PRESS}"),
             [TRAINER_SLIDE_PLAYER_LANDS_FIRST_STAB_MOVE] = COMPOUND_STRING("So you already know to use a move of the same type, huh?{PAUSE_UNTIL_PRESS}"),
             [TRAINER_SLIDE_LAST_LOW_HP] = COMPOUND_STRING("It's not over just yet!{PAUSE_UNTIL_PRESS}"),
+        },
+        [TRAINER_CALVIN_1] =
+        {
+            [TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("Alright! Nick won't let me down!{PAUSE_UNTIL_PRESS}"),
         }
     },
 };

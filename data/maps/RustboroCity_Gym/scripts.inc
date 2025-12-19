@@ -35,6 +35,7 @@ RustboroCity_Gym_EventScript_GiveRockTomb::
 	end
 
 RustboroCity_Gym_EventScript_GiveRockTera::
+	msgbox RustboroCity_Gym_Text_SomethingElse, MSGBOX_DEFAULT
 	giveitem ITEM_ROCK_TERA_SHARD
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	msgbox RustboroCity_Gym_Text_ExplainRockTera, MSGBOX_DEFAULT
@@ -225,17 +226,21 @@ RustboroCity_Gym_Text_ExplainRockTomb:
 	.string "Remember, a TM can be used only once,\n"
 	.string "so think before you use it.$"
 
+RustboroCity_Gym_Text_SomethingElse:
+	.string "Here's something else we've started\n"
+	.string "doing recently.$"
+
 RustboroCity_Gym_Text_ExplainRockTera:
 	.string "This is a Rock-type Tera\n"
 	.string "Crystal Shard.\p"
 	.string "Using it will allow you to change\n"
-	.string "your POKéMON's Tera type to the\n"
+	.string "your POKéMON's Tera type to the\l"
 	.string "Rock-type.\p"
 	.string "Be warned, once you change the Tera\n"
-	.string "type, you will be unable to change it\n"
-	.string "to another type if you do not possess\n"
-	.string "the corresponding Tera Crystal Shard\n"
-	.string "of that type.$"
+	.string "type, you will be unable to change it\l"
+	.string "to another type if you do not possess\l"
+	.string "the corresponding type's Tera Crystal\l"
+	.string "Shard.$"
 
 RustboroCity_Gym_Text_RoxannePostBattle:
 	.string "Since you are so strong, you should\n"
