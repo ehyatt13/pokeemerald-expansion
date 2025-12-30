@@ -1051,6 +1051,9 @@ gText_Sudowoodo_Attacked::
 gText_LegendaryFlewAway::
 	.string "The {STR_VAR_1} flew away!$"
 
+gText_TotemRanAway::
+	.string "The wild {STR_VAR_1} ran away!$"
+
 	.include "data/text/pc_transfer.inc"
 	.include "data/text/questionnaire.inc"
 	.include "data/text/abnormal_weather.inc"
@@ -1091,6 +1094,25 @@ Common_EventScript_RemoveStaticPokemon::
 	fadescreenswapbuffers FADE_FROM_BLACK
 	release
 	end
+
+Common_EventScript_TotemRanAway::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	msgbox gText_TotemRanAway, MSGBOX_DEFAULT
+	return
+
+Common_EventScript_SetImportantWildFlags::
+	setflag FLAG_NO_RUNNING
+	setflag FLAG_NO_CATCHING
+	setflag FLAG_SMART_WILD
+	return
+
+Common_EventScript_ClearImportantWildFlags::
+	clearflag FLAG_NO_RUNNING
+	clearflag FLAG_NO_CATCHING
+	clearflag FLAG_SMART_WILD
+	return
 
 Common_EventScript_LegendaryFlewAway::
 	fadescreenswapbuffers FADE_TO_BLACK

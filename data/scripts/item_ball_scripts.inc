@@ -17,7 +17,7 @@ Common_EventScript_FindRandomMint::
 	finditem VAR_RESULT VAR_0x8009
 	end
 
-Common_EventScript_FindRandomEvoitem::
+Common_EventScript_FindRandomEvoItem::
 	callnative GetItemBallIdAndAmountFromTemplate
 	random 33
 	addvar VAR_RESULT 211

@@ -74,6 +74,10 @@ OldaleTown_EventScript_ExplainPokemonMart::
 	giveitem ITEM_POTION
 	goto_if_eq VAR_RESULT, FALSE, OldaleTown_EventScript_BagIsFull
 	msgbox OldaleTown_Text_PotionExplanation, MSGBOX_DEFAULT
+	giverandommint 1
+	giverandomtm 1
+	giverandomhelditemfirst 1
+	giverandomhelditemsecond 1
 	setflag FLAG_RECEIVED_POTION_OLDALE
 	fadedefaultbgm
 	release
@@ -359,7 +363,12 @@ OldaleTown_Text_ThisIsAPokemonMart:
 OldaleTown_Text_PotionExplanation:
 	.string "A POTION can be used anytime, so it's\n"
 	.string "even more useful than a POKéMON CENTER\l"
-	.string "in certain situations.$"
+	.string "in certain situations.\p"
+	.string "...\p"
+	.string "Actually, something tells me that you'll\n"
+	.string "need all the help you can get, so here's\l"
+	.string "some extra stuff on the house.\p"
+	.string "Keep it a secret though, okay?$"
 
 OldaleTown_Text_WaitDontComeInHere:
 	.string "Aaaaah! Wait!\n"

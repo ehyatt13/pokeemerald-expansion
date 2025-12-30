@@ -173,7 +173,7 @@ Music: Male
 Double Battle: No
 AI: Good Trainer
 
-Skiddo @ Lum Berry
+Skiddo
 Ability: Sap Sipper
 Level: 7
 Bashful Nature
@@ -206,25 +206,771 @@ Double Battle: No
 AI: Good Trainer
 
 Swirlix @ Berry Juice
-Level: 7
 Ability: Unburden
+Level: 7
 Bashful Nature
 - Fairy Wind
 - Metronome
 
 Spinda @ Berry Juice
-Level: 8
 Ability: Own Tempo
+Level: 8
 Bashful Nature
 - Fake Out
 - Metronome
 
 Lechonk @ Leftovers
-Level: 7
 Ability: Thick Fat
+Level: 7
 Bashful Nature
 - Disarming Voice
 - Dig
+
+/* ROUTE 104 */
+
+=== TRAINER_BILLY ===
+Name: BILLY
+Class: Triathlete
+Pic: Running Triathlete M
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Good Trainer
+
+Krabby @ Oran Berry
+Ability: Shell Armor
+Level: 9
+Relaxed Nature
+- Aqua Jet
+- Stomp
+- Mud Shot
+
+Clobbopus @ Oran Berry
+Ability: Limber
+Level: 9
+Jolly Nature
+- Rock Smash
+- Bind
+- Detect
+
+Yanma @ Iron Ball
+Ability: Speed Boost
+Level: 9
+Jolly Nature
+- Acrobatics
+- Sonic Boom
+
+=== TRAINER_DARIAN ===
+Name: DARIAN
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Music: Hiker
+Double Battle: No
+AI: Good Trainer
+
+Magikarp @ Choice Band
+Ability: Rattled
+Level: 12
+Adamant Nature
+- Bounce
+
+Magikarp @ Focus Sash
+Ability: Rattled
+Level: 12
+Hasty Nature
+- Hydro Pump
+- Tackle
+- Flail
+
+Wiglett @ Mystic Water
+Ability: Gooey
+Level: 10
+Adamant Nature
+- Aqua Jet
+- Wrap
+- Mud Slap
+
+=== TRAINER_CINDY_1 ===
+Name: CINDY
+Class: Lady
+Pic: Lady
+Gender: Female
+Music: Female
+Items: Full Restore
+Double Battle: No
+AI: Good Trainer
+
+Minccino @ Oran Berry
+Ability: Cute Charm
+Level: 10
+Modest Nature
+- Swift
+- Attract
+- Thunder Wave
+
+Jigglypuff @ Oran Berry
+Ability: Cute Charm
+Level: 10
+Bold Nature
+- Round
+- Draining Kiss
+- Attract
+- Thunder Wave
+
+Phanpy @ Oran Berry
+Ability: Cute Charm
+Level: 10
+Jolly Nature
+- Stomp
+- Attract
+
+/* PETALBURG WOODS */
+
+=== TRAINER_LYLE ===
+Name: LYLE
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Good Trainer
+
+Spinarak @ Scope Lens
+Ability: Sniper
+Level: 11
+Jolly Nature
+- Poison Sting
+- Pin Missile
+- Shadow Sneak
+- Knock Off
+
+Kricketune
+Ability: Technician
+Level: 11
+Jolly Nature
+- Bug Bite
+- Fell Stinger
+- Brick Break
+- Aerial Ace
+
+Nincada @ Weakness Policy
+Ability: Compound Eyes
+Level: 11
+Naughty Nature
+- Leech Life
+- Mud Slap
+- Mega Drain
+
+Nymble @ Oran Berry
+Ability: Tinted Lens
+Level: 11
+Jolly Nature
+- Struggle Bug
+- Double Kick
+- Astonish
+
+=== TRAINER_GRUNT_PETALBURG_WOODS ===
+Name: GRUNT
+Class: Team Aqua
+Pic: Aqua Grunt M
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Good Trainer
+
+Carvanha @ Rocky Helmet
+Ability: Rough Skin
+Level: 12
+Naive Nature
+- Bite
+- Water Pulse
+- Aqua Jet
+- Poison Fang
+
+Croagunk @ Salac Berry
+Ability: Poison Touch
+Level: 12
+Hasty Nature
+- Belch
+- Rock Smash
+- Poison Sting
+- Fake Out
+
+Exeggcute @ Oran Berry
+Ability: Harvest
+Level: 12
+Relaxed Nature
+- Confusion
+- Bullet Seed
+- Leech Seed
+- Stun Spore
+
+=== TRAINER_JAMES_1 ===
+Name: JAMES
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Good Trainer
+
+Cutiefly @ Wise Glasses
+Ability: Shield Dust
+Level: 12
+Timid Nature
+- Draining Kiss
+- Fake Tears
+- Magical Leaf
+
+Shedinja @ Bright Powder
+Ability: Wonder Guard
+Level: 12
+Quiet Nature
+- Shadow Sneak
+- Will O Wisp
+- Sand Attack
+- Mud Slap
+
+/* ROUTE 104 BACK */
+
+=== TRAINER_WINSTON_1 ===
+Name: WINSTON
+Class: Rich Boy
+Pic: Rich Boy
+Gender: Male
+Music: Rich
+Items: Full Restore
+Double Battle: No
+AI: Good Trainer
+
+Furfrou @ Leftovers
+Ability: Fur Coat
+Level: 13
+Impish Nature
+- Headbutt
+- Covet
+- Rock Smash
+
+Maschiff @ Quick Claw
+Ability: Intimidate
+Level: 13
+Jolly Nature
+- Headbutt
+- Bite
+- Roar
+
+=== TRAINER_HALEY_1 ===
+Name: HALEY
+Class: Lass
+Pic: Lass
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Good Trainer
+
+Finneon
+Ability: Water Veil
+Level: 13
+Timid Nature
+- Icy Wind
+- Chilling Water
+- Acrobatics
+
+Oddish
+Ability: Stench
+Level: 13
+Bold Nature
+- Acid
+- Sleep Powder
+- Strength Sap
+- Mega Drain
+
+Starly @ Normal Gem
+Ability: Reckless
+Level: 13
+Adamant Nature
+- Take Down
+- Wing Attack
+- Quick Attack
+- Whirlwind
+
+Numel @ Passho Berry
+Ability: Simple
+Level: 13
+Modest Nature
+- Earth Power
+- Flame Charge
+- Lava Plume
+- Ancient Power
+
+=== TRAINER_GINA_AND_MIA_1 ===
+Name: GINA & MIA
+Class: Twins
+Pic: Twins
+Gender: Male
+Music: Twins
+Double Battle: Yes
+AI: Good Trainer
+
+Dedenne @ Sitrus Berry
+Ability: Cheek Pouch
+Level: 13
+Modest Nature
+- Dazzling Gleam
+- Electroweb
+
+Clefairy @ Eviolite
+Ability: Friend Guard
+Level: 13
+Bold Nature
+- Follow Me
+- Helping Hand
+
+Abra
+Ability: Magic Guard
+Level: 13
+Timid Nature
+- Dazzling Gleam
+- Psybeam
+
+Togedemaru
+Ability: Sturdy
+Level: 13
+Jolly Nature
+- Iron Head
+- Zing Zap
+- Fake Out
+- Helping Hand
+
+=== TRAINER_IVAN ===
+Name: IVAN
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Music: Hiker
+Double Battle: No
+AI: Good Trainer
+
+Qwilfish @ Black Sludge
+Ability: Intimidate
+Level: 13
+Hasty Nature
+- Dive
+- Venoshock
+- Toxic
+- Protect
+
+Horsea
+Ability: Sniper
+Level: 13
+Hasty Nature
+- Focus Energy
+- Icy Wind
+- Bubble Beam
+- Swift
+
+Spheal
+Ability: Ice Body
+Level: 13
+Bold Nature
+- Hail
+- Protect
+- Whirlpool
+- Aurora Beam
+
+/* RUSTBORO GYM */
+
+=== TRAINER_JOSH ===
+Name: JOSH
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Good Trainer
+
+Rockruff @ Quick Claw  
+Level: 14    
+Jolly Nature  
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe  
+- Stealth Rock  
+- Sand Attack  
+- Rock Throw  
+- Take Down
+
+Tyrunt
+Ability: Sturdy
+Level: 14
+Jolly Nature
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Rock Slide
+- Aerial Ace
+- Breaking Swipe
+- Stomping Tantrum
+
+Archen @ Choice Scarf
+Ability: Defeatist
+Level: 14
+Adamant Nature
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Rock Slide
+
+=== TRAINER_TOMMY ===
+Name: TOMMY
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Good Trainer
+
+Sudowoodo
+Ability: Rock Head
+Level: 15
+Careful Nature
+IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
+- Rock Slide
+- Take Down
+- Submission
+- Stomping Tantrum
+
+Carkol @ Passho Berry
+Ability: Steam Engine
+Level: 15
+Relaxed Nature
+IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
+- Ancient Power
+- Incinerate
+- Scorching Sands
+- Sand Tomb
+
+Corsola @ Rindo Berry
+Ability: Regenerator
+Level: 15
+Bold Nature
+IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
+- Scald
+- Ancient Power
+- Calm Mind
+- Recover
+
+=== TRAINER_MARC ===
+Name: MARC
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Music: Hiker
+Double Battle: No
+AI: Good Trainer
+
+Geodude-Alola @ Weakness Policy
+Ability: Sturdy
+Level: 15
+Jolly Nature
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Bulldoze
+- Rock Tomb
+- Stealth Rock
+
+Lairon @ Custap Berry
+Ability: Sturdy
+Level: 15
+Adamant Nature
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Iron Tail
+- Rock Slide
+- Stomping Tantrum
+- Reversal
+
+Boldore @ Leftovers
+Ability: Solid Rock
+Level: 15
+Careful Nature
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Rock Slide
+- Sand Tomb
+- Sandstorm
+- Stomping Tantrum
+
+=== TRAINER_ROXANNE_1 ===
+Name: ROXANNE
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Items: Potion / Potion
+Double Battle: No
+Mugshot: Purple
+AI: Boss Trainer
+
+Glimmet @ Rocky Helmet
+Ability: Toxic Debris
+Level: 15
+Sassy Nature
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Ancient Power
+- Stealth Rock
+- Rock Throw
+- Harden
+
+Lileep @ Eviolite  
+Ability: Storm Drain  
+Level: 15    
+Sassy Nature  
+IVs: 0 Atk  
+- Ingrain  
+- Acid  
+- Confuse Ray  
+- Protect  
+
+Growlithe-Hisui @ Rocky Helmet  
+Ability: Intimidate  
+Level: 15  
+Tera Type: Rock  
+Relaxed Nature  
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Ember  
+- Howl  
+- Bite  
+- Sandstorm  
+
+Cranidos @ Life Orb  
+Level: 15    
+Adamant Nature  
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Take Down  
+- Zen Headbutt  
+- Rock Tomb  
+- Rock Smash  
+
+Minior @ Salac Berry  
+Ability: Shields Down  
+Level: 15  
+Tera Type: Rock  
+Adamant Nature  
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Rollout  
+- Defense Curl  
+- Acrobatics  
+- Shell Smash  
+
+Diancie @ Diancite  
+Level: 16    
+Hardy Nature  
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Rock Throw  
+- Calm Mind  
+- Power Gem  
+- Psyshock  
+
+/* ROUTE 116 */
+
+=== TRAINER_JOEY ===
+Name: JOEY
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Good Trainer
+
+Shroodle @ Sitrus Berry
+Ability: Prankster
+Level: 14
+Jolly Nature
+- Mimic
+- Parting Shot
+- Metronome
+
+Zigzagoon-Galar
+Ability: Quick Feet
+Level: 14
+Jolly Nature
+- Belly Drum
+- Headbutt
+- Baby Doll Eyes
+- Snarl
+
+Pidgey
+Ability: Keen Eye
+Level: 14
+Naive Nature
+- Aerial Ace
+- U Turn
+- Quick Attack
+
+=== TRAINER_JOSE ===
+Name: JOSE
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Good Trainer
+
+Pinsir
+Ability: Hyper Cutter
+Level: 14
+Jolly Nature
+- X Scissor
+- Rock Slide
+- Bulk Up
+
+Durant
+Ability: Swarm
+Level: 14
+Jolly Nature
+- First Impression
+- Iron Head
+- X Scissor
+- Thunder Fang
+
+Vivillon
+Ability: Shield Dust
+Level: 14
+Bold Nature
+- Bug Buzz
+- Roost
+- Quiver Dance
+- Air Slash
+
+=== TRAINER_KAREN_1 ===
+Name: KAREN
+Class: School Kid
+Pic: School Kid F
+Gender: Female
+Music: Girl
+Double Battle: No
+AI: Good Trainer
+
+Tangela
+Ability: Regenerator
+Level: 14
+Calm Nature
+- Mega Drain
+- Stun Spore
+- Ancient Power
+- Ingrain
+
+Cramorant @ Sitrus Berry
+Ability: Gulp Missile
+Level: 14
+Hasty Nature
+- Drill Peck
+- Whirlpool
+- Belch
+- Surf
+
+Raichu
+Ability: Lightning Rod
+Level: 14
+Naive Nature
+- Thunderbolt
+- Extreme Speed
+- Grass Knot
+
+=== TRAINER_JOHNSON ===
+Name: JOHNSON
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Good Trainer
+
+Shroomish
+Level: 8
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Lotad
+Level: 8
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_CLARK ===
+Name: CLARK
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Music: Hiker
+Double Battle: No
+AI: Good Trainer
+
+Dugtrio @ Soft Sand
+Ability: Arena Trap
+Level: 14
+Jolly Nature
+- Tri Attack
+- Mud Slap
+- Bulldoze
+
+Dugtrio-Alola @ Focus Sash
+Ability: Tangling Hair
+Level: 14
+Jolly Nature
+- Reversal
+- Iron Head
+- Bulldoze
+
+Toedscool @ Soft Sand
+Ability: Mycelium Might
+Level: 14
+Jolly Nature
+- Mega Drain
+- Mud Shot
+- Supersonic
+
+=== TRAINER_DEVAN ===
+Name: DEVAN
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Music: Hiker
+Double Battle: No
+AI: Good Trainer
+
+Mankey
+Ability: Defiant
+Level: 14
+Jolly Nature
+- Focus Energy
+- Cross Chop
+- Assurance
+
+Drednaw
+Ability: Strong Jaw
+Level: 14
+Adamant Nature
+- Rock Slide
+- Razor Shell
+- Rock Polish
+- Crunch
+
+Gligar @ Flying Gem
+Ability: Hyper Cutter
+Level: 14
+Jolly Nature
+- Acrobatics
+- Knock Off
+- Stomping Tantrum
+
+=== TRAINER_SARAH ===
+Name: SARAH
+Class: Lady
+Pic: Lady
+Gender: Female
+Music: Female
+Items: Full Restore
+Double Battle: No
+AI: Good Trainer
+
+Lotad
+Level: 8
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Zigzagoon @ Nugget
+Level: 8
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SAWYER_1 ===
 Name: SAWYER
@@ -365,19 +1111,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Taillow
 Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_GRUNT_PETALBURG_WOODS ===
-Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt M
-Gender: Male
-Music: Aqua
-Double Battle: No
-AI: Check Bad Move
-
-Poochyena
-Level: 9
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_MARCEL ===
@@ -2258,20 +2991,6 @@ Grumpig
 Level: 42
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_CINDY_1 ===
-Name: CINDY
-Class: Lady
-Pic: Lady
-Gender: Female
-Music: Female
-Items: Full Restore
-Double Battle: No
-AI: Check Bad Move
-
-Zigzagoon @ Nugget
-Level: 7
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 === TRAINER_DAPHNE ===
 Name: DAPHNE
 Class: Lady
@@ -2661,20 +3380,6 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Screech
 - Glare
 - Crunch
-
-=== TRAINER_WINSTON_1 ===
-Name: WINSTON
-Class: Rich Boy
-Pic: Rich Boy
-Gender: Male
-Music: Rich
-Items: Full Restore
-Double Battle: No
-AI: Check Bad Move
-
-Zigzagoon @ Nugget
-Level: 7
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_MOLLIE ===
 Name: MOLLIE
@@ -4933,78 +5638,6 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Slide
 - Crunch
 
-=== TRAINER_ROXANNE_1 ===
-Name: ROXANNE
-Class: Leader
-Pic: Leader Roxanne
-Gender: Female
-Music: Female
-Items: Potion / Potion
-Double Battle: No
-Mugshot: Purple
-AI: Boss Trainer
-
-Rockruff @ Quick Claw  
-Level: 14    
-Jolly Nature  
-IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe  
-- Stealth Rock  
-- Sand Attack  
-- Rock Throw  
-- Take Down  
-
-Lileep @ Eviolite  
-Ability: Storm Drain  
-Level: 14  
-Tera Type: Rock  
-Sassy Nature  
-IVs: 0 Atk  
-- Ingrain  
-- Acid  
-- Confuse Ray  
-- Protect  
-
-Growlithe-Hisui @ Rocky Helmet  
-Ability: Intimidate  
-Level: 15  
-Tera Type: Fire  
-Relaxed Nature  
-IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe  
-- Ember  
-- Howl  
-- Bite  
-- Sandstorm  
-
-Cranidos @ Life Orb  
-Level: 15    
-Adamant Nature  
-IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe  
-- Take Down  
-- Zen Headbutt  
-- Rock Tomb  
-- Rock Smash  
-
-Minior @ Salac Berry  
-Ability: Shields Down  
-Level: 15  
-Tera Type: Rock  
-Adamant Nature  
-- Rollout  
-- Defense Curl  
-- Acrobatics  
-- Shell Smash  
-
-Diancie @ Diancite  
-Level: 16    
-Hardy Nature  
-IVs: 24 HP / 24 Def / 24 SpA / 24 SpD / 24 Spe  
-- Rock Throw  
-- Calm Mind  
-- Power Gem  
-- Psyshock  
-
-
-
 === TRAINER_BRAWLY_1 ===
 Name: BRAWLY
 Class: Leader
@@ -5425,19 +6058,6 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 Medicham
 Level: 34
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-=== TRAINER_KAREN_1 ===
-Name: KAREN
-Class: School Kid
-Pic: School Kid F
-Gender: Female
-Music: Girl
-Double Battle: No
-AI: Check Bad Move
-
-Shroomish
-Level: 9
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
 === TRAINER_GEORGIA ===
 Name: GEORGIA
@@ -6123,67 +6743,6 @@ Hariyama
 Level: 39
 IVs: 29 HP / 29 Atk / 29 Def / 29 SpA / 29 SpD / 29 Spe
 
-=== TRAINER_BILLY ===
-Name: BILLY
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Zigzagoon
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Seedot
-Level: 7
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_JOSH ===
-Name: JOSH
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Geodude
-Level: 10
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Tackle
-
-=== TRAINER_TOMMY ===
-Name: TOMMY
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Geodude
-Level: 8
-IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
-
-Geodude
-Level: 8
-IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
-
-=== TRAINER_JOEY ===
-Name: JOEY
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Machop
-Level: 9
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 === TRAINER_BEN ===
 Name: BEN
 Class: Youngster
@@ -6471,27 +7030,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Magikarp
 Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_IVAN ===
-Name: IVAN
-Class: Fisherman
-Pic: Fisherman
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-
-Magikarp
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Magikarp
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Magikarp
-Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_CLAUDE ===
@@ -8950,23 +9488,6 @@ Minun
 Level: 27
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_GINA_AND_MIA_1 ===
-Name: GINA & MIA
-Class: Twins
-Pic: Twins
-Gender: Male
-Music: Twins
-Double Battle: Yes
-AI: Check Bad Move
-
-Seedot
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Lotad
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 === TRAINER_MIU_AND_YUKI ===
 Name: MIU & YUKI
 Class: Twins
@@ -10704,23 +11225,6 @@ Numel
 Level: 22
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-=== TRAINER_MARC ===
-Name: MARC
-Class: Hiker
-Pic: Hiker
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-
-Geodude
-Level: 8
-IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
-
-Geodude
-Level: 8
-IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-
 === TRAINER_BRENDEN ===
 Name: BRENDEN
 Class: Sailor
@@ -11197,23 +11701,6 @@ Camerupt
 Level: 25
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_HALEY_1 ===
-Name: HALEY
-Class: Lass
-Pic: Lass
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Lotad
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Shroomish
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 === TRAINER_JANICE ===
 Name: JANICE
 Class: Lass
@@ -11384,48 +11871,6 @@ Wailmer
 Level: 39
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_LYLE ===
-Name: LYLE
-Class: Bug Catcher
-Pic: Bug Catcher
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Wurmple
-Level: 3
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Wurmple
-Level: 3
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Wurmple
-Level: 3
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Wurmple
-Level: 3
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_JOSE ===
-Name: JOSE
-Class: Bug Catcher
-Pic: Bug Catcher
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Wurmple
-Level: 8
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Nincada
-Level: 8
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
 === TRAINER_DOUG ===
 Name: DOUG
 Class: Bug Catcher
@@ -11471,23 +11916,6 @@ AI: Check Bad Move
 
 Ninjask
 Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_JAMES_1 ===
-Name: JAMES
-Class: Bug Catcher
-Pic: Bug Catcher
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Nincada
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Nincada
-Level: 6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JAMES_2 ===
@@ -11657,19 +12085,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Graveler
 Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_CLARK ===
-Name: CLARK
-Class: Hiker
-Pic: Hiker
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-
-Geodude
-Level: 8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ERIC ===
@@ -13068,37 +13483,6 @@ Poochyena
 Level: 8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_SARAH ===
-Name: SARAH
-Class: Lady
-Pic: Lady
-Gender: Female
-Music: Female
-Items: Full Restore
-Double Battle: No
-AI: Check Bad Move
-
-Lotad
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Zigzagoon @ Nugget
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_DARIAN ===
-Name: DARIAN
-Class: Fisherman
-Pic: Fisherman
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-
-Magikarp
-Level: 9
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 === TRAINER_HAILEY ===
 Name: HAILEY
 Class: Tuber F
@@ -13967,40 +14351,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Spoink
 Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_DEVAN ===
-Name: DEVAN
-Class: Hiker
-Pic: Hiker
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-
-Geodude
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Geodude
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_JOHNSON ===
-Name: JOHNSON
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Shroomish
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Lotad
-Level: 8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_MELINA ===

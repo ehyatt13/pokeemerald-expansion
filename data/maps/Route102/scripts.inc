@@ -77,7 +77,6 @@ Route102_EventScript_Promoter::
 	lock
 	faceplayer
 	goto_if_set FLAG_ROUTE_102_PROMOTER, Route102_EventScript_PromoterSeeOthers
-	bufferitemname STR_VAR_1, ITEM_COVERT_CLOAK
 	msgbox Route102_Text_Promotion, MSGBOX_DEFAULT
 	call Route102_EventScript_CountTrainersRemaining
 	copyvar VAR_0x8001, VAR_0x8000
@@ -87,6 +86,11 @@ Route102_EventScript_Promoter::
 	waitfanfare
 	closemessage
 	giveitem ITEM_COVERT_CLOAK, 1
+	giveitem ITEM_LOADED_DICE, 1
+	giveitem ITEM_ABILITY_SHIELD, 1
+	giveitem ITEM_CLEAR_AMULET, 1
+	giveitem ITEM_PUNCHING_GLOVE, 1
+	giveitem ITEM_MIRROR_HERB, 1
 	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
 	setflag FLAG_ROUTE_102_PROMOTER
 	release
@@ -161,7 +165,8 @@ Route102_Text_Promotion:
 	.string "My promotion is: \n"
 	.string "If you can defeat all of the\l"
 	.string "trainers on this route, you'll\l"
-	.string "get a {STR_VAR_1}!$"
+	.string "get a few items from the\l"
+	.string "PALDEA region!$"
 
 Route102_Text_RemainingTrainers:
 	.string "You still have {STR_VAR_1}\n"

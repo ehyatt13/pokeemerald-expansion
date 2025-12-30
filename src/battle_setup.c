@@ -1960,3 +1960,46 @@ u16 CountBattledRematchTeams(u16 trainerId)
 
     return i;
 }
+
+void BattleSetup_StartTotemBattle(void)
+{
+    LockPlayerFieldControls();
+    gMain.savedCallback = CB2_EndScriptedWildBattle;
+    gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
+
+    /*switch (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL))
+    {
+    default:
+    case SPECIES_GROUDON:
+    case SPECIES_GROUDON_PRIMAL:
+        CreateBattleStartTask(B_TRANSITION_GROUDON, MUS_VS_KYOGRE_GROUDON);
+        break;
+    case SPECIES_KYOGRE:
+    case SPECIES_KYOGRE_PRIMAL:
+        CreateBattleStartTask(B_TRANSITION_KYOGRE, MUS_VS_KYOGRE_GROUDON);
+        break;
+    case SPECIES_RAYQUAZA:
+    case SPECIES_RAYQUAZA_MEGA:
+        CreateBattleStartTask(B_TRANSITION_RAYQUAZA, MUS_VS_RAYQUAZA);
+        break;
+    case SPECIES_DEOXYS_NORMAL:
+    case SPECIES_DEOXYS_ATTACK:
+    case SPECIES_DEOXYS_DEFENSE:
+    case SPECIES_DEOXYS_SPEED:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_DEOXYS);
+        break;
+    case SPECIES_LUGIA:
+    case SPECIES_HO_OH:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
+        break;
+    case SPECIES_MEW:
+        CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
+        break;
+    }*/
+    CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
+
+    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    IncrementDailyWildBattles();
+    TryUpdateGymLeaderRematchFromWild();
+}

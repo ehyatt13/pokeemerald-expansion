@@ -1,5 +1,15 @@
 PetalburgWoods_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, PetalburgWoods_OnResume
 	.byte 0
+
+PetalburgWoods_OnResume:
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, PetalburgWoods_EventScript_TryRemoveTotem
+
+PetalburgWoods_EventScript_TryRemoveTotem::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
+	removeobject VAR_LAST_TALKED
+	return
 
 PetalburgWoods_EventScript_DevonResearcherLeft::
 	lockall
@@ -315,6 +325,45 @@ PetalburgWoods_EventScript_JamesRematch::
 	msgbox PetalburgWoods_Text_IveBeenTrainingHard, MSGBOX_AUTOCLOSE
 	end
 
+PetalburgWoods_EventScript_TotemEncounter::
+	lockall
+	waitse
+	playmoncry SPECIES_BUZZWOLE, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_BUZZWOLE, 12
+	settotemboost B_POSITION_OPPONENT_LEFT, 1, 1
+	call Common_EventScript_SetImportantWildFlags
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartTotemBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	call Common_EventScript_ClearImportantWildFlags
+	bufferspeciesname STR_VAR_1, SPECIES_BUZZWOLE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, PetalburgWoods_EventScript_DidNotCatchTotem
+	setflag FLAG_HIDE_PETALBURG_WOODS_TOTEM
+	goto_if_set FLAG_LEADERS_GIVE_TERA_SHARDS, PetalburgWoods_EventScript_BugShardOnGround
+	releaseall
+	end
+
+PetalburgWoods_EventScript_DidNotCatchTotem::
+	setflag FLAG_HIDE_PETALBURG_WOODS_TOTEM
+	call Common_EventScript_TotemRanAway
+	goto_if_set FLAG_LEADERS_GIVE_TERA_SHARDS, PetalburgWoods_EventScript_BugShardOnGround
+	releaseall
+	end
+
+PetalburgWoods_EventScript_BugShardOnGround::
+	applymovement LOCALID_PLAYER, Common_Movement_QuestionMark
+	waitmovement
+	playse SE_BIKE_HOP
+	waitse
+	msgbox PetalburgWoods_Text_TotemDropped, MSGBOX_DEFAULT
+	finditem ITEM_BUG_TERA_SHARD, 1
+	releaseall
+	end
+
 PetalburgWoods_Text_NotAOneToBeFound:
 	.string "Hmmm…\n"
 	.string "Not a one to be found…$"
@@ -471,3 +520,6 @@ PetalburgWoods_Text_TrainerTipsPP:
 	.string "If a POKéMON runs out of PP, it must be\n"
 	.string "taken to a POKéMON CENTER.$"
 
+PetalburgWoods_Text_TotemDropped:
+	.string "{STR_VAR_1} appears to have dropped\n"
+	.string "something during the battle...$"

@@ -1518,13 +1518,13 @@
 #define FLAG_REPELLENT_ACTIVE                       (SYSTEM_FLAGS + 0x8D) // Flag to disable wild encounters
 #define FLAG_NEW_TMS                                (SYSTEM_FLAGS + 0x8E) // Flag denoting new or old tms
 #define FLAG_LEADERS_GIVE_TERA_SHARDS               (SYSTEM_FLAGS + 0x8F) // Flag to give tera shards or not
-#define FLAG_TERA_USABLE                           (SYSTEM_FLAGS + 0x90) // Unused Flag
-#define FLAG_ROUTE_102_PROMOTER                      (SYSTEM_FLAGS + 0x91) // Unused Flag
-#define FLAG_COLLISION_OFF                         (SYSTEM_FLAGS + 0x92) // Unused Flag
-#define FLAG_UNUSED_0x8F3                           (SYSTEM_FLAGS + 0x93) // Unused Flag
-#define FLAG_UNUSED_0x8F4                           (SYSTEM_FLAGS + 0x94) // Unused Flag
-#define FLAG_UNUSED_0x8F5                           (SYSTEM_FLAGS + 0x95) // Unused Flag
-#define FLAG_UNUSED_0x8F6                           (SYSTEM_FLAGS + 0x96) // Unused Flag
+#define FLAG_TERA_USABLE                           (SYSTEM_FLAGS + 0x90) // Flag to turn terastallization on or off
+#define FLAG_ROUTE_102_PROMOTER                      (SYSTEM_FLAGS + 0x91) // Flag for Route 102 Promoter task completion
+#define FLAG_COLLISION_OFF                         (SYSTEM_FLAGS + 0x92) // Flag for collision off
+#define FLAG_HIDE_PETALBURG_WOODS_TOTEM             (SYSTEM_FLAGS + 0x93) // Flag for hiding Petalburg Woods totem
+#define FLAG_NO_CATCHING                           (SYSTEM_FLAGS + 0x94) // Flag to disable catching
+#define FLAG_NO_RUNNING                           (SYSTEM_FLAGS + 0x95) // Flag to disable running from an encounter
+#define FLAG_SMART_WILD                           (SYSTEM_FLAGS + 0x96) // Flag to make the wild AI smart
 #define FLAG_UNUSED_0x8F7                           (SYSTEM_FLAGS + 0x97) // Unused Flag
 #define FLAG_UNUSED_0x8F8                           (SYSTEM_FLAGS + 0x98) // Unused Flag
 #define FLAG_UNUSED_0x8F9                           (SYSTEM_FLAGS + 0x99) // Unused Flag
